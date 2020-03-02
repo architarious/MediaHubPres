@@ -1775,3 +1775,12 @@ $notesWidthPercent: 25%;
 .zoomed .reveal .roll span:after {
 	visibility: hidden;
 }
+
+
+
+/*********************************************
+ * Custom changes
+ *********************************************/
+.reveal .slides section > section{
+	margin-top: 1.618em;
+}
