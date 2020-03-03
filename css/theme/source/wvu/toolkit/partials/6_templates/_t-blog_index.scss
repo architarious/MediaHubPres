@@ -1,0 +1,92 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+
+
+
+@mixin t-blog_index($bgColor: $lbg,
+        $textColor: $black,
+        $accentColor: $quadrary,
+        $linkColor: $tertiary){
+
+body.t-blog_index{
+
+   #page-wrap{
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    }
+
+
+	#header{
+		//#s-header__cpass{}
+		//#s-header__site{}
+	}//end #header
+	#prefix{}
+	#core.t-blog_index__core{          
+        
+        .t-blog_index__main{            
+            .t-blog_index__header{ 
+                padding-top: 1.618em; 
+              }//end t-blog_index__header
+              .t-blog_index__pageName{
+                //padding:1.618em 0 1em 0;
+                position:relative;
+                
+                z-index:15;
+                &:before{
+                  @include obj-slash();
+                  z-index:-5;
+                  background-size: 1.25em;
+                  bottom:auto;
+                  top:0.0618em;
+                  left: -0.382em;
+                  background-size:1em;
+                  height:1em;
+            
+                }
+               }//end t-blog_index__pageName
+            .t-blog_index__body{
+                padding-top:1.618em;            
+                .b-teaser--list{}//end b-teaser--list
+                .b-teaser{}//end b-teaser
+                .b-teaser__header{}//end b-teaser__header
+                .b-teaser__title{}//end b-teaser__title
+                .b-teaser__meta{}//end b-teaser__meta
+                .b-teaser__date{}//end b-teaser__date
+                .b-teaser__body{}//end b-teaser__body
+                .b-teaser__image{}//end b-teaser__image
+                .b-teaser__copy{}//end b-teaser__copy
+
+                .wvu-pagination{
+                    .wvu-pagination__older{}//end.wvu-pagination__older
+                    .wvu-pagination__newer{}//end.wvu-pagination__newer
+                    .wvu-pagination__disabled{}//end.wvu-pagination__disabled
+                }//end wvu-pagination
+            }//end t-blog_index__body
+        }//end t-blog_index__main
+        .t-blog_index__sidebar{
+            .m-blogNav{}//end m-blogNav
+            .m-blogNav__archives{}//end m-blogNav__archives
+            .b-archiveList{}//end b-archiveList
+            .b-archiveList__header{}//end b-archiveList__header
+            .b-archiveList__body{}//end b-archiveList__body
+            .b-archiveList__count{}//end b-archiveList__count
+        }//end t-blog_index__sidebar
+        
+
+
+	
+		
+	}// end #core
+	#postfix{
+	}
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+
+}//end body
+}@include t-blog_index();

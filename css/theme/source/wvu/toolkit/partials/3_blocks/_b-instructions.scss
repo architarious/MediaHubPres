@@ -1,0 +1,61 @@
+@mixin b-instructions($bgColor: $SecLightGold,
+        $textColor: $DarkGrey,
+        $shadow: darken($bgColor, 10),
+        $light: lighten($bgColor, 10)){
+
+            .b-instructions{
+                background: $bgColor;
+                color: $textColor;
+                position:relative;
+                border: 4px solid $shadow;
+                width:100%;
+                margin: 0.618em 0;
+                float:left;
+                padding: 0.295em;
+
+                &:after, &:before{
+                    top: 100%;
+                    left:50%;
+                    border: solid transparent;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    position:absolute;
+                    pointer-events:none;
+                }
+
+                &:after{
+                    border-color: rgba(237, 231, 220, 0);
+	                border-top-color: $shadow;
+	                border-width: 8px;
+	                margin-left: -8px;
+                }
+
+                &:before{
+                    border-color: rgba(250, 244, 232, 0);
+	                border-top-color: $shadow;
+	                border-width: 14px;
+	                margin-left: -14px;
+                }
+
+                hr{
+                   margin:0.295em 0;
+                   border-top-color: $shadow; 
+                   box-shadow: 0 1px 0 0 $light;
+                }
+             }//end b-instructions
+            .b-instructions__title{
+                font-weight: bold;
+                color:$textColor;
+             }//end b-instructions__title
+
+             aside .b-instructions{
+                 font-size: ms(-1);
+             }//end aside b-instructions
+
+             .edit-mode{
+                 .wvu-article, .t-blog_article__body{ display: flex; flex-flow: column nowrap;}
+                 .m-blogResources{ display:flex; flex-flow: column nowrap;}
+             }
+
+        }@include b-instructions();

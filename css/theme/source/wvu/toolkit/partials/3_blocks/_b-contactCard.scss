@@ -1,0 +1,300 @@
+@mixin b-contactCard($bgColor: $lbg,
+                     $textColor: $black,
+                     $linkColor: $tertiary,
+                     $btnTextColor: $white,
+                     $shadowColor: $lbg--shadow ){
+
+.b-contactCard{
+  width:100%;
+  float:left;
+  position:relative;
+
+  figure{
+
+    float:left;
+    width:100%;
+    min-height:ms(6);
+    position:relative;
+    margin:0;
+
+
+    .b-contactCard__photo{
+      //width: ms(7);
+      float:left;
+      padding:0 !important;
+      position:relative;
+      top:0;
+      left:0;
+
+      &:hover, &:focus{
+        opacity: 0.9;
+      }
+      .obj-roundedPhoto{
+        @include roundedPhoto(ms(6), $bgColor, $bgColor);
+      }
+    }//end .b-contactCard__photo
+
+    figcaption{
+      width:auto;
+      float:left;
+      padding-left:ms(-1); 
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      left: ms(6);
+      color:$textColor;
+    }//end figCaption
+  }//end figure  
+}//end .b-contactCard
+
+.b-contactCard__name{
+  @include adjust-font-size-to($font-size-med);
+  color:$textColor;
+}//end .b-contactCard__name
+a.b-contactCard__name:hover{ color:$linkColor;}
+.b-contactCard__title{
+  @include adjust-font-size-to($font-size-med);
+  @extend .font-Lt;
+  color:lighten($textColor, 10);
+}//end .b-contactCard__title
+
+
+
+
+.b-contactCard__info{
+  float:left;
+  text-align:left;
+  position: relative;
+  width:100%;
+  @extend .font-Roman;
+  @include rhythm($ms-8n, $ms-5n, 0, $ms-8n, $font-size-med);
+ 
+  @include adjust-font-size-to($font-size-med);
+  color:$textColor;
+}//end .b-contactCard__info
+.b-contactCard__email{
+  
+  color:$linkColor;
+  width: 100%;
+  float:left;
+  padding: ms(-5) !important;
+  margin-bottom: ms(-5);
+  border-bottom: shade($bgColor, 7) solid ms(-10);
+  box-shadow: 0 ms(-9) ms(-6) ms(-6)*(-1) $bgColor; 
+  a{ padding:0 !important;  color:$linkColor; text-decoration:underline;}
+}//end .b-contactCard__email
+.b-contactCard__phone, .b-contactCard__location{
+ 
+  color:$textColor;
+  width: 50%;
+  float:left;
+  padding: ms(0) ms(-5) ms(-5) ms(-5) !important;
+  margin-bottom: ms(-5);
+  line-height:$font-size-small-2;
+  position:relative;
+  &:before{
+    @include adjust-font-size-to($font-size-small);
+    position:absolute;
+    content:"Phone:";
+    width:100%;
+    min-height:ms(0);
+    float:left;
+    top:0;
+    left:ms(-5);
+    @extend .font-Bd;
+    color:lighten($textColor, 35);
+    text-transform:uppercase;
+  }
+.b-contactCard__phone{
+  margin-top:4px;  //hotfix related to an error resulting from some weird behavior coming from BR's and their positioning
+}//end b-contactCard__phone
+}//end .b-contactCard__phone
+.b-contactCard__location{ 
+  &:before{ content:"Office:"; }
+}//end .b-contactCard__location
+.b-contactCard__btn{
+  @include btn_icon($linkColor, $shadowColor, $btnTextColor, "\e971", true);
+  padding: ms(-5) ms(-3) !important;
+  padding-right: 2.61803403em !important;
+  @include adjust-font-size-to($font-size-small-2);
+  width:100%;
+  &:after{ right: ms(-3);}
+}//end .b-contactCard__btn
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.b-contactCard{
+ @if $test=='on'{
+  background:$eqColor;
+  &:before{
+    font-size:ms(-2);
+    margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+  }
+ }//test settings
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    .b-contactCard__name{ 
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }//end .b-contactCard__name and title
+    
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+
+    .b-contactCard__name{ 
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }//end .b-contactCard__name and title
+    .b-contactCard__photo .obj-roundedPhoto{
+      @include roundedPhoto(ms(7), $bgColor, $bgColor);
+    }
+    figcaption{ left: ms(7); }
+    .b-contactCard__info{
+      .b-contactCard__phone{ width: 38%;}
+      .b-contactCard__location{width:30%; }
+      .b-contactCard__btn{
+        width:32%;
+        padding: ms(-5) ms(-3) !important;
+        text-align:center;
+        margin-top:ms(0)*(-1);
+        float:left;
+        &:after{content:'';}
+      }
+    }//end b-contactCard__info
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+
+    .b-contactCard__name{
+      @include adjust-font-size-to($font-size-large);
+      line-height:ms(2);
+    }//end .b-contactCard__name and title
+    .b-contactCard__title{
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }
+    .b-contactCard__photo .obj-roundedPhoto{
+      @include roundedPhoto(ms(8), $bgColor, $bgColor);
+    }
+    figcaption{ left: ms(8); }
+    .b-contactCard__info{
+      .b-contactCard__email{width:68%;}
+      .b-contactCard__phone{ width: 33%;}
+      .b-contactCard__location{width:33%; }
+      .b-contactCard__btn{
+        width:32%;
+        padding: ms(-5) ms(-3) !important;
+        padding-top: 58px !important;
+        top:0;
+        right:0;
+        height:100%;
+        position:absolute;
+        text-align:center;
+        min-height:ms(4);
+        @include adjust-font-size-to($font-size-med);
+        &:after{
+          top:36%;
+          right:50%;
+          transform:translateX(50%);
+          @include adjust-font-size-to($font-size-xlarge-2);
+          text-shadow: lighten($linkColor, 20) 0 1px 1px, darken($linkColor, 30) 0 -1px 0;
+          color: darken($linkColor, 5);
+        }
+      }
+    }//end b-contactCard__info
+  }//end large
+
+
+
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+
+    figure{
+      width:48%;
+      padding-right: ms(-5);
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+    }
+
+    .b-contactCard__name, .b-contactCard__title{  }//end .b-contactCard__name and title
+    .b-contactCard__photo .obj-roundedPhoto{ }
+    figcaption{ }
+    .b-contactCard__info{
+      width: 52%;
+      border-left: 1px solid shade($bgColor, 10 );
+      left:48%;
+      .b-contactCard__phone{ width: 38%;}
+      .b-contactCard__location{width:30%; }
+      .b-contactCard__btn{
+        width:32%;
+        padding: ms(-5) ms(-3) !important;
+        text-align:center;
+        margin-top:ms(0)*(-1);
+        float:left;
+        &:after{content:'';}
+      }//end .b-contactCard__btn
+    }//end b-contactCard__info
+  }//end x-large
+}
+
+
+
+}//end mixin
+@include b-contactCard;
+
+
+/***********************************
+The following is an example for content that is pasted into cleanslate
+
+ <r:get_page id="10036">
+ <figure class="b-contactCard">
+  <div class="b-contactCard__photo">
+    <span class="obj-roundedPhoto">
+      <r:page:content name="b-faculty_photo"/>
+     </span>
+  </div><!--end b-contactCard__photo-->
+  <figcaption>
+   <p>
+    <span class="b-contactCard__name"><strong><r:page:name /></strong></span><br/>
+    <span class="b-contactCard__title"><r:page:content name="b-faculty_title"/></span><br/>
+    <span class="b-contactCard__email"><r:page:content name="b-faculty_email"/></span><br/>
+    <span class="b-contactCard__phone"><r:page:content name="b-faculty_phone"/></span><br/>
+    <span class="b-contactCard__location"><r:page:content name="b-faculty_location"/></span><br/>
+   </p>
+  </figcaption
+</figure>
+</r:get_page> */

@@ -1,0 +1,114 @@
+/******************************************
+Original structure of m-gradProgs
+
+.m-gradProgs{
+  .container{}//end container
+}//end m-gradProgs
+.m-gradProgs__head{}//end m-gradProgs__head
+.m-gradProgs_head__title{}//end m-gradProgs_head__title
+.m-gradProgs__body{}//end m-gradProgs__body
+.m-gradProgs__degree{}//end m-gradProgs__degree
+.m-gradProgras_degree__title{}//end m-gradPrograms_degree__title
+.m-gradProgs__list{
+  li{
+    .btn--outline{}//end btn--outline
+  }//end li
+}//end m-gradProgs__list
+*/
+
+
+@mixin m-gradProgs(
+  $bgColor: $primary,
+  $titleColor: $white,
+  $ctaColor: $quadrary,
+  $accentColor: $secondary,
+  $shadow: $primary--shadow,
+  $light: $primary--light
+){
+.m-gradProgs{
+  background:$bgColor; 
+}//end m-gradProgs
+.m-gradProgs{}//end m-gradProgs
+.m-gradProgs__head{
+    width:100%; float:left;
+    display:flex;
+    flex-flow: row nowrap; 
+    justify-content: space-between; 
+}//end m-gradProgs__head
+.m-gradProgs_head__title{
+  color:$titleColor;
+  border:0;
+  @extend .font-Bd; 
+  @include adjust-font-size-to($font-size-large);
+  @include rhythm(0, $ms-0, $ms-0, 0, $font-size-large);
+  
+}//end m-gradProgs_head__title
+.m-gradProgs__body{
+    width:100%; float:left;    
+    display:flex;
+    flex-flow: column nowrap;
+}//end m-gradProgs__body
+.m-gradProgs__degree{
+    padding-top: ms(-4);
+    &:first-child{ 
+        padding-top:0;
+        .m-gradProgs_degree__title{ padding-top:0;}
+    }
+}//end m-gradProgs__degree
+.m-gradProgs_degree__title{
+    @include adjust-font-size-to($font-size-med);
+    @include rhythm(0,0, $ms-0, 0, $font-size-med);
+    border-bottom:0;
+    @extend .font-Lt;
+    letter-spacing: 0.0618em;   
+    .obj-preHeader{
+        color:$titleColor;
+        &:after{ width:12px !important;}
+        &:hover, &:focus{
+            text-decoration:underline;
+        }
+    }    
+}//end m-gradPrograms_degree__title
+.m-gradProgs__list{
+  padding:0; margin:0;
+  width:100%; float:left;
+  li{
+     list-style:none;
+    .btn--outline{@include btn_outline($bgColor, $shadow, $ctaColor);}//end btn--outline
+    a{width:100%; text-align:center;}
+  }//end li
+}//end m-gradProgs__list
+
+@include breakpoint($bp-mobile2-1 $bp-tablet-1){
+  .m-gradProgs__body{
+      flex-flow:row wrap;
+  }//end m-gradProgs__body 
+  .m-gradProgs__degree{
+      width:48%;
+      margin-left:2%;
+      padding-top:0;
+      &:first-child{margin-left:0;}
+      &:last-child{width:100%; margin-left:0; margin-top:ms(0);}
+  }//end m-gradProgs__degree
+}//end breakpoint
+
+@include breakpoint($bp-desktop1-1){
+  .m-gradProgs__body{ flex-flow: row nowrap;}
+  .m-gradProgs__degree{
+    margin-left: 2.33%;
+    padding-top:0;
+    width:31%;
+    &:first-child{margin-left:0;}
+    .m-gradProgs_degree__title{ padding-top:0;}
+    .m-gradProgs__list li a{
+      width:auto;
+      text-align:left;
+  }
+  }
+}//end desktop bp
+
+@include breakpoint($bp-desktop2-1){
+    
+}
+
+}//end mixin

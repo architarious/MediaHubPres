@@ -1,0 +1,85 @@
+#core.s-core__academic .s-academic .m-academic_facultyList{
+	padding-left:0; 
+	list-style-type:none;
+
+	& > li{ 
+		 width:100%; 
+	  	 float:left;
+	  	 min-height:215px;
+	  	 @include adjust-font-size-to($font-size-med);
+	  	 @include rhythm($ms-3n, 0, 0, $ms-8n, $font-size-med);
+	  	 border-bottom: ms(-10) solid $lbg--shadow;
+	  	 box-shadow: 0 1px 1px 0px $lbg--light;
+		list-style: none;
+	  	 &:last-child{
+	  	 	border-bottom:0;
+	  	 	box-shadow:none;
+	  	 }
+	}//end li
+	.m-academic_facultyList__photo{ 
+		width:100%; 
+		float:left;
+
+		.obj-roundedPhoto{
+			width:200px;
+			height:200px;
+		}
+	}//end .m-academic_facultyList__photo
+	.m-academic_facultyList__main{ 
+		width:100%; 
+		float:left;
+		h2 a{
+			margin-top:0;
+			border:0;
+			color:$primary;
+			padding:0;
+			&:hover,&:active, &:focus{
+				background:transparent;
+				border:0;
+				padding:0;
+				color:$tertiary; 
+			}
+		}
+		.obj-postHeader{
+		  color:$WarmGrey2;
+		}//end .obj-postHeader
+		@include breakpoint($bp-tablet-1){
+			h2{margin-top:0;}
+		}
+	}//.m-academic_facultyList__main
+
+	&[data-eq-state="small"]{
+		//background:set-alpha(red, 0.15);float:left;
+		.m-academic_facultyList__photo{}
+		.m-academic_facultyList__main{
+			@include rhythm($ms-0, 0, 0, $ms-8n, $font-size-med);
+		  li{
+		  	@include adjust-font-size-to($font-size-med);
+		  	@include rhythm($ms-3n, 0, 0, $ms-8n, $font-size-med);
+		   }//end li
+		 }//end main
+	}//end eq-small 0px
+	&[data-eq-state="medium"]{
+		//background:set-alpha(green, 0.15);float:left;
+		.m-academic_facultyList__photo{	width:34%; }
+		.m-academic_facultyList__main{ width: 63%; padding-left: 3%;
+			p{margin-top:0;}
+		}//end main
+	}//end eq-medium  600px
+	&[data-eq-state="large"]{
+		//background:set-alpha(purple, 0.15);float:left;
+		& > li{@include rhythm($ms-0, 0, $ms-0, $ms-8n, $font-size-med);}
+		.m-academic_facultyList__photo{ width:21%;}
+		.m-academic_facultyList__main{ width:76%; padding-left: 3%;
+			p{margin-top:0;}
+		}//end main
+	}//end eq-large 800px
+	&[data-eq-state="x-large"]{
+		//background:set-alpha(aqua, 0.15);float:left;
+		& > li{@include rhythm($ms-0, 0, $ms-0, $ms-8n, $font-size-med);}
+		.m-academic_facultyList__photo{ width:20%;}
+		.m-academic_facultyList__main{ width:77%; padding-left:3%;
+			p{margin-top:0;}
+		}//end main
+	}//end eq-x-large  1000px
+}//end .m-academic_facultyList

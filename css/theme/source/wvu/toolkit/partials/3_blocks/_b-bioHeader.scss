@@ -1,0 +1,79 @@
+@mixin b-bioHeader(  $bgColor: $lbg,
+                     $textColor: $black,
+                     $linkColor: $tertiary,
+                     $btnTextColor: $white,
+                     $shadowColor: $lbg--shadow ){
+.b-bioHeader{
+    width:100%; float:left;
+}//end b-bioHeader
+.b-bioHeader__name{
+    @include adjust-font-size-to($font-size-xxlarge);
+    @include rhythm($ms-2n, 0, 0, $ms-8n, $font-size-xxlarge);
+}//end b-bioHeader__name
+.b-bioHeader__title{
+    @include adjust-font-size-to($font-size-large);
+    @include rhythm($ms-4n, 0, 0, $ms-8n, $font-size-large);
+	border-bottom:0;
+	color:$quadrary;
+    max-width:100%;
+}//end b-bioHeader__title
+.b-bioHeader__title-2, .b-bioHeader__title-2 p{
+    @include adjust-font-size-to($font-size-med-2);
+    @include rhythm($ms-6n, 0, 0, $ms-8n, $font-size-med-2);
+	border-bottom:0;
+	color:$white;
+    max-width:100%;
+}//end b-bioHeader__title-2
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_xx-small: set-alpha($SecOlive, 0.3);
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);  
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.b-bioHeader{
+ @if $test=='on'{
+  background:$eqColor; 
+  position:relative;
+  &:before{
+    font-size:ms(-2);
+    //margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+    position:absolute; 
+    z-index:100;
+    top:-18px;
+  }
+ }//test settings
+
+
+    &[data-eq-state="xx-small"]{
+         @if $test=='on'{$eqColor: $eqColor_xx-small; background: $eqColor; &:before{content:"xx-small"; color:darken($eqColor,40);}}
+    }//end x-small
+    &[data-eq-state="x-small"]{
+        @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    }//end small
+    &[data-eq-state="small"]{
+        @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    }//end small
+    &[data-eq-state="medium"]{
+        @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+    }//end medium
+    &[data-eq-state="large"]{
+        @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+    }//end large
+    &[data-eq-state="x-large"]{
+        @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color: darken($eqColor,40);}}
+    }//end x-large
+    &[data-eq-state="xx-large"]{}//end xx-large
+}//end m-bioCard Element Queries
+
+}@include b-bioHeader();

@@ -1,0 +1,41 @@
+/***********************************************
+Original obj-notification structure
+
+.obj-notification{}//end obj-notification
+.obj-notification__title{}//end obj-notification__title
+.obj-notification__body{}//end obj-notification__body
+*/
+
+@mixin obj-notification(
+  $bgColor: $lbg, 
+  $textColor: $black,
+  $titleColor: $WarmGrey1,
+  $linkColor: $tertiary,
+  $accentColor: $SecOrange,
+  $shadow: $lbg--shadow,
+  $light: $lbg--light){
+  
+.obj-notification{
+    margin-left:0;
+    border-left-color:$accentColor;
+    color:$textColor;
+    a{color:$linkColor;}
+    width:100%; float:left;
+    font-size:16px;
+}//end obj-notification
+.obj-notification__title{
+    @extend .font-Bd;
+    color:$titleColor;
+    width:100%; float:left;
+    @include adjust-font-size-to($font-size-large);
+    @include rhythm($ms-0, 0, 0, $ms-2n, $font-size-large);
+    text-transform:uppercase;
+}//end obj-notification__title
+.obj-notification__body{
+    @extend .font-Lt;
+    width:100%; float:left;
+
+}//end obj-notification__body
+  
+
+}@include obj-notification();

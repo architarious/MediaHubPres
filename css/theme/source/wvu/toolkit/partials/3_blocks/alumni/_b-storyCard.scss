@@ -1,0 +1,57 @@
+@mixin b-storyCard($bgColor: $lbg,
+        $textColor: $black,
+        $titleColor: $primary,
+        $accentColor: $quadrary,
+        $linkColor: $tertiary,
+        $shadow: $lbg--shadow,
+        $light: $lbg--light){
+
+  .b-storyCard{
+      display:flex;
+      flex-flow: column nowrap;
+      font-size:$base-font-size;
+      border-radius:0.2em;
+      hr{
+        margin:0.618em 0;
+        border-top-color:$shadow;  
+        box-shadow: 0 1px 0 0 $light;
+      }
+   }//end b-storyCard 
+  .b-storyCard__header{
+      width:100%; 
+      //background:$accentColor;
+      color:$titleColor;
+   }//end b-storyCard__header
+  .b-storyCard__title{
+      color:$titleColor;
+  }//end b-storyCard__title
+  .b-storyCard__body{ }//end b-storyCard__body
+  .b-storyCard__image{
+      border-radius: 0.2em;
+      
+      a{
+        position:relative;
+        font-size:$base-font-size;
+        text-decoration:none;
+        &:hover, &:focus{
+            text-decoration:none;
+            .b-storyCard__meta{ background: $accentColor; color: $bgColor;}
+        }
+      }//end a
+  }//end b-storyCard__image
+  .b-storyCard__copy{
+      color:$textColor;
+      font-size:1em;
+   }//end b-storyCard__copy
+   .b-storyCard__meta{
+    position:absolute;
+    bottom:0;
+    text-decoration:none;
+    background:$bgColor;
+    color:$titleColor;
+    min-width:8em;
+    width:auto;
+    padding:0.182em 0.618em;
+    z-index:100;
+   }//end b-storyCard__meta
+}@include b-storyCard();

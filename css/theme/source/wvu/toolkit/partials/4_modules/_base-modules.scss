@@ -1,0 +1,52 @@
+////////////////////////
+// Module Partials
+//
+// Your SMACSS Modules go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+ 
+////@import "../../../../cpass-toolkit/scss/partials/4_modules/m-auxiliaryNav";
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-auxiliaryNav-v2";
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-contact"; 
+//////@import "../../../../cpass-toolkit/scss/partials/4_modules/m-cta";
+////@import "../../../../cpass-toolkit/scss/partials/4_modules/m-hero";  
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-links";
+////@import "../../../../cpass-toolkit/scss/partials/4_modules/m-longNav";
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-mastUtils";   
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-primaryNav";  //~60kb -- needs trimmed
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-secNav";
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-scroller"; 
+//@import "../../../../../cpass-toolkit/app/scss/partials/4_modules/m-footer__wvu__icons";
+
+
+@import "./cpass-toolkit/4_modules/m-auxiliaryNav-v2";
+@import "./cpass-toolkit/4_modules/m-contact"; 
+@import "./cpass-toolkit/4_modules/m-links";
+@import "./cpass-toolkit/4_modules/m-mastUtils";   
+@import "./cpass-toolkit/4_modules/m-primaryNav";  //~60kb -- needs trimmed
+@import "./cpass-toolkit/4_modules/m-secNav";
+@import "./cpass-toolkit/4_modules/m-scroller"; 
+@import "./cpass-toolkit/4_modules/m-footer__wvu__icons";
+ 
+  
+@import "m-sidebar_links";                      //used on academics and several other pages
+@import "m-informedCTA";                        //used on academics predominantly
+//@import "m-hero";  //30kb --take a look 
+@import "m-hero--v2";                           //homepage and event pages
+@import "m-promotion";                          //used originaly for Early Start Program
+@import "m-accordian";                          //used frequently on events page
+
+
+@import "m-bioCard";                            //used on student profiles
+@import "m-bioIndex";                           //used on student success and other profile listing
+
+
+
+//Academic page related stuff
+
+
+@import "faculty/m-faculty_header";
+//@import "faculty/m-faculty-program__index";
+@import "faculty/m-facultyIndex";
+
+

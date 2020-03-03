@@ -1,0 +1,72 @@
+//IMPORT OBJECTS
+@import "../2_objects/alumni/thumbnail";
+@import "../2_objects/alumni/navList";
+@import "../2_objects/alumni/blurb";
+
+//IMPORT BLOCKS
+@import "../3_blocks/alumni/b-chip";
+@import "../3_blocks/alumni/b-storyCard";
+
+// IMPORT MODULES
+@import "../4_modules/alumni/m-topStory";
+@import "../4_modules/alumni/m-recentArticles";
+
+// IMPORT SECTIONS
+@import "../5_sections/alumni/s-latestNews"; 
+@import "../5_sections/alumni/s-HoF";
+@import "../5_sections/alumni/s-triptychCTA";
+@import "../5_sections/alumni/s-links";
+
+// IMPORT TEMPLATES
+@import "../6_templates/t-alumni-home";
+
+.l-alumni{
+    .m-hero_cta__btn1 a{
+        &.btn--blue{
+            color: $WVUGold;
+            background-color: $WVUBlue;
+            background-image: none;
+            border-color: tint($WVUBlue, 10);
+            border-bottom-color: shade($WVUBlue, 10);
+            &:hover, &:active{ background-color: lighten($WVUBlue, 5);}
+        } 
+        &.btn--gold{
+            color: $WVUBlue;
+            background-color: $WVUGold;
+            background-image: none;
+            border-color: tint($WVUGold, 10);
+            border-bottom-color: shade($WVUGold, 10);
+            &:hover, &:active{ background-color: lighten($WVUGold, 5);}
+        }
+        
+    }
+
+    .s-prefix--alumni{
+        position: relative;
+        @include m-auxiliaryNav--overlay();
+    }
+    
+
+    .m-auxiliaryNav .m-auxiliaryNav__featLinkList, 
+    .m-auxiliaryNav--overlay .m-auxiliaryNav__featLinkList, 
+    .m-hero__cta{    
+
+         .b-featLinkList a{
+            &.give{
+                @include btn( $SecForest, $coolblack, $white);
+                font-size: $font-size-small-2;
+            
+            }//end apply
+            &.info{
+                @include btn( $SecBlue, $coolblack, $white);
+                font-size: $font-size-small-2;
+            
+            }//end apply
+            &.story{
+                @include btn( $SecDarkOrange, $coolblack, $white);
+                font-size: $font-size-small-2;
+            
+            }//end apply
+        }
+    }//end m-auxiliaryNav
+}//end l-alumni

@@ -1,0 +1,77 @@
+@mixin s-startFast(
+	$textColor1: $lbg,
+	$textColor2: $quadrary,
+	$bgColor: $dbg,
+	$btnColor: $quadrary,
+	$shadow: lighten($dbg--shadow, 5),
+	$light: $dbg--light){
+
+
+    .s-startFast{
+      width:100%; float:left;        
+	  background: url(../images/homepage/s-startFast.jpg) no-repeat top center $bgColor;
+	  background-size: cover;
+	.container{
+      @include rhythm(0, $ms-6, $ms-6, 0, $font-size-med);
+      display:flex;
+      flex-flow: column nowrap;
+	}//end container
+    }//end s-startFast
+
+    .s-startFast__header{
+        width:100%; float:left;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        .shout{
+            margin-top:ms(-3);
+            max-width: 11em;
+            align-self:flex-start;
+            text-transform: uppercase;
+            text-align:left;
+            font-size: $font-size-xxlarge-2;
+            line-height: $lh-wvu-headline;
+            color:$textColor1;
+            padding-bottom:0;
+            @extend .font-BlkCn;
+            @include rhythm(0, $ms-2, $ms-0, 0, $font-size-xxlarge-2);
+            @include adjust-font-size-to($font-size-xlarge); line-height: $lh-wvu-headline;
+            @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xlarge-2);line-height: $lh-wvu-headline; }
+            @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge); line-height: $lh-wvu-headline; }
+            @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-xxlarge-2); line-height: $lh-wvu-headline; }
+            //@include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-xxxlarge); line-height: $lh-wvu-headline; }
+
+            span{color:$textColor2;}
+       }//end shout
+       .kicker{
+           margin-top:0;
+           align-self:flex-start;
+           color: $textColor1;
+           text-align:left;
+           padding-left:0;
+           max-width:28em;
+           @extend .font-Lt;
+           //@include adjust-font-size-to($font-size-med);
+           //@include breakpoint ($bp-desktop1-1){  @include adjust-font-size-to($font-size-med-2); }
+           @include adjust-font-size-to($font-size-large);
+           @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-large); line-height: $lh-wvu-title;  }
+           @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-large); line-height: $lh-wvu-title;  }
+           @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-large-2); line-height: $lh-wvu-title; }
+           //@include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-large-2); line-height: $lh-wvu-title;  }
+           
+       }//end kicker
+    }//end s-startFast__header 
+
+    .s-startFast__content{
+        align-self: flex-start;
+        padding-left:0;
+    }//end startFast__content
+    .s-startFast__cta{
+        @include btn_outline($bgColor, $shadow, $btnColor);
+    }//end startFast__cta
+
+
+
+    
+}@include s-startFast();
+

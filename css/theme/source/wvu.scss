@@ -1,0 +1,72 @@
+/**
+ * Black theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+  
+@import "wvu/toolkit/styles";   
+
+// Default mixins and settings -----------------
+@import "../template/mixins";  
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+//@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: linear-gradient($primary, darken($primary,7.5));
+
+$mainFont: $font-paragraph; 
+$linkColor: $quadrary; 
+$linkColorHover: lighten( $linkColor, 20% ); 
+$headingFont: $BlkCn;
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;  
+$headingTextTransform: uppercase;
+$selectionBackgroundColor: #e7ad52;
+
+ 
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+ /*********************************************
+ * Variables
+ *********************************************/
+
+html{ font-size: 2vw;}
+.reveal{
+
+    h1, h2{ 
+        font-family: $BlkCn;
+        font-weight:900;
+        text-transform: uppercase;
+        line-height: 0.9049em;
+        letter-spacing: -0.01em
+    }
+    h1{         
+        font-size: $ms-4+em;
+    }
+    h2{ 
+        font-size: $ms-3+em;
+        color: $quadrary;
+        line-height: 0.9049em;
+        letter-spacing: -0.01em
+      
+    }
+    h3{ 
+        font-size: $ms-2+em;
+        font-family: $Bd;
+        font-weight: 500;
+        text-transform: none;
+        line-height: 1.083em;
+        letter-spacing: 0;
+        border-bottom: solid $ms-10n+em $quadrary;
+        padding-bottom: $ms-7n+em;
+    }
+}

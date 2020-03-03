@@ -1,0 +1,61 @@
+@mixin m-newsFeed($bgColor: $lbg,
+        $textColor: $primary,
+        $linkColor: $tertiary,
+        $metaColor: $pms-432-c, 
+        $shadow: $lbg--shadow,
+        $light: $lbg--light){
+
+.m-newsFeed{}//end .m-newsFeed
+.m-newsFeed__title{
+    width:100%; float:left;
+}//end .m-newsFeed__title
+.m-newsFeed__list{  
+    margin:0; padding:0;
+    width:100%; float:left;
+}//end .m-newsFeed__list
+.m-newsFeed__post{
+    @include rhythm(0,$ms-2n, $ms-3n, 0, $font-size-med);
+    border-bottom: 1px solid $shadow;
+    box-shadow: 0px 1px 0 0 $light;
+    &:last-child{border-bottom:0; box-shadow:none;}
+    @include b-chip($bgColor, $linkColor, $metaColor, $shadow, $light, 100px); 
+}//end .m-newsFeed__post 
+.m-newsFeed__footer{
+    width:100%; float:left;
+    @include rhythm(0, $ms-2n, $ms-8n, 0, $font-size-med);
+    border-top: 1px solid $shadow;
+    box-shadow:inset 0px 1px 0 0 $light;
+    a{
+        padding: 0 ms(0);
+        border-right: 1px solid $shadow;
+        position:relative;
+        &:first-child{padding-left:0;}
+        &:last-child{padding-right: 0; box-shadow: none; border:0;} 
+        &:hover, &:focus{
+            text-decoration:underline;             
+        }//end hover and focus
+        &.rss:after{ 
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1.25em;
+            padding-left: ms(-4);
+            text-decoration: none !important;
+            position:absolute;
+
+          
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\ea9b"; 
+            &:hover, &:focus{ text-decoration:none;} 
+
+        }//end rss:after
+    }//end a
+}//end m-newsFeed__footer
+
+
+}@include m-newsFeed;

@@ -1,0 +1,45 @@
+@mixin obj-slash($color: "gold"){
+	content: '';
+    height: 500px;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    bottom: 0;
+    left: -260px;    
+    background-repeat: no-repeat;
+    background-size: 312px;
+    opacity: 1;
+    z-index: 2;
+    @if $color == "gold"{
+        background-image: url(https://patterns.wvu.edu/images/diagonal-gold.svg);
+    }@else if $color == "white"{
+        background-image: url("../images/diagonal-white.svg");
+    }@else{
+        background-image: url("../images/diagonal-blue.svg");
+    }
+}//end mixin
+
+
+///////////////////////////////////
+//Add a gold slash
+//
+//
+//USAGE: @include so-gold-slash( background: url );
+//Dependencies: notta
+///////////////////////////////////
+
+@mixin so-gold-slash() {
+    &:before {
+      content: '';
+      height: 500px;
+      position: absolute;
+      right: 0;
+      bottom: -433px;
+      left: -280px;
+      background-image: url(https://patterns.wvu.edu/images/diagonal-gold.svg);
+      background-repeat: no-repeat;
+      background-size: 312px;
+      opacity: 1;
+      z-index: 2;
+    }
+  }

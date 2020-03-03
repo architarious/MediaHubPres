@@ -1,0 +1,76 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+ 
+body.template-faculty-home, .l-faculty-home{   
+  
+   #page-wrap{ 
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    } 
+  
+
+	#header{
+		#s-header__cpass{}
+		#s-header__site{}
+	}//end #header
+	#prefix{
+	}
+	#core{
+		.main{ 
+			h1, .m-facultyIndex{ width:100%; float:left; }
+			.obj-preHeader{}
+			.l-faculty-home__department{
+				width:100%;
+				float:left;
+				@include rhythm($ms-2n, $ms-9n, $ms-9n, $ms-2n, $font-size-med);
+			}
+
+		}//end .main
+		@include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+		   .main{@include grid-span(4,1); clear:both;
+		   	  .b-faculty_card{}
+		   }//end .main
+		   .sidebar{@include grid-span(4,1); }
+		 }
+		 @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+		   @include grid-mobile2;
+		   .main{@include grid-span(6,1); clear:both;
+		   	  .b-faculty_card{}
+		   	}//end .main
+		   .sidebar{@include grid-span(6,1); }
+		 }
+		 @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		   @include grid-tablet;
+		   .main{@include grid-span(8,1); 
+		   	.b-faculty_card{}
+		   }//end .main
+		   .sidebar{}
+		 }
+		 @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		   @include grid-desktop1;
+		   .main{@include grid-span(12,1); 
+		   	.b-faculty_card{ }
+		   }//end .main
+		   .sidebar{ }
+		 }
+		 @include breakpoint($bp-desktop2-1){
+		   @include grid-desktop2;
+		   .main{@include grid-span(16,1); 
+		   	.b-faculty_card{ }
+		   }//end .main
+		   .sidebar{}
+		 }
+	}// end #core
+	#postfix{
+	}
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+	
+}//end body

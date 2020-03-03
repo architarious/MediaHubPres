@@ -1,0 +1,51 @@
+@mixin b-courseCard(
+    $bgColor: $lbg,    
+    $textColor: $DarkGrey,
+    $titleColor: $primary,    
+    $ctaColor: $tertiary,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+   .b-courseCard{        
+       display:flex;
+       flex-flow: column nowrap;
+       @include rhythm($ms-4n, 0, 0, $ms-0, $font-size-med);
+    }//end .b-courseCard
+    .b-courseCard__header{}//end b-courseCard__header
+    .b-courseCard__courseNumber{}//end b-courseCard__courseNumber
+    .b-courseCard__title{
+        @include rhythm($ms-5n, 0, 0, $ms-2n, $font-size-large);
+    }//end b-courseCard__title
+
+    .b-courseCard__body{}//end b-courseCard__body
+    .b-courseCard__img{
+        float:left;
+        img{padding:0; margin:0; margin-right:ms(-1);}
+    }//end b-courseCard__img
+    .b-courseCard__description{
+        font-size:0.9em;
+        p{
+            margin:0; padding:0;
+            @extend .font-Obl;
+            color:$textColor;
+        }
+    }//end b-courseCard__description
+
+    .b-courseCard__footer{
+        width:100%;
+    }//end b-courseCard__footer
+    .b-courseCard__requirements{
+        @include adjust-font-size-to($font-size-small-2);
+        color: tint($textColor, 10);
+        @include rhythm($ms-6n, 0, 0, $ms-2n, $font-size-small-2);
+    }//end b-courseCard__requirements
+
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+        .b-courseCard__img{
+            width:100%;
+            img{ width:100%; height:auto;}
+        }
+    }//end bp-mobile1-1
+}//end b-courseCard mixin
+
+

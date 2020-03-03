@@ -1,0 +1,97 @@
+@mixin b-goal(
+    $bgColor: $lbg,    
+    $textColor: $DarkGrey,
+    $titleColor: $primary,    
+    $ctaColor: $tertiary,
+    $accentColor: $WarmGrey1,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+   .b-goal{ 
+       width:100%; 
+       float:left; 
+       color:$textColor;
+       display:flex; 
+       flex-flow: column nowrap;
+    }//end .b-goal
+    .b-goal__header{}//end b-goal__header 
+       .b-goal__title{
+       }//end .b-goal__title
+       .b-goal__title-1{ 
+           @include adjust-font-size-to($font-size-xlarge-2);           
+           @extend .font-BlkCn;
+           line-height: 0.8049em;
+           text-transform:uppercase;
+           color:$quadrary;
+        }//end b-goal__title-1
+       .b-goal__title-2{ 
+           @extend .font-Lt;
+           @include adjust-font-size-to($font-size-xlarge-2*0.292);  
+           line-height: 1.083em;
+       }//end b-goal__title-2
+
+       .b-goal__lede{           
+          font-family: $wvu-traditional-audience;
+          line-height: $wvu-traditional-audience-line-height;
+          color:$accentColor;
+          font-weight:normal;
+          border-bottom:0;
+       }//end b-goal_header__body
+
+
+    .b-goal__body{
+         color:$textColor;
+        p{ 
+            color:$textColor;
+        } 
+    }//end .b-goal__body
+
+    .b-goal__objective{
+        float:left; width:100%;
+        @include rhythm(0, $ms-6, $ms-6, $ms-2n, $font-size-med);
+        @include trailing-border(ms(-6), 2, $font-size-med, dotted);
+        border-bottom-color: $shadow;
+        .obj-postHeader{ @extend .font-Lt; float:left;}
+        &:last-child{border-bottom:0;}
+    }//end b-goal__objective
+    .b-goal_objective__title{
+        float:left; color:$titleColor;
+        @extend .font-Bd;
+    }//end b-goal_objective__title
+    h3.b-goal_objective__description{
+        width:100%; float: left;
+        font-family: $wvu-traditional-audience;
+        line-height: $wvu-traditional-audience-line-height;
+        color:$accentColor;
+        border-bottom:0;
+        @include rhythm(0, $ms-0, $ms-1, 0, $font-size-large);
+    }//end b-goal_objective__description
+    h4.b-goal_objective__itemHeading{
+         width:100%; float: left;
+         //@include adjust-font-size-to($font-size-med);
+         @extend .font-Lt;
+         color:lighten($textColor, 20);
+         color:$textColor;
+         //text-transform:uppercase;
+         @include rhythm(0, $ms-1n, $ms-8n, 0, $font-size-large);
+    }//end b-goal_objective__itemHeading
+    .b-goal_objective__actionItems{
+        width:100%; float: left;
+        ul{
+            margin-top: 0.618em;
+            li{ 
+                max-width: 50em; color:$textColor;
+                @include rhythm(0, $ms-2n, $ms-4n, 0, $font-size-med);
+                }//end li
+        }//end ul
+    }//end b-goal_objective__actionItems
+
+    .b-goal__footer{}//end b-goal__footer
+
+    @include breakpoint($bp-mobile1-1 $bp-desktop2-1){}//end bp-mobile1-1
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){ .b-goal__footer{ display:none;} }
+    @include breakpoint($bp-desktop2-1){ }
+    @include breakpoint($bp-desktop2-4){ }
+
+}//end b-goal mixin
+

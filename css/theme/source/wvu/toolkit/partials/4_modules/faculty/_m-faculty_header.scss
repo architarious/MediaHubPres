@@ -1,0 +1,77 @@
+.m-faculty_header{
+	//@include rhythm($ms-2, 0, 0, $ms-2, $font-size-med);
+	.obj-roundedPhoto{
+		@include roundedPhoto(ms(12), $primary);
+		float:left;
+		border-image:none;
+		img{ margin: 0 0 0 -50%;}
+	}
+	figcaption{
+	}
+	.b-faculty_name{
+		@include adjust-font-size-to($font-size-xxlarge);
+		@include rhythm($ms-2n, 0, 0, $ms-8n, $font-size-xxlarge);
+		max-width:100%;
+	}
+	.b-faculty_title{
+		@include adjust-font-size-to($font-size-large);
+        @include rhythm($ms-4n, 0, 0, $ms-8n, $font-size-large);
+		border-bottom:0;
+		color:$quadrary;
+		max-width:100%;
+	}
+	.b-faculty_title-2{
+		@include adjust-font-size-to($font-size-med-2);
+        @include rhythm($ms-6n, 0, 0, $ms-8n, $font-size-med-2);
+		border-bottom:0;
+		color:$white;
+		max-width:100%;
+	}
+	.b-faculty_details{
+		@include adjust-font-size-to($font-size-med);
+		@include adjust-leading-to($ms-1, $font-size-med-2);
+        @include rhythm($ms-2n, 0, 0, $ms-8n, $font-size-med);
+		color:$white;
+		strong{ color:mix($white, $primary, 70);}
+		a{
+			color:$white;
+			&:hover, &:focus, &:active{
+				background:none;
+				color:tint($SecLightGold, 10);
+			}
+
+			&.btn{
+				@include btn_icon($SecDarkOrange, $coolblack, $white, "\eadf", "true");
+				@include rhythm($ms-4n, $ms-8n, $ms-8n, 0, $font-size-med);
+
+			}
+		}//end a
+	}//end .b-faculty_details
+
+	@include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+		.b-faculty_name{}
+		.b-faculty_title{}
+		.b-faculty_details{}
+	}
+	@include breakpoint($bp-mobile2-1 $bp-tablet-1){
+		.b-faculty_name{}
+		.b-faculty_title{}
+		.b-faculty_details{}
+	}
+	@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		.b-faculty_name{}
+		.b-faculty_title{}
+		.b-faculty_details{}
+	}
+	@include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		.b-faculty_name{}
+		.b-faculty_title{}
+		.b-faculty_details{}
+	}
+	@include breakpoint($bp-desktop2-1){
+		.b-faculty_name{}
+		.b-faculty_title{}
+		.b-faculty_details{}
+	}
+
+}//end .m-faculty_header

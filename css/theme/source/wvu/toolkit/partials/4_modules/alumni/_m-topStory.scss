@@ -1,0 +1,162 @@
+@mixin m-topStory(
+    $bgColor: $lbg,
+    $textColor: $pms-432-c,
+    $titleColor: $primary,
+    $accentColor: $quadrary,
+    $linkColor: $tertiary,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light){
+
+    .m-topStory{
+        width: 100%; float:left;
+        background:$bgColor;
+        display: flex;
+        flex-flow: column nowrap; 
+    }//end m-topStory
+    .m-topStory__header{}//end m-topStory__header
+    .m-topStory__title{
+        @extend %font-Lt;
+        color:$textColor;
+        @include rhythm(0, 0, 0, $ms-2n, $font-size-med-2);
+        border:none;
+        
+    }//end m-topStory__title
+    .m-topStory__body{
+        @include b-storyCard($bgColor, $textColor, $titleColor, $accentColor, $linkColor, $shadow, $light);
+        .b-storyCard__image{
+            position:relative;
+            @include thumbnail(467px, 623px); // should probably remove
+            overflow:hidden;
+
+            @include breakpoint($bp-mobile2-1 $bp-mobile2-4){
+                @include thumbnail(503px, 671px); // should probably remove
+            }
+
+            &:hover, &:focus{
+                .b-storyCard__date{
+                    background:set-alpha($linkColor, 0.75);    
+                    color:$bgColor;
+                }//end b-storyCard__date
+            }//end hover and focus
+            img{ 
+                width:100%;
+                height:auto;
+                //center image
+                position:absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .thumbnail{
+                left:50%;
+                transform: translateX(-50%);
+                width: 100%;
+             }//end thumbnail
+            .b-storyCard__date{
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:5;
+                background:set-alpha(darken($textColor, 10), 0.8);
+                color:$bgColor;
+                padding:0.618em;
+                border-bottom-right-radius: 0.1618em;
+                text-decoration:none;
+            }//end b-storyCard__date        
+        }//end b-storyCard__image
+
+        .b-storyCard__title{
+            a{ 
+                text-decoration:none;
+                &:hover, &:focus{
+                    text-decoration:underline;
+                }//end hover and focus
+            }//end a
+        }//end b-storyCard__title
+    }//end m-topStory__body
+
+
+    /*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_xx-small: set-alpha($SecOlive, 0.3);
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+$eqColor_xx-large:set-alpha($SecForest, 0.3);
+
+
+
+
+.m-topStory{
+ @if $test=='on'{
+  background:$eqColor;
+  position:relative;
+  &:before{
+    font-size:ms(-2);
+    //margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+    position:absolute; 
+    z-index:100;
+    top:-18px;
+  }
+ }//test settings
+
+  //&[data-eq-state="xx-small"]{
+    @if $test=='on'{$eqColor: $eqColor_xx-small; background: $eqColor; &:before{content:"xx-small"; color:darken($eqColor,40);}}
+    
+  //}//end x-small
+
+  //&[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    
+  //}//end x-small
+
+
+
+
+  //&[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+ 
+  //}//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+    .thumbnail{min-height:  524px; }
+    
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+    .thumbnail{min-height:  590px; }
+    
+  }//end large
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color: darken($eqColor,40);}}
+    .thumbnail{min-height:  630px; }
+    
+  }//end x-large
+
+  &[data-eq-state="xx-large"]{
+    @if $test=='on'{$eqColor: $eqColor_xx-large; background: $eqColor; &:before{content:"xx-large"; color: darken($eqColor,40);}}
+    .thumbnail{min-height:  706px; }
+    
+  }//end x-large
+
+
+
+
+
+}//end .b-idChip 
+
+}@include m-topStory();

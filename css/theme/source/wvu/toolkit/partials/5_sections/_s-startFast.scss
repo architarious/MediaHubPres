@@ -1,0 +1,119 @@
+@mixin s-startFast(
+	$textColor1: $primary,
+	$textColor2: $black,
+	$bgColor: $quadrary,
+	$btnColor: $primary,
+	$shadow: lighten($quadrary--shadow, 5),
+	$light: $quadrary--light){
+
+
+    .s-startFast{
+      width:100%; float:left;        
+	  background: url(../images/wvu-pattern-background--gold-fade.png) no-repeat top center $bgColor;
+	//background-size: contain;
+	.container{
+      @include rhythm(0, $ms-6, $ms-6, 0, $font-size-med);
+      display:flex;
+      flex-flow: column nowrap;
+	}//end container
+    }//end s-startFast
+
+    .s-startFast__header{
+        width:100%; float:left;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        .shout{
+            margin-top:ms(-3);
+            max-width: 11em;
+            align-self:center;
+            text-transform: uppercase;
+            text-align:center;
+            font-size: $font-size-xxlarge-2;
+            line-height: $lh-wvu-headline;
+            color:$textColor1;
+            padding-bottom:0;
+            @extend .font-BlkCn;
+            @include rhythm(0, $ms-2, $ms-0, 0, $font-size-xxlarge-2);
+            @include adjust-font-size-to($font-size-xlarge); line-height: $lh-wvu-headline;
+            @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xlarge-2);line-height: $lh-wvu-headline; }
+            @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge); line-height: $lh-wvu-headline; }
+            @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-xxlarge-2); line-height: $lh-wvu-headline; }
+       }//end shout
+       .kicker{
+           margin-top:0;
+           align-self:center;
+           color: $textColor1;
+           text-align:center;
+           @extend .font-Lt;
+           //@include adjust-font-size-to($font-size-med);
+           //@include breakpoint ($bp-desktop1-1){  @include adjust-font-size-to($font-size-med-2); }
+           @include adjust-font-size-to($font-size-large);
+           @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-large);  }
+           @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-large);  }
+           @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-large-2); }
+           @include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-large-2);  }
+           
+       }//end kicker
+    }//end s-startFast__header 
+
+    
+    .s-startFast__content{
+        width:100%; 
+        float:left;        
+        margin-top: ms(0);
+        @include breakpoint($bp-desktop2-4){ padding-left: ms(4); max-width: 90%; display:flex; align-self: center; float:none; }
+        h1, h2, h3, h4, h5, h6{ color:$textColor1; border-bottom:0;}
+        p, strong, em, i, b{color:$textColor2;} 
+        ul.obj-multiCol > li { border:0; box-shadow:none;}
+        
+    }
+
+    .s-startFast__title{
+        @extend .font-Bd;
+        @include adjust-font-size-to($font-size-med-2);
+        @include breakpoint ($bp-desktop1-1){  @include adjust-font-size-to($font-size-large); }
+        @include breakpoint($bp-desktop2-6){ @include adjust-font-size-to($font-size-large-2);  }
+        @include rhythm($ms-2n, 0, 0, $ms-6n, $font-size-large);
+
+    }//end .s-startFast__title
+    .s-startFast__copy{
+        .btn--outline{
+            @include btn_outline($bgColor, transparent, $btnColor);
+            margin-top: ms(-1);
+        }//end btn--outline
+        ul{
+            padding-left: ms(-1);
+            list-style: disc;
+            @include rhythm($ms-2n, 0, 0, $ms-3n, $font-size-med);           
+            
+            li{
+                padding-top: ms(-4);
+                list-style: disc;
+                border: 0 !important;
+                box-shadow: none !important;
+            }//end li
+        }//end ul
+
+        p{
+            a{ 
+                border-color: $textColor1;
+                &:hover, &:focus{
+                    background-color: $light;
+                    border-top:0;
+                    border-bottom: 2px solid lighten($textColor1, 5); 
+
+                }//end hover, focus
+             }//end a
+        }///end p
+    }//end .s-startFast__copy
+
+    .s-startFast__earlyStart{}//end .s-startFast__earlyStart
+    .s-startFast__fastTrack{}//end .s-startFast__fastTrack
+    .s-startFast__abm{}//end .s-startFast__abm    
+
+
+
+    
+}@include s-startFast();
+

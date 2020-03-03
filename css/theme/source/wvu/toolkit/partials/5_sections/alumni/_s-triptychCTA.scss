@@ -1,0 +1,77 @@
+@mixin s-triptychCTA(
+    $bgColor: $primary,
+    $textColor: $lbg,
+    $titleColor: $quadrary,
+    $linkColor: $quadrary,
+    $shadow: $primary--shadow,
+    $light: $primary--light){
+
+
+    //background-color: $bgColor;
+    display:flex;
+    flex-flow: column nowrap;
+    width:100%; float:left;
+    @include rhythm(0, $ms-4, $ms-4, 0, $font-size-med);    
+    position:relative;
+
+    .s-triptychCTA__header{
+        @include b-shout--recolor($titleColor, $textColor, "white");
+        font-size: 0.7em;
+        display:flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }//end .s-triptychCTA__header
+    .s-triptychCTA__title{}//end .s-triptychCTA__title
+    .s-triptychCTA__subtitle{
+        text-align:center;
+        font-weight:200 !important;
+    }//end .s-triptychCTA__subtitle
+    .s-triptychCTA__body{
+        @include obj-multiCol--recolor($shadow, $light);
+        .blurb{
+            text-align:center;
+            @include blurb--recolor($textColor, $titleColor, $shadow, $light);
+            border-top:0;
+            border-bottom:0;
+            align-items: center;
+            @include rhythm(0, $ms-2, $ms-2, 0, $font-size-med);   
+            .blurb__title{
+                border-bottom:0;
+                text-transform: none;
+            }//end blurb__title
+            .blurb__cta{
+                display:flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                .btn{
+                    background-color: $linkColor;
+                    color: $bgColor;
+                    border-color: $linkColor;
+                    font-size: $font-size-med;
+                    @include standard-box-shadow($shadow);
+                    &:hover, &:focus{
+                        background-color: lighten($linkColor, 10);
+                        border-color: lighten($linkColor, 10);
+                    }
+                }
+            }//end blurb__cta
+        }//end blurb
+    }//end .s-triptychCTA__body
+    .s-triptychCTA__blurb1{}//end .s-triptychCTA__blurb1
+    .s-triptychCTA__blurb2{}//end .s-triptychCTA__blurb2
+    .s-triptychCTA__blurb3{}//end .s-triptychCTA__blurb3
+    //.s-triptychCTA__footer{}//end .s-triptychCTA__footer
+
+    .s-triptychCTA__background{
+        width:100%; 
+        height: 100%;
+        position: absolute; 
+        z-index: -1;
+        overflow: hidden;
+        top:0;
+        background-color: $bgColor;
+        pattern{ fill: lighten($bgColor, 3);}
+        img{width: 100%; height: auto;}
+    }
+
+    }.s-triptychCTA, %triptychCTA{ @include s-triptychCTA()}

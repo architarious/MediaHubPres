@@ -1,0 +1,259 @@
+#m-scroller--alumni{
+	$bgColor: $primary;
+	$bgColor2: $black;
+	$shadowColor: $primary--shadow;
+	$lightColor: $primary--light;
+	$textColor: $white;
+	//$textColor: mix($primary, $coolblack, 30%);
+	$textColor-2: $quadrary;
+	$linkColor: $SecLightGold;
+
+	min-height:ms(15) !important;
+	@include rhythm($ms-6n, 0, $ms-1n, 0, $font-size-med);
+
+	&:focus{ outline:0;}
+
+	.m-academic_alumni__profiles{
+		float:none;
+		margin:0 auto;
+
+
+	    li{
+	    	list-style:none;
+	    	float:left !important;
+	    	display:inline !important;
+	    	padding: 0 !important;
+	    	width: ms(14);
+	    	
+    
+	    	&:first-child{ 
+	    		//.b-alumniQuote{ border-left:0; box-shadow:none;}
+	    		border-left:0;
+	    		box-shadow:none;
+    
+	    	}//end first-child
+	    	&:last-child{ }
+	    	img{
+	    		//width:100%;
+	    		//height:auto;
+	    	}
+    
+	    	&.scrollerPadder{
+	    		border-left:ms(-8) $lightColor solid;
+	       		box-shadow: inset ms(-7) 0 ms(-10) (-(ms(-10))) $shadowColor;
+	       		&:first-child{
+	       		  border-left:0;
+	       		  box-shadow:none;	
+	       		}
+	    	}
+    
+	    	@include breakpoint($bp-tablet-1 ){
+	    		width:32%;
+	    		padding:0 ms(0) 0 ms(0) !important; 
+    
+	    		border-left:1px $lightColor solid;
+	       		box-shadow: inset 1px 0 0 $shadowColor;
+	       		&:first-child{
+	       		  border-left:0;
+	       		  box-shadow:none;}	
+	       		&:last-child{
+	       			border-left: 1px $lightColor solid;
+	       		    box-shadow: -1px 0 0  $shadowColor;
+	       		}  
+    
+	    	}//end breakpoint
+	    }//end li
+		li:first-child{ border-left:0; }
+	}//end m-academic_alumni__profiles
+
+	.b-alumniQuote{
+		width:100%;
+		float:left;
+
+		/* border-left:ms(-8) $coolblack solid;
+	    box-shadow: inset ms(-7) 0 ms(-10) (-(ms(-10))) lighten($coolblack, 4); */
+	    padding: 0 ms(0);
+		margin:0;
+
+		//padding: 0 ms(0);
+		@include rhythm($ms-1, 0, 0, $ms-6n, $font-size-med);
+		@include adjust-font-size-to($font-size-med);
+		.obj-roundedPhoto{
+			@include roundedPhoto(ms(11), $primary, $primary);
+			border-image:none;			
+			box-shadow: 0 3px 10px 0 $shadowColor;
+			img{
+			  width:100%;
+		    }
+		}//end .obj-roundedPhoto
+		h4{
+			@include rhythm($ms-1, 0, 0, $ms-6n, $font-size-med);
+		}
+		h5{
+			margin-top:0;
+			color:$textColor-2;
+			@extend .font-Lt;
+			@include adjust-font-size-to($font-size-med);
+		}
+		p{ 
+			@extend .font-Serif;
+			@include adjust-font-size-to($font-size-med);
+		}
+
+		@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+			.obj-roundedPhoto{
+				@include roundedPhoto(ms(10), $WVUBlue, $textColor);
+				border-image:none;
+				img{
+				  width:150%;
+			    }
+			}//end .obj-roundedPhoto
+		}//end $bp-tablet-1
+
+	}//end b-alumniQuote
+
+	
+
+	.b-alumniQuote--bar{
+		/* border-left:ms(-8) $coolblack solid;
+	    box-shadow: inset ms(-7) 0 ms(-10) (-(ms(-10))) lighten($coolblack, 4); */
+	    padding: 0 ms(0);
+	}
+
+
+	.ps-scrollbar-x-rail{
+		background:url(../images/noise.png) repeat darken($bgColor, 7);
+		box-shadow: $shadowColor 0 ms(-10) ms(-9) 0 inset, $lightColor 0 ms(-10) ms(-9) 0;
+		height:ms(-5);
+		bottom:0;
+		>.ps-scrollbar-x{
+			background:url(../images/noise.png) repeat lighten($textColor-2, 2);
+			height:ms(-3);
+			bottom:-(ms(-10));
+			box-shadow: $linkColor 0 ms(-8) ms(-9) 0 inset, $shadowColor 0 1px ms(-6) 0;
+
+		}
+
+		@include breakpoint($bp-tablet-1){
+			display:none;
+		}
+	}//end ps-scrollbar-x-rail
+}//end #m-scroller--alumni
+
+//////////////////////////////////////////////////
+//styling for stuff that wraps #m-scroller--alumni (the left and right scrollers)
+//////////////////////////////////////////////////
+.m-academic_alumni{
+	$bgColor: $primary;
+	$bgColor2: $black;
+	$shadowColor: $primary--shadow;
+	$lightColor: $primary--light;
+	$textColor: $white;
+	//$textColor: mix($primary, $coolblack, 30%);
+	$textColor-2: $quadrary;
+	$linkColor: $SecLightGold;
+
+
+  .m-scroller--wrapper{
+  	&:focus{ outline:0;	}
+  	min-height:ms(15); 
+  	@include rhythm($ms-7n, 0, 0, $ms-7n, $font-size-med);
+  	@include breakpoint($bp-tablet-1){
+  		@include rhythm($ms-1, 0, 0, 1, $font-size-med);
+  	}
+
+  }//end m-scroller--wrapper
+  .m-scroller{
+  	&:focus{ outline:0;	}
+  }//end m-scroller 
+  .m-scroller__thumbs--wrapper{
+  	&:focus{ outline:0;	}
+  	@include rhythm(0, 0, 0, 0, $font-size-med);
+  	min-height:ms(15); 
+  }//end m-scroller_thumbs--wrapper
+
+  .sidescroll-nextprev{
+    .sidescroll-nextprev-links{
+    	top:31%;
+
+      a{		
+      &:focus{ outline:0;	}	
+  	  height:ms(7);
+  	  width:$ms-5+em;
+  	  opacity:1;
+  	  color:$textColor;		  
+  	  @include standard-transition(box-shadow);
+  	  transition-property: box-shadow, background-image;
+  	  transition-duration:0.5s;
+  	  transition-timing-function:ease-in;
+  	  
+
+
+  	  &.sidescroll-prev{ 
+  	  	// background: url(../images/postfix-arrows.png) no-repeat 2000px 2000px, 
+  	  	//             linear-gradient(to right, set-alpha(lighten($bgColor,5), 0.5), set-alpha($bgColor, 0.3), set-alpha(darken($bgColor,4),0.3), set-alpha(darken($bgColor,3),0.3)),
+  	  	//             linear-gradient(to left, set-alpha($bgColor, 0.5), set-alpha(darken($bgColor,1),0.6)),
+  	  	//             url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAN0lEQVQIW2MUkZT/z4AF8LIzMDBikwRJfP6JRRImATIMRSeyBIokugRcEpsEWFJRQf4/yHJsAAAVuxUpz+378gAAAABJRU5ErkJggg==) repeat;
+  	  	background: url(../images/postfix-arrows--Gold.png) no-repeat 2000px 2000px, 
+  	  	  	  		linear-gradient(to left, 
+  	  	  	  		set-alpha($bgColor, 0.3) 100%, 
+  	  	  	  		set-alpha(darken($bgColor,2),0.4) 0%),
+  	  	  	  		$shadowColor url(../images/noise.png) repeat; 
+
+  	  	box-shadow: set-alpha($shadowColor,0.5) 10px 0px 7px -7px,
+  	  	  	  		set-alpha($lightColor,0.5) -9px 0px 9px -9px,
+  	  	  	  		inset $shadowColor 14px 0 38px -1px,
+  	  	  	  		inset mix($lightColor, $white, 75%) -5px 0 38px -6px,
+  	  	  	  		inset mix($lightColor, $white, 75%) -2px 0 0 0;	  	    		
+  	  	left:-(ms(2));	
+  	  	background-position:7px -826px;	
+  	  	border-radius: 0 70% 70%  0;
+  	  	border-right: $lightColor 1px solid;	 
+  	  	border-left: $shadowColor ms(-9) solid;
+  	  	opacity:1;
+  	  	@include standard-transition(opacity);
+  	  	&:hover{ background-position:7px -403px;}
+  	  	&.disabled{
+
+  	  		display:none;
+  	  	opacity:0;
+  	  	background-position:7px 21px;
+  	  	//margin-left:-20px;
+  	    }
+  	  }
+  	  &.sidescroll-next{ 
+  	  	background: url(../images/postfix-arrows--Gold.png) no-repeat 2000px 2000px, 
+  	  				linear-gradient(to left, 
+  	  				set-alpha($bgColor, 0.3) 0%, 
+  	  				set-alpha(darken($bgColor,2),0.4) 100%),
+					$shadowColor url(../images/noise.png) repeat;  
+
+  	  	box-shadow: set-alpha($shadowColor,0.5) -10px 0px 7px -7px,
+  	  				set-alpha($lightColor,0.5) 9px 0px 9px -9px,
+  	  				inset $shadowColor -14px 0 38px -1px,
+  	  				inset mix($lightColor, $white, 75%) 5px 0 38px -6px,
+  	  				inset mix($lightColor, $white, 75%) 2px 0 0 0;
+  	  	//right:-23px; 
+  	  	right:-(ms(2));	
+  	  	background-position:-371px -826px;
+  	  	border-radius: 70% 0 0 70%;
+  	  	border-left: $lightColor 1px solid;
+  	  	border-right: $shadowColor ms(-9) solid; 		  	
+  	  	
+  	  	&:hover{ background-position:-371px -403px;}
+  	  	&.disabled{
+  	  		display:none;
+  	  	opacity:1;
+  	  	background-position:-371px 21px;
+  	  	//margin-left:-20px;
+  	    }
+  	  	
+  	  }
+  	}//a
+  	 @include breakpoint($bp-tablet-1){
+    	display:none;
+    }
+    }//end .sidescroll-nextprev-links
+  }//end .sidescroll-nextprev
+
+}//end m-academic_alumni

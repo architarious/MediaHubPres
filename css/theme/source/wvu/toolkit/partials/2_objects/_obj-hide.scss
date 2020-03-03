@@ -1,0 +1,37 @@
+.obj-hide{
+	opacity: $ms-6n;
+	overflow-y:hidden;
+	max-height:ms(10);
+	transition-property: max-height, opacity;
+	transition-duration: ($ms-7n)+s;
+	transition-timing-function: ease-in-out;  
+	background:shade($white, 5);
+	border: ms(-11) solid shade($white, 15);
+	padding:ms(0);
+	margin-top: ms(-2);
+
+	&:hover{ 
+		opacity:$ms-1n;
+		max-height:100%;
+	}
+	&:before{
+		position:relative;
+		top:0;
+		left:0;
+		content:"Content that is currently live";
+		color:$white;
+		background:$SecDarkOrange;
+		opacity:1;
+		padding:ms(0);
+		@extend .font-BdCn;
+		float:right;
+	}
+
+	
+}//end .obj-hide
+
+#core .main .obj-hide{
+	h1, h2, h3, h4, h5, h6{
+		margin-top: ms(0);
+	}
+}

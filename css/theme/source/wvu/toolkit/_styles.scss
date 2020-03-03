@@ -1,0 +1,76 @@
+////////////////////////
+// Style File
+//
+// This file gets turned into style.css. This file should really hold nothing except for imports of your base, style guide, layouts, modules, and states partials.
+////////////////////////
+
+//@import 'wvu-patterns--old/0-plugins/plugins-dir';
+//@import './wvu-patterns--old/1-base/base-dir'; 
+//@import 'wvu-patterns/2-modules/modules-dir'; 
+//@import 'wvu-patterns/3-layouts/layouts-dir';
+
+
+
+//////////////////////////////
+// Legacy Support Setup
+//////////////////////////////
+ 
+
+////////////////////////
+// Base Import
+////////////////////////
+@import "partials/0_global/base-global";
+
+////////////////////////
+// Import Style Guide
+////////////////////////
+@import "partials/1_styleguide/base-style-guide";
+
+////////////////////////
+// Import Objects
+////////////////////////
+@import "partials/2_objects/base-objects"; 
+
+////////////////////////
+// Import Blocks 
+////////////////////////
+//@import "partials/3_blocks/base-blocks"; 
+
+////////////////////////   
+// Import Modules
+////////////////////////
+//@import "partials/4_modules/base-modules"; 
+
+//////////////////////// 
+// Import Sections
+//////////////////////// 
+//@import "partials/5_sections/base-sections";
+  
+////////////////////////
+// Import Templates
+////////////////////////
+//@import "partials/6_templates/base-templates";
+
+////////////////////////
+// Import Layouts
+////////////////////////
+//@import "partials/7_layouts/base-layouts";
+
+ 
+
+//////////////////////// 
+// Import States
+////////////////////////
+//@import "partials/8_states/base-states";
+
+
+////////////////////////
+// Import your shame  (for hotfixes that you haven't had time to organize yet)
+////////////////////////
+//@import "partials/9_shame/shame";
+
+
+
+
+
+

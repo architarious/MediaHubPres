@@ -1,0 +1,57 @@
+#prefix{
+	 @include rhythm(0, 0, 0, 0, $font-size-small-2);
+
+ &.discover{
+ 	position:fixed;
+ 	left:0;
+ 	top:0;
+ 	z-index:1000;
+ 	width:ms(10);
+ 	height:100%;
+ 	background: url('../images/noise.png') repeat $coolblack2;
+ 	box-shadow: -(ms(-5)) 0 ms(0) (-(ms(-5))) $coolblack2 inset;
+
+ 	.container{
+ 		width:ms(10);
+ 		max-width:ms(10);
+ 		min-width:ms(10);
+ 		margin:0; padding:0;
+ 	}
+
+ 	#m-nav__discover{
+ 		margin-top: 25vh;
+ 		ul{}
+ 		li{}
+ 		a{
+ 		  background:transparent;
+ 		  color:$WVUGold;
+ 		  text-transform:uppercase;
+ 		  @extend .font-BdCn;
+ 		  @include adjust-font-size-to($font-size-med-2);
+ 		  div{
+ 		  	@extend .font-Roman;
+ 		  	text-transform:none;
+ 		  	color:$white;
+ 		  	@include adjust-font-size-to($font-size-small-2);
+ 		  	@include adjust-leading-to($ms-2n, $font-size-small-2);
+ 		  }
+ 		  &.active{
+ 		  	background:$white;
+ 		  	color:$WVUBlue;
+ 		  	@include flag($white,  $WVUBlue,  $coolblack2, $font-size:$font-size-med-2);
+
+ 		  	padding-left:ms(0);
+ 		  	div{
+ 		  		@include adjust-font-size-to($font-size-small-2);
+ 		  		@include adjust-leading-to($ms-2n, $font-size-small-2);
+ 		  		color:$black;
+ 		  	}
+ 		  }
+ 		}
+ 	}
+
+ }//end #pefix.home
+
+
+}//end #prefix
+

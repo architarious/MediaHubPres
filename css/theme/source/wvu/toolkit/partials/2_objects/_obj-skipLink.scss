@@ -1,0 +1,21 @@
+@mixin obj-skipLink(
+  $bgColor: $primary,
+  $textColor: $white
+){
+
+.obj-skipLink{
+  position:absolute; 
+  top:0; 
+  left: -100em;
+  background:$bgColor; 
+  color:$textColor;
+  padding:ms(-2);
+  transition:left 0.25s linear; 
+  &:focus{ left:0; }
+  &:hover, &:active, &:visited, &:focus{
+    background-color:darken($bgColor, 3);
+    color: lighten($textColor, 10);
+  }
+
+}//end obj-skipLink 
+}@include obj-skipLink();

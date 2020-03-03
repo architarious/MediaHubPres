@@ -1,0 +1,68 @@
+//bootstrap import
+//@import "bootstrap/modals";
+
+//@import '../1_styleguide/colors'; 
+//objects
+
+//Blocks
+@import '../3_blocks/blog/b-moreInfo';
+@import '../3_blocks/blog/b-socialShare';
+@import '../3_blocks/blog/b-storyImage'; 
+@import '../3_blocks/blog/b-storyInfo';
+
+@import '../3_blocks/blog/b-pagination';
+//@import '../3_blocks/blog/b-teaser';  rolled into main stylesheet
+@import '../3_blocks/blog/b-archiveList';
+ 
+//Modules
+@import '../4_modules/blog/m-blogNav';
+@import '../4_modules/blog/m-blogResources'; 
+@import '../4_modules/blog/m-jobListing';
+ 
+//Sections
+@import '../5_sections/s-prefix--blog';
+
+//Templates
+@import '../6_templates/t-blog_article';
+@import '../6_templates/t-blog_index';
+ 
+.l-blog{
+    #prefix{ @include s-prefix--blog(); } 
+    #core{
+        @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+            @include grid-mobile1;
+            .main{@include grid-span(4,1); clear:both;}
+            .sidebar-l{@include grid-span(4,1); clear:both;}
+            .sidebar{@include grid-span(4,1); }
+          }
+          @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+            @include grid-mobile2;
+            .main{@include grid-span(6,1); clear:both;
+                padding-bottom: ms(2);
+                border-bottom: 1px solid $lbg--shadow;
+                box-shadow: 0 1px 0 0 $lbg--light;
+                margin-bottom: ms(2);
+            }//end main
+            .sidebar-l{@include grid-span(3,1); clear:right;}
+            .sidebar{@include grid-span(3,4); }
+          }
+          @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+            @include grid-tablet;
+            .main{@include grid-span(5,1); }
+            .sidebar-l{@include grid-span(3,6); clear:right; margin-top: 3.272rem;}
+            .sidebar{@include grid-span(3,6);  clear:right;}
+          }
+          @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+            @include grid-desktop1;
+            .main{@include grid-span(6,4); }
+            .sidebar-l{@include grid-span(3,1);}
+            .sidebar{@include grid-span(3,10); }
+          }
+          @include breakpoint($bp-desktop2-1){
+            @include grid-desktop2;
+            .main{@include grid-span(10,4); }
+            .sidebar-l{@include grid-span(3,1);}
+            .sidebar{@include grid-span(3,14); }
+          } 
+    }//end #core
+}//end l-blog 

@@ -1,0 +1,21 @@
+//bootstrap import
+//@import "bootstrap/modals";
+
+//objects
+@import "../2_objects/obj-fancybox";
+
+//Blocks
+@import '../3_blocks/b-nextPage';
+@import '../3_blocks/b-product';
+
+//Modules
+@import '../4_modules/m-cardListing'; 
+@import '../4_modules/m-tabNav';
+
+//Sections
+@import '../5_sections/s-prefix__facilities';          //strategic plan pages
+
+//Templates
+@import "../6_templates/t-facilities"; 
+
+.l-facilities{}//end l-strategicPlan 

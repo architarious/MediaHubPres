@@ -1,0 +1,38 @@
+@mixin s-minors(    
+    $background:$lbg,
+    $headerColor: $primary,
+    $linkColor: $tertiary,
+    $shadowColor: $lbg--shadow,
+    $lightColor: $lbg--light   
+){
+  .s-minors{
+      width:100%; float:left;
+  }//end s-minors
+  .s-minors__title{
+      width:100%; float:left;
+      color:$headerColor;
+  }//end s-minors__title
+  .s-minors__list{
+      width:100%; float:left;
+      li{
+         width:100%; float:left;
+         @include rhythm(0, $ms-2n, $ms-2n, 0, $font-size-med);         
+         border-bottom:ms(-10) solid $shadowColor;
+		 box-shadow: 0 1px 2px -2px $lightColor;
+           &:last-child{border:0; box-shadow:none;}
+           a{ @extend .font-Bd; }//end a
+          
+        @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+            width:50%; 
+            &:nth-last-child(2){border:0; box-shadow:none;}
+        }//end desktop1 breakpoint
+        @include breakpoint($bp-mobile2-3 $bp-tablet-1){
+            width:50%; 
+            &:nth-last-child(2){border:0; box-shadow:none;}
+        }//end desktop1 breakpoint
+        @include breakpoint($bp-mobile1-1 $bp-mobile2-2){
+            text-align:center;
+        }//end desktop1 breakpoint
+      }//end li      
+  }//end s-minors__list  
+}@include s-minors();

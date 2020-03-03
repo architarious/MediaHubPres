@@ -1,0 +1,88 @@
+.m-facultyIndex{
+    display:flex;
+    flex-flow:row nowrap;
+}//end .m-facultyIndex
+.m-facultyIndex__full{
+    display:flex; flex-flow: row wrap;
+    align-content: flex-start;    
+    li{ 
+    	@include rhythm($ms-8n, $ms-1n, $ms-1n, $ms-8n, $font-size-med);
+    }//end li	
+}//end m-facultyIndex__full
+.m-facultyIndex__adjunct{}//end m-facultyIndex__adjunct
+
+.m-facultyIndex{
+    &[data-eq-state="x-small"], 
+    &[data-eq-state="medium"]{
+        .m-facultyIndex__full{ @include b-facultyCard--stacked(); }
+    }
+    &[data-eq-state="small"], 
+    &[data-eq-state="x-medium"], 
+    &[data-eq-state="large"], 
+    &[data-eq-state="x-large"], 
+    &[data-eq-state="xx-large"]{
+        .m-facultyIndex__full{ @include b-facultyCard(); }
+    }
+    
+    &[data-eq-state="x-small"]{
+		//background:set-alpha(red, 0.15);float:left;
+        flex-flow: column nowrap;
+        .m-facultyIndex__full{                
+            li{ width:100%; }//end li	
+        }//end m-facultyIndex__full
+	}//end eq-x-small 0px
+	&[data-eq-state="small"]{
+		//background:set-alpha(green, 0.15);float:left;
+        flex-flow: column nowrap;
+        .m-facultyIndex__full{  
+            li{ width: 100%; float:left; }//end li	
+        }//end m-facultyIndex__full
+	}//end eq-small 300px
+	&[data-eq-state="medium"]{
+		//background:set-alpha(yellow, 0.15);float:left;
+        flex-flow: column nowrap;
+        .m-facultyIndex__full{ 
+            li{
+                width: 50%; float:left;
+                &:nth-child(even){padding-left:ms(-2);}
+            }//end li	
+        }//end m-facultyIndex__full
+	}//end eq-medium  400px
+	&[data-eq-state="x-medium"]{
+		//background:set-alpha(blue, 0.15);float:left;
+        flex-flow: column nowrap;
+        .m-facultyIndex__full{    
+            li{
+                width: 50%; float:left;
+                &:nth-child(even){padding-left:ms(-2);}
+            }//end li	
+        }//end m-facultyIndex__full
+	}//end eq-x-medium  500px
+	&[data-eq-state="large"]{
+		//background:set-alpha(brown, 0.15);float:left;
+        .m-facultyIndex__full{
+            min-width:70%;    
+            li{
+                width: 50%; float:left;
+                &:nth-child(even){padding-left:ms(-2);}
+            }//end li	
+        }//end m-facultyIndex__full
+        .m-facultyIndex__adjunct{
+            min-width:29.99%; padding-left: ms(0); 
+        }//end m-facultyIndex__adjunct
+	}//end eq-large 800px
+	&[data-eq-state="x-large"], &[data-eq-state="xx-large"]{
+		//background:set-alpha(aqua, 0.15);float:left;
+        .m-facultyIndex__full{
+            min-width:82%;    
+            li{
+                padding-left:ms(-2);
+                width: 33.3%; float:left;
+                &:nth-child(3n+1){padding-left:0;}
+            }//end li	
+        }//end m-facultyIndex__full
+        .m-facultyIndex__adjunct{
+            min-width:17.999%; padding-left: ms(0);
+        }//end m-facultyIndex__adjunct
+	}//end eq-x-large  1000px
+}//end m-facultyIndex EQ's

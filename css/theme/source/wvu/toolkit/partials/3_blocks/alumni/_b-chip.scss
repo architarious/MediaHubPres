@@ -1,0 +1,46 @@
+@mixin b-chip($bgColor: $dbg,
+        $textColor: $white,
+        $metaColor: $pms-432-c,
+        $shadow: $dbg--shadow,
+        $light: $dbg--light){
+
+  .b-chip{
+      display:flex;
+      flex-flow: row nowrap;
+      font-size:$base-font-size;
+      border-radius:0.2em;
+      text-decoration:none;
+      color:$textColor;
+
+      &:hover, &:focus{
+          text-decoration:underline;
+          color:tint($textColor, 15);
+          .b-chip__meta{ color:$metaColor; text-decoration:none;}
+      }
+   }//end b-chip  
+  .b-chip__thumbnail{}//end b-chip__thumbnail
+  .b-chip__copy{
+     display:flex;
+     flex-flow: column nowrap;
+     justify-content: space-between;
+     .b-chip__title{
+         //align-self: flex-start;
+     }
+     .b-chip__meta{
+         //align-self: flex-end;
+     }
+  }//end b-chip__copy
+  .b-chip__title{
+      color:$textColor;
+      font-size:14px;
+      padding-left:1em;
+      margin:0;
+      
+   }//end b-chip__title
+  .b-chip__meta{ 
+      text-transform:uppercase;
+      font-size:12px;
+      color:$metaColor;
+      padding-left:1em;
+  }//end b-chip__meta
+}@include b-chip();

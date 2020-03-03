@@ -1,0 +1,254 @@
+//  .s-academic_overview{
+//  	.s-academic_overview__opener{ h1{} p.kicker{} }//end s-academic_overview__opener
+//  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+//  	.s-academic_overview__program{ h3{} li{}}//end s-academic_overview__program		
+//  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+//  }//end s-academic_overview
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_x-medium:set-alpha($SecOlive, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+@mixin s-academic_overview(
+	$textColor1: $primary, 
+	$textColor2: $WVUGold,
+	$textColor3: $black,	
+	$bgColor: $white,
+	$linkColor: $tertiary,
+	$shadow: shade($bgColor, 8),
+	$light: tint($bgColor, 9)){
+
+
+	width:100%;
+	float:left;
+	@include rhythm($ms-0, 0, 0, $ms-5, $font-size-med);
+
+	.s-academic_overview__opener{ 
+	  h1{
+	  	text-transform:uppercase;
+	  	@extend .font-BlkCn;
+	  	margin-bottom: ms(-1) !important;
+	  } 
+	  p.kicker{
+	  	padding-left:0;
+	  	margin:ms(2) 0 !important;
+	  } 
+	}//end s-academic_overview__opener
+
+	.s-academic_overview__department{ 
+		width:100%;
+		float:left;
+	  h2{
+	  	width:100%;
+	  	max-width:100%;
+	  	float:left;
+	  	background:$textColor2 url(../images/noise.png) repeat;
+	  	padding:ms(0);
+	  	color:$textColor1;
+	  	border-bottom: 0;
+	  	text-align:center;
+	  	text-transform:uppercase;
+	  	@include adjust-font-size-to($font-size-large);
+	  	@include rhythm($ms-0, $ms-4n, $ms-4n, 0, $font-size-large);
+	  } 
+
+	  @include breakpoint($bp-mobile2-3){
+	  	@include grid-mobile2;
+	  	&.CATS{ @include grid-span(3,1);}
+	  	&.SS{ @include grid-span(3,4);}
+	  }//end bp-mobile2-3
+
+	  @include breakpoint($bp-desktop1-1){
+	  	@include grid-desktop1;
+	  	&.CATS{ @include grid-span(5,1);
+	  		.s-academic_overview__program{
+	  			width:48%;
+	  			margin-left:1%;
+	  			margin-right:1%
+	  		}
+	  	}//end CATS
+	  	&.SS{ @include grid-span(7,6);
+	  		.s-academic_overview__program{
+	  			width:30.3%;
+	  			margin-left:1.5%;
+	  			margin-right:1.5%;
+	  		}
+	  	}//end .ss
+
+	  	.s-academic_overview__program h3{ 
+	  		min-height: ms(5);
+	  	   @include adjust-font-size-to($font-size-med);
+	  	   @include rhythm($ms-3n, $ms-6n, $ms-6n, 0, $font-size-med); 
+
+	  	}//end h3
+	  }//end bp-desktop1-1
+	}//end s-academic_overview__department
+
+	.s-academic_overview__program{ 
+		width:100%;
+		float:left;
+	  h3{
+	  	width:100%;
+	  	max-width:100%;
+	  	float:left;
+	  	color:$textColor1;
+	  	padding:ms(0);
+	  	text-align:center;
+	  	text-transform: uppercase;	  	
+	  	border-bottom:0;
+	  	@include adjust-font-size-to($font-size-med);
+	  	@include rhythm($ms-0, $ms-6n, $ms-6n, 0, $font-size-med);
+	  } 
+	  li{
+	  	width:100%;
+		float:left;
+
+		a{	
+			width:100%;
+			float:left;
+			text-align:center;
+			@include adjust-font-size-to($font-size-med);
+	  	    @include rhythm(0, $ms-3n, $ms-6n, 0, $font-size-med);
+	  	    border-bottom:ms(-10) solid $shadow;
+	  	    box-shadow: 0 1px 0 0 $light;
+	  	    color:$linkColor;
+	  	    outline:0;
+	  	    &:hover, &:focus{
+	  	    	color:lighten($linkColor, 10);
+	  	    	text-decoration:underline;
+	  	    	outline:0;
+	  	    }
+	  	    &:active{
+	  	    	color:darken($linkColor,10);
+	  	    	text-decoration:underline;
+	  	    }
+	  	    
+		}//end a
+		&:last-child a{
+			border-bottom:0;
+			box-shadow:none;
+		}
+	  }//end li
+	}//end s-academic_overview__program
+
+
+
+
+//
+//	&[data-eq-state="x-small"]{
+//	  @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+//
+//
+//	  
+//	  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+//	  	.s-academic_overview__program{ h3{} li{}}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+//	  
+//	}//end x-small
+//
+//	&[data-eq-state="small"]{
+//	  @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+//
+//
+//	  
+//	  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+//	  	.s-academic_overview__program{ h3{} li{}}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+//	  
+//	}//end x-small
+//
+	&[data-eq-state="medium"]{
+	  @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+
+
+	  
+	  	.s-academic_overview__department{ 
+	  	  h2{ min-height: 75px; } 
+	  	  ul{} 
+	  	  &.SS h2{line-height:60px;}
+	  	}//end s-academic_overview__department
+//	  	.s-academic_overview__program{ 
+//	  	  h3{ } 
+//	  	  li{}
+//	  	}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+	  
+	}//end x-small
+
+	&[data-eq-state="x-medium"]{
+	  @if $test=='on'{$eqColor: $eqColor_x-medium; background: $eqColor; &:before{content:"x-medium"; color: darken($eqColor,40);}}
+
+
+	  	.s-academic_overview__opener h1{ font-size:ms(6) !important;}
+//	  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+//	  	.s-academic_overview__program{ 
+//	  	  h3{} 
+//	  	  li{}
+//	  	}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+	  
+	}//end x-small
+
+	&[data-eq-state="large"]{
+	   @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+
+
+	  	.s-academic_overview__opener h1{ font-size:ms(7) !important;}
+//	  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+	  	.s-academic_overview__program{ 
+	  	  h3{  min-height:90px; } 
+	  	  li{}
+	  	}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+	  
+	}//end x-small
+
+	&[data-eq-state="x-large"]{
+	   @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+
+
+	  	.s-academic_overview__opener h1{ font-size:ms(8) !important;}
+//	  	.s-academic_overview__department{ h2{} ul{} }//end s-academic_overview__department
+	  	.s-academic_overview__program{ 
+	  	  h3{min-height:ms(5);} 
+	  	  li{}
+	  	}//end s-academic_overview__program		
+//	  	.s-academic_overview__program_bs a{ span{} }//end s-academic_overview__program_bs	
+//	  	.s-academic_overview__program_ms a{ span{} }//end s-academic_overview__program_ms
+//	  	.s-academic_overview__program_ms.online a{ span{} }//end s-academic_overview__program_ms.online		
+//	  	.s-academic_overview__program_doc a{ span{} }//end s-academic_overview__program_doc
+	  
+	}//end x-small
+
+}//end mixin
+
+.s-academic_overview{
+	@include s-academic_overview();
+}

@@ -1,0 +1,49 @@
+@mixin b-featPerson(
+    $bgColor: $white,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+   .b-featPerson{ 
+       width:100%; 
+       float:left; 
+       border-bottom:1px solid #shadow;
+       box-shadow: 0 1px 0 0 #light; 
+       @include rhythm($ms-0, 0, 0, $ms-3n, $font-size-med)
+    }//end .b-featPerson
+    .b-featPerson__left{ 
+      width:25%; 
+      float:left; 
+      min-height:1em; 
+      img{ padding:0 !important;}//end img
+    }//end .b-featPerson__left
+    .b-featPerson__right{ 
+        width:74.99%; 
+        float:left; 
+        padding-left:10px;
+       
+        h2{ margin:0 !important;}//end h2
+        p{
+           margin-top:ms(0) !important;
+           strong{
+               color:$primary;
+               @extend .font-BdCn;
+           }//end strong
+        }//end p 
+    }//end .b-featPerson__right 
+
+    @include breakpoint($bp-mobile1-1 $bp-desktop2-1){
+        .b-featPerson__left{ 
+            width:100%; 
+            float:left; 
+            text-align:center;
+            @include rhythm(0, 0, $ms-2n, 0, $font-size-med);
+            img{ float:none;}//end img
+        }//end b-featPerson__left
+        .b-featPerson__right{ 
+            width:100%; 
+            float:left; 
+            padding-left:0;
+            h2{ text-align:center; }//end h2
+         }//end b-featPerson__right
+    }//end bp-mobile1-1
+}//end b-featPerson mixin

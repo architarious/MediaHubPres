@@ -1,0 +1,262 @@
+@media print{
+	body{background:#fff;  -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+	#page-wrap{	
+		background:#fff;
+	}
+
+	#header{
+		display:block;
+		#s-header__cpass{
+			background:$WVUBlue;
+			box-shadow: 0 0 0 10000px $WVUBlue inset;
+			.b-logo{
+				float:left;
+				background:$WVUBlue;
+				width:100%;
+				display:block;
+				box-shadow: 10000px 10000px 10000px 10000px $WVUBlue inset;
+				content:'cpass';
+				color:#fff;
+			}
+
+			.m-mastUtils{
+				display:none;
+			}
+		}
+		#s-header__site{
+			background:#fff;
+			.site-logo{
+				color:$WVUBlue;
+				display:block;
+			}
+			#nav-primary{
+				display:none;
+			}
+
+			.m-auxiliaryNav__breadcrumbs ul li{
+				color:$tertiary;
+				width:100%;
+				float:left;
+				padding:0;
+				margin:0;
+
+				font-family:$Roman;
+				font-weight:400;
+				@include adjust-font-size-to($font-size-med-2);
+				@include rhythm($ms-4n, 0, 0, $ms-4n, $font-size-med-2);
+				a{
+					font-family:$Roman;
+					font-weight:400;
+					@include adjust-font-size-to($font-size-med-2);
+					@include rhythm($ms-4n, 0, 0, $ms-4n, $font-size-med-2);
+				}
+			}
+
+			.m-auxiliaryNav__featLinkList{
+				display:none;
+			}
+		}
+	}//end #header
+
+
+
+	#prefix{
+		background:#fff;
+		.page-name{
+			color:$WarmGrey1;
+		}
+		
+		nav{
+			display:none;
+		}
+	}//end #prefix
+
+
+	#core{
+		background:#fff;
+		nav{
+			display:none;
+		}
+		.b-featuredLink a, a.btn{
+			background:$tertiary; color:$white;
+			&::before{
+				background:$tertiary;
+			}
+		}//end b-featuredlink a, a.btn
+		.m-faculty-program__index{
+			width:100%;
+			float:left;
+			.b-faculty_card{
+				width:100%;
+				.b-faculty_card__photo{width:25%; float:left;}
+				.b-faculty_card__main{width:75%; float:left;}
+				border-bottom:0;
+
+			}
+		}//end .m-faculty-program__index
+
+		.m-sidebar_links{
+			display:none;
+		}
+
+		.m-informedCTA{
+	    	.m-informedCTA__main{width:100%; float:left;}
+	    	.m-informedCTA__CTA{width:100%; float:left; img{display:none;}}  		
+	    }
+
+	    .b-contactCard{
+	    	figure{
+	    	  width:48%;
+	    	  padding-right: ms(-5);
+	    	  position:absolute;
+	    	  top:50%;
+	    	  transform:translateY(-50%);
+	    	}
+
+	    	.b-contactCard__name, .b-contactCard__title{  }//end .b-contactCard__name and title
+	    	.b-contactCard__photo .obj-roundedPhoto{ }
+	    	figcaption{ }
+	    	.b-contactCard__info{
+	    	  width: 52%;
+	    	  border-left: 1px solid shade($white, 10 );
+	    	  left:48%;
+	    	  .b-contactCard__phone{ width: 48%;}
+	    	  .b-contactCard__location{width:42%; }
+	    	  .b-contactCard__btn{ display:none; }//end .b-contactCard__btn
+	    	}//end b-contactCard__info
+	    }//end .b-contactCard	
+	}//end #core
+
+
+
+	#postfix{
+		display:none;
+	}//end postfix
+
+
+	#footer{
+		#s-footer__site{
+			background:$vb-PaleGrey;
+			.b-contact__info{
+				color:$black;
+				a{color:$WVUBlue;}
+			}
+			.b-contact__links{
+				display:none;
+			}
+		}
+		.s-footer__cpass--wrapper{
+			display:none;
+		}
+		.s-footer__wvu--wrapper{
+			background:$WVUBlue;
+			ul{display:none;}			
+		}
+		.b-footer__return{
+			display:none;
+		}
+	}//end #footer
+
+
+
+	  #s-academic_header{	
+        .m-academic_header__CTA__degree a{
+      	  background:none;
+      	  &:before{ content:'';}
+        }//end .m-academic_header__CTA__degree a
+      }//end #s-academic_header
+
+	#core.s-core__academic{ 
+	  h1,h2,h3,h4,h5,p{
+	    margin-top:1.618em; padding-top:0;
+	  }
+	  p{ @include adjust-font-size-to($font-size-med);}
+	  border-top:0px;
+	  border-image:none;
+
+
+      #s-academic_coursework{
+        .sidebar{
+        	.s-academic_coursework_curriculumLink{
+        		display:none;
+        	}
+        }//end sidebar
+      }//end #s-academic_coursework
+
+      #s-academic_faculty{	
+        .m-academic_facultyList{
+        	.m-academic_facultyList__photo{
+        		width:20%; max-width:20%; min-width:20%; float:left;
+        	}//end .m-academic_facultyList__photo
+        	.m-academic_facultyList__main{
+        		width:80%; max-width:80%; min-width:80%; float:left;
+        	}//end .m-academic_facultyList__main
+
+        }//end .m-academic_facultyList
+        .sidebar{
+        	.m-sidebar_links{ display:none;	}
+        }//end sidebar
+      }//end #s-academic_faculty
+
+      #s-academic_beyondClass{
+      	.m-sidebar_links{
+      		display: none;
+      	}
+      }//end #s-academic_beyondClass
+
+      #s-academic_career{
+      	.m-sidebar_links{
+      		display: none;
+      	}
+      }//end #s-academic_career
+
+      #s-academic_apply{
+      	.m-informedCTA{
+          	.m-informedCTA__main{width:100%; float:left;}
+          	.m-informedCTA__CTA{width:100%; float:left; img{display:none;}}  		
+          }	
+      	.m-sidebar_links{
+      		display: none;
+      	}
+      }//end #s-academic_apply
+
+      #s-academic_contact{
+      	.s-academic_contact__form{
+      		display:none;
+      	}
+      	.m-sidebar_links{
+      		display: none;
+      	}
+      	.m-academic_resources{
+      		display:none;
+      	}
+      	.sidebar{
+      		.b-contactCard{
+	    	figure{
+	    	  width:48%;
+	    	  padding-right: ms(-5);
+	    	  position:absolute;
+	    	  top:50%;
+	    	  transform:translateY(-50%);
+	    	}
+
+	    	.b-contactCard__name, .b-contactCard__title{  }//end .b-contactCard__name and title
+	    	.b-contactCard__photo .obj-roundedPhoto{ }
+	    	figcaption{ }
+	    	.b-contactCard__info{
+	    	  width: 52%;
+	    	  border-left: 1px solid shade($white, 10 );
+	    	  left:48%;
+	    	  .b-contactCard__phone{ width: 48%;}
+	    	  .b-contactCard__location{width:42%; }
+	    	  .b-contactCard__btn{ display:none; }//end .b-contactCard__btn
+	    	}//end b-contactCard__info
+	    }//end .b-contactCard	
+      	}
+      }//end #s-academic_apply
+
+        
+	}//end #core.s-core_academic
+
+	
+}

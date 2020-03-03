@@ -1,0 +1,91 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+@import "../4_modules/academic/m-academic_programCard--v2";
+@import "../5_sections/s-featTriptych";  
+@import "../5_sections/academic/s-keyFactors";
+
+@mixin t-academic-degree-online(
+    $bgColor--top: $primary,
+    $shadow--top: $primary--shadow,
+    $light--top: $primary--light,
+    $textColor--top: $lbg,
+    $titleColor--top: $quadrary, 
+    $ctaColor--top: $quadrary, 
+    $bgColor--bottom: $lbg,
+    $shadow--bottom: $lbg--shadow,
+    $light--bottom: $lbg--light,
+    $textColor--bottom: $DarkGrey,
+    $titleColor--bottom: $primary, 
+    $ctaColor--bottom: $tertiary,
+    $accentColor--bottom: $quadrary
+){ 
+.t-academic-degree-online, .t-academic-degree-online{
+    #core, .t-academic-degree-online__core{  
+        padding-bottom:0;         
+ 
+        @include s-keyFactors(
+            $bgColor--bottom, 
+            $textColor--bottom,
+            $titleColor--bottom,
+            $accentColor--bottom, 
+            $ctaColor--bottom,
+            $shadow--bottom,
+            $light--bottom
+        );         
+        
+    }// end #core 
+     
+
+    .t-academic-degree-online__programs{
+        &#prefix{margin-bottom:0;} 
+        width:100%; float:left;
+        .m-auxiliaryNav{ background: transparent;}
+
+        $cardBgColor: set-alpha($bgColor--top, 0.35);
+
+        @include s-featTriptych(
+            $bgColor--top, //bgColor
+            "../images/academic/degrees/cpass-online-bg.jpg",  //bgImage
+            $textColor--top,  //shoutColor
+            $textColor--top,  //kickerColor
+            "gold",           //check
+            $cardBgColor,     //cardBgColor
+            $titleColor--top, //titleColor
+            $textColor--top,  //textColor
+            $ctaColor--top,   //ctaColor
+            $textColor--top,  //footerTextColor
+            $shadow--top,     //shadow
+            $light--top);     //light        
+       
+      
+
+        .s-featTriptych__list > li{
+            @include m-academic_programCard--v2( 
+            $cardBgColor, //bgColor
+            $textColor--top, //textColor
+            $titleColor--top,  //titleColor
+            $ctaColor--top,  //linkColor
+            $shadow--top, //shadow
+            $light--top ); //light
+        }//end s-featTriptych styling
+    }//end t-academic-degree-online__blue
+
+
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+    }//end #footer
+    
+    
+    .edit-mode{ }
+}//end t-academic-degree-online
+
+
+
+
+}@include t-academic-degree-online;

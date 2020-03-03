@@ -1,0 +1,49 @@
+@mixin s-postfix--strategicPlan(
+  $bgColor: $secondary,
+  $textColor: $black,
+  $accentColor1: $quadrary,
+  $accentColor2: $WarmGrey3,
+  $shadow: $secondary--shadow,
+  $light: $secondary--light
+){
+  &.s-postfix--strategicPlan{
+      @include rhythm(0, $ms-1, $ms-1, 0, $font-size-med);
+      .container{}//end container
+  }//end s-postfix__strategicPlan
+  .s-postfix--strategicPlan__scroller{
+      
+  }//end s-postfix_strategicPlan__scroller
+  .s-postfix--strategicPlan__download{  
+      @include b-downloadPDF($bgColor, $textColor); 
+ 
+      .b-downloadPDF{ }
+  }//end s-postfix_strategicPlan__download
+
+  @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+      //.s-postfix--strategicPlan .container{ flex-flow: column nowrap;}
+      .s-postfix--strategicPlan__scroller{ width:100%;}//end s-postfix_strategicPlan__scroller
+      .s-postfix--strategicPlan__download{ width:100%; padding-top: ms(2);}//end s-postfix_strategicPlan__download
+  }
+  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+       @include grid-tablet;  //8 columns 
+      .s-postfix--strategicPlan__scroller{ @include grid-span(6,1);}//end s-postfix_strategicPlan__scroller
+      .s-postfix--strategicPlan__download{ @include grid-span(2,7); padding-top: 1.61em;}//end s-postfix_strategicPlan__download
+  }
+  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+       @include grid-desktop1;  //12 columns
+      .s-postfix--strategicPlan__scroller{ @include grid-span(9,1); }//end s-postfix_strategicPlan__scroller
+      .s-postfix--strategicPlan__download{ @include grid-span(3,10); padding-top: 1em; }//end s-postfix_strategicPlan__download
+  }
+
+  @include breakpoint($bp-desktop2-1){
+       @include grid-desktop2;  //16 columns
+      .s-postfix--strategicPlan__scroller{ @include grid-span(13,1); }//end s-postfix_strategicPlan__scroller
+      .s-postfix--strategicPlan__download{ @include grid-span(3,14); padding-top: 1em; }//end s-postfix_strategicPlan__download
+  }
+  @include breakpoint($bp-desktop2-3){
+      .s-postfix--strategicPlan__download{ padding-top: 0.5em; }//end s-postfix_strategicPlan__download
+  }
+  @include breakpoint($bp-desktop2-5){
+      .s-postfix--strategicPlan__download{ padding-top: 0em; }//end s-postfix_strategicPlan__download
+  }
+} 

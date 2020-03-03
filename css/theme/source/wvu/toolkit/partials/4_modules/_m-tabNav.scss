@@ -1,0 +1,63 @@
+@mixin m-tabNav(
+    $bgColor: $tertiary,
+    $textColor: $lbg,
+    $shadow: $tertiary--shadow,
+    $light: $tertiary--light
+){
+.m-tabNav{
+      background:set-alpha($bgColor, 0.9);      
+      width:100%; 
+      float:left;
+      position:relative;
+      z-index: 500;
+      bottom:0;
+      ul{
+          display:flex; 
+          flex-flow: row nowrap;
+
+          & > li{
+              display:flex;
+              border-right: 1px solid $shadow;
+              box-shadow: 1px 0 2px -2px $light;
+              &:hover, &:focus{ background: $light;}
+              &.open{
+                  background:$lbg;
+                  padding-top: ms(-8);
+                  margin-top: -(ms(-8));
+                  border-top-left-radius: 0.2em;
+                  border-top-right-radius: 0.2em;
+                  a{ color:$primary; }
+                }
+              &:last-child{border-right:0; box-shadow:none;}
+
+              a{
+                  @include adjust-font-size-to($font-size-med);
+                  @extend .font-BlkCn;
+                  text-transform:uppercase;
+                  color:$lbg;
+                  padding: ms(-2) ms(0);
+
+              }
+          }//end li
+      }//end ul
+
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-2){
+      ul{
+          flex-flow: row wrap;
+          padding: 0.2em 0;
+          & > li{
+              border:0; box-shadow:none;
+              &.open{
+                background: none;
+                border: 2px solid $lbg;
+                border-radius: 0.2em;
+                padding-top:0; margin-top:0;
+                a{color: $lbg;}
+
+              }//end open
+          }//end li
+      }//end ul 
+    }//end mobile breakpoints
+     
+  }//end m-tabNav
+}

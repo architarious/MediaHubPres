@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    CPASS toolkit: Blocks: items that are specific to theme styles
+\*------------------------------------*/
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-social";  // 20kb -- take a look
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-contact__info";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-contact__links";  //~60kb -- take a look
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-ctaTile";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-featuredLink";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-featLinkList";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-links__students";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-links__alumni";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-links__community";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-linkTile";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-logo";
+////@import "../../../../cpass-toolkit/scss/partials/3_blocks/b-logo--min"; 
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-mastLinks"; 
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-sidebarLink";  
+////@import "../../../../cpass-toolkit/scss/partials/3_blocks/b-siteLogo";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-search";
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-footer__feature";  //~20kb --take a look
+//@import "../../../../../cpass-toolkit/app/scss/partials/3_blocks/b-footer__return";
+
+@import "./cpass-toolkit/3_blocks/b-social";  // 20kb -- take a look
+@import "./cpass-toolkit/3_blocks/b-contact__info";
+@import "./cpass-toolkit/3_blocks/b-contact__links";  //~60kb -- take a look
+@import "./cpass-toolkit/3_blocks/b-ctaTile";
+@import "./cpass-toolkit/3_blocks/b-featuredLink";
+@import "./cpass-toolkit/3_blocks/b-featLinkList";
+@import "./cpass-toolkit/3_blocks/b-links__students";
+@import "./cpass-toolkit/3_blocks/b-links__alumni";
+@import "./cpass-toolkit/3_blocks/b-links__community";
+@import "./cpass-toolkit/3_blocks/b-linkTile"; 
+@import "./cpass-toolkit/3_blocks/b-logo";
+@import "./cpass-toolkit/3_blocks/b-mastLinks"; 
+@import "./cpass-toolkit/3_blocks/b-sidebarLink";  
+@import "./cpass-toolkit/3_blocks/b-search";
+@import "./cpass-toolkit/3_blocks/b-footer__feature";  //~20kb --take a look
+@import "./cpass-toolkit/3_blocks/b-footer__return";
+
+
+
+
+/*------------------------------------*\ 
+    THIS THEME: Blocks: items that are specific to theme styles
+\*------------------------------------*/
+@import "b-card";
+@import "b-contactCard";  // 35kb -- take a look  //academic and elsewhere -- detailed contact card
+
+@import "b-nameList";                       //used on faculty pages -- part-time Faculty
+@import "b-featPerson";                     //????                  -- supports paragraph information?
+@import "b-idChip";  // 25kb --take a look  //used on homepage and elsewhere -- Name and title (no bar)
+@import "b-bioHeader";                      //used on bio pages
+@import "b-bioContact";                     //used on bio pages
+
+@import "b-facultyCard";                    //faculty pages and some bios -- Name and title (with bar)
+
+@import "b-courseCard";                     //used originally for early start program
+@import "b-keyTerm";                        //used on summer classes page / s-highlights
+
+@import "b-shout";
+@import "b-instructions";                   //displays cleanslate editable region instructions
+
+@import 'blog/b-teaser';

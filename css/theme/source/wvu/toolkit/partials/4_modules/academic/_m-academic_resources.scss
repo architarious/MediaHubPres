@@ -1,0 +1,57 @@
+.m-academic_resources{
+  ul{
+  	padding-left:0;
+  	width:100%;
+  	float:left;
+  	position:relative;
+  	margin-top:0;
+  }
+  li{
+  	float:left;
+  	list-style:none;
+  	height:auto;
+  	min-width:25%;
+  	padding: ms(-1);
+  	padding-top:0;
+  	margin-top:0;
+  }
+  .b-featuredLink{
+  	&:hover, &:focus{
+  		img{ opacity: 0.9;}
+  	}
+  }
+
+  @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+  	li{width:100%; padding:0;}
+  	.b-featuredLink{ 
+  		@include b-featuredLink--mini(ms(7), $primary);
+  		.outer{
+  			width:72px;
+  		}//end .outer
+  	 }//end .b-freaturedLink
+    }//end bp-mobile1-1 to tablet-1
+
+  @include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+  	.b-featuredLink{
+  		h3{ margin-left: 142px; @include adjust-font-size-to($font-size-med);}
+  		.outer .inner{ background:none; }
+  	}//end b-featuredLink
+  }//breakpoint  
+  @include breakpoint($bp-mobile2-1){  }
+  @include breakpoint($bp-tablet-1 $bp-desktop2-1){
+  	li{width:33.33%; float:left;}
+  }//end bp-tablet-1 to desktop1-1
+  @include breakpoint($bp-desktop1-1){  }
+  @include breakpoint($bp-desktop2-1){
+    li{width: 33.33%; float:left;
+
+    	.b-featuredLink{ 
+    		@include b-featuredLink--mini(ms(7), $primary);
+    		.outer{
+    			width:72px;
+    		}//end .outer
+    	 }//end .b-freaturedLink
+
+    }  
+  }//end bp-desktop2-1
+}

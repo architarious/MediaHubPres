@@ -1,0 +1,111 @@
+@mixin b-deansMessage(
+    $bgColor: $lbg,    
+    $textColor: $DarkGrey,
+    $titleColor: $primary,    
+    $ctaColor: $tertiary,
+    $accentColor: $quadrary,
+    $accentColor2: $WarmGrey2,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+   .b-deansMessage{ 
+       width:100%; 
+       //padding: ms(0);
+       float:left; 
+       color:$textColor;
+       display:flex;
+       flex-flow: column nowrap;
+       font-family: $wvu-traditional-audience;
+       line-height: $wvu-traditional-audience-line-height;
+    }//end .b-deansMessage
+    .b-deansMessage__header{
+        display:flex;
+        flex-flow: row nowrap;
+    }//end b-deansMessage__header 
+       .b-deansMessage__photo{
+           max-width:30%;
+           align-self:flex-start;
+           order: 1;
+           float:left;
+           padding-right: ms(0); padding-top: ms(-3);
+           img{padding:0;}
+       }//end .b-deansMessage__photo
+       .b-deansMessage_header__body{
+           display:flex;
+           flex-flow: column nowrap;
+           order:2;
+           min-width:70%;
+       }//end b-deansMessage_header__body
+         .b-deansMessage__title{
+             order: 1;
+             h1{ 
+                 font-family: $wvu-traditional-audience;
+                 line-height: $wvu-traditional-audience-line-height;
+                 margin-top:0;
+                 border-bottom: ms(-5) solid $accentColor;
+                 max-width:15em;
+              }
+         }//end b-deansMessage__title      
+         .b-deansMessage__quote{            
+             order: 2;
+             blockquote{ 
+                 margin:0;
+                 border-left:0;
+                span{
+                    font-family: $wvu-traditional-audience;
+                    line-height: $wvu-traditional-audience-line-height;
+                    padding:0; margin:0;
+                    position:relative;
+                    margin-left:-1em;
+                    color:lighten($textColor,10);
+
+                     &:before, &:after{ 
+                       font-size: 2.618em;
+                       color: lighten($accentColor2, 35);
+                       position:relative;
+                       line-height: 0.2em;
+                    }
+                    &:before{ content: "\201C"; top: 24px; }
+                    &:after{ content: "\201D"; bottom: -24px;}
+                }
+            }//end blockquote
+         }//end b-deansMessage__quote
+         .b-deansMessage__quote_cite{
+             color:$accentColor2;
+             font-family: $iowan-old-style-italic;
+             &:before{
+                 content: "\2014";
+                 width: 2em;
+             }
+         }//end b-deansMessage__quote_cite   
+
+
+    .b-deansMessage__body{ 
+        p{ 
+            color:$textColor;
+            font-family: $wvu-traditional-audience;
+            line-height: $wvu-traditional-audience-line-height;
+        } 
+    }//end .b-deansMessage__body
+    .b-deansMessage__footer{
+        p{  color:$textColor;
+            font-family: $wvu-traditional-audience;
+            line-height: $wvu-traditional-audience-line-height;}
+    }//end b-deansMessage__footer
+      .b-deansMessage__name{ font-family: $iowan-old-style-italic;}//end .b-deansMessage__name 
+
+    @include breakpoint($bp-mobile1-1 $bp-desktop2-1){}//end bp-mobile1-1
+    @include breakpoint($bp-desktop2-1){
+        .b-deansMessage__quote{
+            max-width: 80%;
+         }
+    }
+    @include breakpoint($bp-desktop2-4){
+        .b-deansMessage__quote{
+            max-width: 69%;
+            blockquote{ font-size: 1.618em;}
+         }
+    }
+
+}//end b-deansMessage mixin
+

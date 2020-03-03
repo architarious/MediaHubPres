@@ -1,0 +1,109 @@
+
+@mixin m-cardListing(
+    $bgColor: shade($lbg,25),
+    $cardColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $accentColor: tint($secondary, 10),
+    $shadow: shade($lbg--shadow, 15), 
+    $light: shade($lbg--light, 7.5)
+){
+    .m-cardListing{ 
+        display:flex;
+        flex-flow: column nowrap;
+    }//end m-cardListing
+    .m-cardListing__header{ 
+        width:100%;        
+        @include rhythm($ms-6, 0, 0, $ms-4, $font-size-med);
+        //@include b-shout($titleColor, $textColor);
+    }//end m-cardListing__header
+    .m-cardListing__title{}//end m-cardListing__title
+    .m-cardListing__kicker{  }//end m-cardListing__kicker
+
+    .m-cardListing__wrapper, #core.m-cardListing__wrapper{
+        //margin-top:ms(0);
+        background: $bgColor; 
+        box-shadow: inset 0px 2px 3px 3px $light;
+        padding: 0.618em;
+        
+    }//end m-cardListing__wrapper
+    .m-cardListing__list{
+        padding:0; margin:0;
+        list-style:none;
+        display:flex;
+        flex-flow: column wrap;
+        justify-content:flex-start;
+
+        & > li{             
+            list-style:none;
+            width:320px;           
+            display:flex;
+        }//end li
+    }//end m-cardListing__list
+
+    .m-cardListing__footer{
+        width:100%;        
+        @include rhythm($ms-0, $ms-0, 0, $ms-0, $font-size-med); 
+        border-top: $shadow solid 1px; 
+        box-shadow: inset 0 2px 2px -2px $light;  
+    }//end .m-cardListing__footer
+    .m-cardListing__pagination{}//end .m-cardListing__pagination
+    .m-cardListing__nextPage{}//end .m-cardListing__nextPage
+
+    // apply substylings of components here
+    .m-cardListing{
+        //@include b-card($cardColor, $textColor, $titleColor, $ctaColor, $accentColor, $shadow, $light); 
+      .b-card{        
+        margin-right:0.618em;
+        margin-bottom: 0.618em;
+        box-shadow: 0 6px 11px -5px shade($shadow, 10);
+      }//end .b-card
+      .b-card__img{}//end .b-card__img
+      .b-card__body{}//end .b-card__body
+       
+      .b-card__cta{                     
+          a{ }//end a
+      }//end .b-card__cta
+    }//end m-cardListing
+   
+    // apply mobile styling here
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+        .m-cardListing__list li{
+            width:100%;
+            .b-card__heading{ @include rhythm(0, $ms-0, $ms-4n, $ms-4n, $font-size-med);}
+            
+        }//end m-cardListing__item
+    }//end bp-mobile1-1
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+        .m-cardListing__nextPage:before{content: '';}
+    }//end bp-mobile1-1
+    @include breakpoint($bp-mobile2-2 $bp-tablet-1){
+        .m-cardListing__list{
+           flex-flow: row wrap;
+           li{  width: 49.999%; }
+        }//end m-cardListing__list
+    }//end bp-mobile2-1
+    @include breakpoint($bp-tablet-1){
+        .m-cardListing__list{
+           flex-flow: row wrap;
+           li{ width: 33.333%; 
+            .b-card__heading{ @include rhythm(0, $ms-2n, $ms-4n, $ms-4n, $font-size-med);}
+           }//end li
+        }//end m-cardListing__list
+    }//end bp-tablet-1
+    @include breakpoint($bp-desktop1-1){
+        .m-cardListing li{}//end m-cardListing__item
+    }//end bp-desktop1-1
+    @include breakpoint($bp-desktop2-1){
+        .m-cardListing li{
+           width: 24.999%;
+           .b-card__heading{ @include adjust-font-size-to($font-size-large); line-height: 1em;}
+        }//end m-cardListing__item
+    }//end bp-desktop2-1
+    @include breakpoint($bp-desktop2-7){
+        .m-cardListing li{
+            width: 19.999%;    
+        }//end m-cardListing__item
+    }//end bp-desktop2-1
+}//end m-cardListing mixin

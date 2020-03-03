@@ -1,0 +1,130 @@
+@mixin m-auctionListing(
+    $bgColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+    .m-auctionListing{}//end m-auctionListing
+    .m-auctionListing__heading{ }//end m-auctionListing__heading
+    .m-auctionListing__title{}//end m-auctionListing__title
+    .m-auctionListing__copy{  }//end m-auctionListing__copy
+
+    .m-auctionListing__body{
+        margin-top:ms(0);
+        background: shade($bgColor, 3) ;
+        box-shadow: inset 0px 2px 3px 3px shade($bgColor, 5);
+        padding: 0.618em;
+        border-radius: 0.34em;
+        
+    }//end m-auctionListing__body
+    .m-auctionListing__list{
+        padding:0; margin:0;
+        list-style:none;
+        display:flex;
+        flex-flow: column wrap;
+        justify-content:flex-start;
+    }//end m-auctionListing__list
+    .m-auctionListing__item{
+        list-style:none;
+        width:320px;
+        padding:0.295em;
+        margin:0;
+        display:flex;
+
+      @include b-aucItem($bgColor, $textColor, $titleColor, $ctaColor, $shadow, $light);   
+      .b-aucItem{ 
+         color:$textColor;
+         flex-flow: column nowrap;
+         margin:0;
+         
+        background: $bgColor;
+        box-shadow: 0 2px 3px 3px $shadow;
+        border-radius: 0.2em;
+        position:relative;
+        padding-bottom: 160px;
+      }//end .b-aucItem
+      .b-aucItem__img{ 
+          img{
+              padding:0;
+              border-top-left-radius: 0.2em;
+              border-top-right-radius: 0.2em;
+            }
+        }//end .b-aucItem__img
+      .b-aucItem__body{
+          padding: ms(-6);
+      }//end .b-aucItem__body
+      .b-aucItem__name{ line-height: 1em;}//end .b-aucItem__name 
+      .b-aucItem__description{
+          padding-top:0; margin-top:0;
+       }//end .b-aucItem__description
+       
+      .b-aucItem__bids{
+          padding: ms(-6);
+          @include rhythm($ms-0, 0, 0, $ms-0, $font-size-med);
+          width:100%;
+          position:absolute; bottom:60px;
+          left:0;
+      }//end .b-aucItem__bids
+      .b-aucItem__bids_current{}//end .b-aucItem__bids_current
+      .b-aucItem__bids_opening{}//end .b-aucItem__bids_opening
+      .b-aucItem__cta{                     
+              margin-top:0; width:100%;
+              position:absolute; bottom:0;
+          a{ 
+              width:100%;   
+              text-align:center;              
+              border-radius:0; 
+              border-bottom-left-radius: 0.2em;
+              border-bottom-right-radius: 0.2em;              
+              font-family: $BlkCn;
+              font-weight: 900;
+              letter-spacing:0.09em;
+              @include adjust-font-size-to($font-size-med-2);
+              @include rhythm(0, $ms-4n, $ms-4n, 0, $font-size-med-2);
+          }//end a
+      }//end .b-aucItem__ncta
+    }//end m-auctionListing__item
+   
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+        .m-auctionListing__item{
+            width:100%;
+            .b-aucItem__name{ @include rhythm(0, $ms-0, $ms-4n, $ms-4n, $font-size-med);}
+            
+        }//end m-auctionListing__item
+    }//end bp-mobile1-1
+    @include breakpoint($bp-mobile2-2 $bp-tablet-1){
+        .m-auctionListing__list{
+           flex-flow: row wrap;
+        }//end m-auctionListing__list
+        .m-auctionListing__item{
+           width: 49.999%; 
+           
+        }//end m-auctionListing__item
+    }//end bp-mobile2-1
+    @include breakpoint($bp-tablet-1){
+        .m-auctionListing__list{
+           flex-flow: row wrap;
+        }//end m-auctionListing__list
+        .m-auctionListing__item{
+           width: 33.333%; 
+           .b-aucItem__name{ @include rhythm(0, $ms-2n, $ms-4n, $ms-4n, $font-size-med);}
+        }//end m-auctionListing__item
+    }//end bp-tablet-1
+    @include breakpoint($bp-desktop1-1){
+        .m-auctionListing__item{}//end m-auctionListing__item
+    }//end bp-desktop1-1
+    @include breakpoint($bp-desktop2-1){
+        .m-auctionListing__item{
+           width: 24.999%;
+           .b-aucItem__name{ @include adjust-font-size-to($font-size-large); line-height: 1em;}
+        }//end m-auctionListing__item
+    }//end bp-desktop2-1
+    @include breakpoint($bp-desktop2-7){
+        .m-auctionListing__item{
+            width: 19.999%;    
+        }//end m-auctionListing__item
+    }//end bp-desktop2-1
+}//end m-auctionListing mixin
+

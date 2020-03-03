@@ -1,0 +1,94 @@
+@mixin b-spotlight(  $textColor: $white,
+                     $linkColor: $quadrary,
+                     $accentColor: $quadrary,
+                     $lightColor: $primary--light,
+                     $shadowColor: $primary--shadow
+                      ){
+    
+    width:100%;
+    padding: $ms-4+em 0; 
+    margin: $ms-4+em 0;
+    border-top: 1px solid $lightColor;
+    box-shadow:  0 -1px 0 0 $shadowColor;
+    float:left;
+
+    .b-spotlight__header{
+        border-bottom:0;
+        margin: 0;
+        float:left;
+        max-width: 60%;
+        line-height: $ms-1n+em;
+    }//end b-spotlight__header
+    .b-spotlight__preHeader{
+        font-size: $font-size-med;
+        line-height: $ms-0+em;
+
+    }//end b-spotlight__preHeader
+    .b-spotlight__name{ 
+        width:100%;
+        font-size:$ms-1+em; 
+        line-height: $ms-0+em;
+        @extend .font-Bd;
+    }//end b-spotlight__name
+
+    .b-spotlight__photo{
+        float:right;
+        max-width:40%;
+        padding-left: $ms-0+em;
+        a {
+            img{ 
+                box-shadow: 0 ms(-3) ms(-5) ms(-8)*-1 $shadowColor; 
+                padding:0;
+                border-radius: $ms-6n+em;            
+                @include standard-transition(box-shadow);}
+            }//end img
+            &:hover, &:focus{ img{ opacity: 0.9; box-shadow: none; }
+            &:focus{ img{ outline: 1px dashed red;}}
+        }//end a
+    }//end b-spotlight__photo
+    .b-spotlight__body{
+        float:left;
+        max-width: 60%;
+    }//end b-spotlight__body
+    .b-spotlight__copy{
+        @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);
+        p:first-of-type{margin-top:0;}
+     }//end b-spotlight__copy
+    .b-spotlight__cta{ 
+        .btn--outline{
+            @include btn_outline(transparent, $shadowColor, $linkColor);
+        }
+    }//end b-spotlight__cta
+
+
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-3){
+        display: flex; flex-flow: column nowrap;
+        .b-spotlight__header{ 
+            border-bottom: $ms-9n+em solid;
+            margin-bottom: $ms-0+em;
+        }
+        .b-spotlight__header, .b-spotlight__body, .b-spotlight__photo{
+            max-width:100%; float:left;
+            padding-left:0;
+        }
+    }
+    @include breakpoint($bp-mobile2-3 $bp-desktop1-1){
+        .b-spotlight__header{
+            width:100%; max-width:100%;
+            border-bottom: $ms-9n+em solid;
+            margin-bottom: $ms-0+em;
+        }
+        .b-spotlight__copy{
+            padding-top:0;
+        }
+    }
+    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+        padding-top: $ms-5+em;
+        .b-spotlight__photo{ padding-top: $ms-2+em;}
+    }
+    @include breakpoint($bp-desktop2-1){
+        padding-top: $ms-6+em;
+    }
+}
+.b-spotlight{ @include b-spotlight();}
+

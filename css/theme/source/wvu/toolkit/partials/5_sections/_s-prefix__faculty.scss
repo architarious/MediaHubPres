@@ -1,0 +1,90 @@
+#prefix.s-prefix__faculty{
+	margin:0; padding:0;
+	.s-prefix__content{
+		@include rhythm(0, $ms-2, $ms-2, 0, $font-size-med);
+	 }//end content
+	.m-faculty_header{
+
+
+		
+		width:100%;
+		float:left;
+		.obj-roundedPhoto{
+			@include roundedPhoto(ms(12), $coolblack, $white);
+			float:none;
+			margin:0 auto;
+		}
+		figcaption{
+			float:left;
+			width:100%;
+		}
+		@include breakpoint($bp-mobile1-1){
+			.obj-wrapper{ 
+				//float:left; width:100%;
+			}
+			figcaption{}//end figcaption
+			.b-faculty_name{
+				@include adjust-font-size-to($font-size-large);
+			}//end .b-faculty_name
+			.b-faculty_title{
+				@include adjust-font-size-to($font-size-med-2);
+			}//end .b-faculty_title
+			.b-faculty_details{
+				//@include adjust-font-size-to($font-size-med);
+			}//end .b-faculty_details
+		}//end breakpoint
+		@include breakpoint($bp-mobile2-1 ){
+			figcaption{}//end figcaption
+			.b-faculty_name{
+				@include adjust-font-size-to($font-size-large-2);
+			}//end .b-faculty_name
+			.b-faculty_title{
+				@include adjust-font-size-to($font-size-med-2);
+			}//end .b-faculty_title
+			.b-faculty_details{}//end .b-faculty_details
+		}//end breakpoint
+		@include breakpoint($bp-tablet-1 ){
+			.obj-roundedPhoto{ @include roundedPhoto(ms(11), $coolblack, $white); float:left;}
+			figcaption{ width: ms(14); margin-left:ms(1);}//end figcaption
+			.b-faculty_name{}//end .b-faculty_name
+			.b-faculty_title{}//end .b-faculty_title
+			.b-faculty_details{}//end .b-faculty_details
+		}//end breakpoint
+		@include breakpoint($bp-desktop1-1){
+
+			.obj-roundedPhoto{ @include roundedPhoto(ms(12), $coolblack, $white);}
+			figcaption{ width: ms(15); margin-left:ms(1);}//end figcaption
+			
+			.b-faculty_name{
+				@include adjust-font-size-to($font-size-xlarge);
+			}//end .b-faculty_name
+			.b-faculty_title{
+				@include adjust-font-size-to($font-size-large);
+			}//end .b-faculty_title
+			.b-faculty_details{}//end .b-faculty_details
+		}//end breakpoint
+		@include breakpoint($bp-desktop2-1){
+			.obj-wrapper{ width:30%; float:left; }
+			.obj-roundedPhoto{ 
+				@include roundedPhoto(ms(13), $coolblack, $white); 
+				float:none; margin:0 auto;}
+			figcaption{ width:70%; padding-left:ms(1); margin-left:0;}//end figcaption
+			.b-faculty_name{ @include adjust-font-size-to($font-size-xlarge-2);	}//end .b-faculty_name
+			.b-faculty_title{ @include adjust-font-size-to($font-size-large); }//end .b-faculty_title
+			.b-faculty_details{}//end .b-faculty_details
+		}//end breakpoint
+		@include breakpoint($bp-desktop2-5){
+			.obj-wrapper{ width: 28%; }
+			figcaption{ width:72%; }
+			.b-faculty_name{ @include adjust-font-size-to($font-size-xxlarge); }//end .b-faculty_name
+			.b-faculty_title{ @include adjust-font-size-to($font-size-large-2);	}//end .b-faculty_title
+		}//end breaktpoint
+		@include breakpoint($bp-desktop2-6){
+			.obj-wrapper{width:25%;}
+			figcaption{width:75%;}
+			.b-faculty_name{
+				//@include adjust-font-size-to($font-size-xxlarge-2);
+			}//end .b-faculty_name
+		}//end breaktpoint
+	}//end .m-faculty_header
+}//end #prefix.s-prefix__faculty

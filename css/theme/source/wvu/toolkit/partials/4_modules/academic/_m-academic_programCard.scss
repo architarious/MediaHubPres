@@ -1,0 +1,52 @@
+.m-academic_programCard{
+	width:100%;
+	float:left;
+	h2{}
+}//end .m-academic_programCard
+.m-academic_programCard__links{
+	width:60%;
+	float:left;
+	padding-right:ms(0);
+	li{
+		width:100%;
+		float:left;		
+		border-bottom:1px solid $lbg--shadow;
+		box-shadow: 0 1px 0 0 $lbg--light;
+		@include rhythm(0, 0, 0, $ms-8n, $font-size-med-2);
+		&:last-child{
+			border-bottom:none;
+			box-shadow:none;
+		}
+	}
+	a{
+		width:100%;
+		float:left;
+		min-height:ms(0);
+		@extend .font-Bd;
+		@include adjust-font-size-to($font-size-med-2);
+		@include rhythm(0, $ms-5n, $ms-5n, 0, $font-size-med-2);
+		text-transform:uppercase;
+
+		&.btn{text-align:left;}
+	}
+	hr{width:100%; float:left;}
+}//end m-academic_programCard__links
+.m-academic_programCard__fastFacts{
+	width:39.5%;
+	float:left;
+	padding-left:ms(0);
+	border-left: 1px solid $lbg--shadow;
+	box-shadow: inset 1px 0 0 $lbg--light;
+	h3{
+		@include adjust-font-size-to($font-size-med-2);
+		@include rhythm(0, 0, $ms-8n, $ms-6n, $font-size-med-2);
+		text-transform:uppercase;
+	}
+	ul{padding-left:ms(0)}
+	li{
+		@include adjust-font-size-to($font-size-small-2);
+		@include rhythm($ms-9n, 0, 0, $ms-4n, $font-size-small-2);
+		padding-left: ms(-7);
+		list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVQIW2N8tYrhPwMaYKSBIAANkAzlxv6z+QAAAABJRU5ErkJggg==");
+	}//end li
+}//end m-academic_programCard__fastFacts

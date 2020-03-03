@@ -1,0 +1,112 @@
+@mixin m-cta--news(
+  $bgColor: $white,
+  $titleColor: $black,
+  $textColor: $black,
+  $linkColor: $tertiary,
+  $accentColor: $quadrary,
+  $accentColor2: $primary,
+  $shadow:shade($bgColor, 5), 
+  $light: tint($bgColor, 10)){
+
+
+  .m-cta--news{    
+    width:100%; float:left; 
+    @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);
+   .title{
+    color:$titleColor;
+    @extend .font-Bd;
+    //border-color:$accentColor;
+    //border-image:none;
+    //@include trailing-border(ms(-7), $ms-2n, $font-size-med-2, solid);
+    @include adjust-font-size-to($font-size-large);
+    @include rhythm($ms-1n, 0, 0, $ms-4n, $font-size-large);
+    box-shadow:none;
+    border-bottom:0;
+    position:relative;  
+    z-index:10;
+
+      &:before{
+        content: '';
+	  	transform: skewX(-33.75deg);
+	  	transform-origin:bottom;
+	  	display:block;
+	  	z-index:-1;
+	  	position:absolute;
+	  	top:-4.8%;
+	  	left:-(ms(1));
+	  	height:89%;
+	  	width:ms(0); 
+	  	background:$accentColor;
+      }//end before
+    }//end .title
+    section{    }//end section
+
+   
+    //@include b-cta__news($bgColor, $linkColor, $titleColor, $shadow, $light);
+    //@include b-chip($bgColor, $linkColor, $textColor, $shadow, $light); 
+    @include m-newsFeed($bgColor, $accentColor2, $linkColor, $textColor, $shadow, $light);
+    @include b-cta__events($bgColor, $bgColor, $accentColor2, $titleColor, $linkColor, $titleColor, $shadow, $light);
+    //@include b-cta__events($bgColor, $linkColor, $bgColor, $titleColor, $linkColor, $titleColor, $shadow, $light);
+    @include m-facultySpotlight($bgColor, $textColor, $linkColor, $bgColor, $shadow, $light);
+
+     .b-cta__events{
+         .b-wvuCalendar li.calEvent .eventDate{
+             //@include standard-transition(border-color, 0.25s); 
+             //border-color:transparent;
+             //&:hover, &:focus{ border-color: $titleColor;}
+        }//end .eventDate
+     }//end b-cta__events 
+
+    //.b-cta__events{
+    //    .b-wvuCalendar li.calEvent .eventDate{
+    //        background-color:transparent;
+    //        border: 2px solid $linkColor;
+    //        color:$linkColor;
+    //    }
+    //}//end b-cta__events
+
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1){ 
+        .title{   
+            @include rhythm($ms-2, 0, 0, $ms-4n, $font-size-large);
+            @include adjust-font-size-to($font-size-large);
+        }//end title
+        section{}//end section
+    }//end bp-mobile1
+    @include breakpoint($bp-mobile2-1 $bp-tablet-1){ 
+        .title{ 
+            @include rhythm($ms-2, 0, 0, $ms-4n, $font-size-large-2); 
+        }//end title
+        section{}//end section
+    }//end bp-mobile2
+    @include breakpoint($bp-tablet-1 $bp-desktop1-1){ 
+        .title{
+            @include rhythm($ms-4n, 0, 0, $ms-4n, $font-size-med-2);
+            @include adjust-font-size-to($font-size-med-2);
+        }//end title
+        section{}//end section
+    }//end bp-tablet
+    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){ 
+        .title{
+            @include adjust-font-size-to($font-size-large);
+        }//end title
+        section{}//end section
+    }//end bp-desktop1
+    @include breakpoint($bp-desktop2-1 $bp-desktop2-6){ 
+        .title{
+            @include adjust-font-size-to($font-size-large-2);
+            @include rhythm($ms-1n, 0, 0, $ms-4n, $font-size-large-2);
+        }//end title
+        section{}//end section
+    }//end bp-desktop2
+    @include breakpoint($bp-desktop2-6){ 
+        .title{
+            @include adjust-font-size-to($font-size-large-2);
+            @include rhythm($ms-1n, 0, 0, $ms-4n, $font-size-large-2);
+        }//end title
+        section{}//end section
+    }//end bp-desktop2-6
+
+
+  }//end .m-cta
+
+}//end mixin

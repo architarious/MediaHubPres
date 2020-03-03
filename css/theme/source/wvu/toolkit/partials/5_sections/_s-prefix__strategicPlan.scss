@@ -1,0 +1,49 @@
+@mixin s-prefix__strategicPlan(
+  $bgColor: set-alpha(darken($black,6), 0.75),
+  $textColor: $white,
+  $accentColor1: $quadrary,
+  $accentColor2: $WarmGrey3,
+  $shadow: darken($bgColor, 5),
+  $light: tint($bgColor, 10)
+){
+  .s-prefix__strategicPlan{}//end s-prefix__strategicPlan
+  .s-prefix__strategicPlan{
+      position: relative;
+      @include m-auxiliaryNav($bgColor, $bgColor, $textColor, $quadrary, $quadrary--light, $quadrary--shadow, $shadow, $light);
+
+      .m-auxiliaryNav{
+          position:absolute;
+          top:0; 
+          //background: set-alpha($bgColor, 0.75);
+          z-index:500;
+      }//end m-auxiliaryNav
+
+      .m-hero--formal{
+          .m-hero__headline{
+              font-family: $wvu-traditional-audience;              
+              //line-height: $wvu-traditional-audience-line-height;
+              line-height: 0.618em;
+              font-weight:normal;
+              text-transform:none !important;
+          }//end m-hero__headline 
+          .m-hero_headline__top{
+              width:auto;
+              color:$textColor;
+          }//end headline__top        
+          .m-hero_headline__bottom{ 
+              width:auto; 
+              color:$textColor;
+              font-size: 0.618em;
+          }//end headline__bottom  
+
+      }//end m-hero--formal
+      .m-hero__container{ min-height:320px; padding-top:ms(4);}
+      .m-hero__photo img{ 
+          min-height:320px;
+          @include breakpoint($bp-mobile1-1 $bp-mobile2-3){
+              width:auto; max-width: 150%; margin-left:-33%;
+          }
+      }
+
+  }//end s-prefix__strategicPlan
+}

@@ -1,0 +1,274 @@
+#core.s-core__academic{
+	//border-top-width:100px;
+	//border-image: url(../images/pageTear.png) repeat 100;
+	background-clip: padding-box;
+	.s-academic{
+		.main{
+			h1{
+				text-transform:uppercase;
+				margin:0;
+				float:left; 
+				width:100%; 
+				line-height: 0.8049em;
+				@extend .font-BlkCn;
+			}
+			p.kicker{padding-left: 0;}
+
+			
+
+
+			@include breakpoint($bp-mobile1-1){}//end $bp-mobile2-1
+
+			@include breakpoint($bp-mobile2-1){}//end $bp-mobile2-1
+
+			@include breakpoint($bp-tablet-1){}//end $bp-tablet1-1
+
+			@include breakpoint($bp-desktop1-1){
+			  .obj-preHeader, .obj-postHeader{
+			    @include adjust-font-size-to($font-size-med);
+			    @include rhythm($ms-0, 0, 0, $ms-3n, $font-size-med-2);
+			  }//end .preheader and .postheader
+			  
+			  
+			
+			}//end $bp-dekstop1-1
+
+			@include breakpoint($bp-desktop2-1){
+				.obj-preHeader, .obj-postHeader{
+				  @include adjust-font-size-to($font-size-med-2);
+				  @include rhythm($ms-0, 0, 0, $ms-3n, $font-size-med-2);
+				}//end .preheader and .postheader
+			  
+			}//end $bp-desktop2-1
+
+
+			/////////////////////////////////////////////////////////////////////////////////////////////////
+			//BEGIN TYPOGRAPHY TWEAKS
+			////////////////////////////////////////////////////////////////////////////////////////////////
+			@include breakpoint($bp-mobile1-1){
+			     
+			}//end $bp-mobile2-1
+
+			@include breakpoint($bp-mobile2-1){
+			      
+			}//end $bp-mobile2-1
+
+			@include breakpoint($bp-tablet-1){
+			  
+			  h2{
+			    @include adjust-font-size-to($font-size-large);
+			    @include rhythm($ms-3, 0, $ms-8n, $ms-2n, $font-size-large);
+			  }
+			  h3{
+			    @include adjust-font-size-to($font-size-med-2);
+			      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-med-2);
+			       border-bottom-color:tint($WarmGrey3,75);
+			  }
+			  h4{
+			    @include adjust-font-size-to($font-size-med);
+			      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-med);
+			  }
+			  h5 {
+			    @include adjust-font-size-to($font-size-med);
+			    @include rhythm($ms-3, 0, 0, $ms-1n,$font-size-med);
+			  }
+			  h6 {
+			    @include adjust-font-size-to($font-size-small-2);
+			    @include rhythm($ms-2, 0, 0, $ms-1n, $font-size-small-2);
+			     color:tint($black,30);
+			     padding: 0 ms(1);
+			     background:shade($white, $ms-4);
+			     @include adjust-leading-to($ms-2);
+			  }
+
+			}//end $bp-tablet1-1
+
+			@include breakpoint($bp-desktop1-1){
+			  p{
+			    @include adjust-font-size-to($font-size-med);
+			    @include rhythm($ms-1, 0, 0, $ms-3n, $font-size-med);
+			        color:tint($black, 2.918);
+			        &.kicker{
+			          @include adjust-font-size-to($font-size-med-2);
+			          @include rhythm($ms-2,0, 0, $ms-1, $font-size-med-2);
+			          color:$WarmGrey1;
+			        }
+			  }
+			  
+			  h2{
+			    @include adjust-font-size-to($font-size-large-2);
+			      @include rhythm($ms-4, 0, $ms-8n, $ms-1n, $font-size-large-2);
+			  }
+			  h3{
+			    @include adjust-font-size-to($font-size-large);
+			      @include rhythm($ms-4, 0, 0, $ms-1n, $font-size-large-2);
+			      @include trailing-border(ms(-9), $ms-6n);
+			      border-style:dotted;
+			  }
+			  h4{
+			    @include adjust-font-size-to($font-size-med-2);
+			      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-med-2);
+			  }
+			  h5{
+			    @include adjust-font-size-to($font-size-med-2);
+			    @include rhythm($ms-2, 0, 0, $ms-1n,$font-size-med-2);
+			  }
+			  h6{
+			    @include adjust-font-size-to($font-size-med);
+			    @include rhythm($ms-1, 0, 0, $ms-1n, $font-size-med);
+			    font-family:$BdCn;
+			    font-weight: 800;
+			    padding: 0 ms(2);
+			    background:shade($white, $ms-5);
+			    @include adjust-leading-to($ms-2);
+			  }
+
+			  
+			
+			}//end $bp-dekstop1-1
+
+			@include breakpoint($bp-desktop2-1){
+			  p{
+			  		@include adjust-font-size-to($font-size-med-2);
+			  		@include rhythm($ms-1, 0, 0, $ms-3n, $font-size-med-2);
+			        color:tint($black, 4.722);
+
+			        &.kicker{
+			          @include adjust-font-size-to($font-size-large);
+			        @include rhythm($ms-2,0, 0, $ms-1, $font-size-large);
+			        color:$WarmGrey1;
+			        }
+			  }
+			  h2{
+			    @include adjust-font-size-to($font-size-xlarge);
+			    @include rhythm($ms-4, 0, $ms-5n, $ms-1n, $font-size-xlarge);
+			  }
+			  h3{
+			    @include adjust-font-size-to($font-size-large-2);
+			      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-large-2);
+			      @include trailing-border(ms(-9), $ms-5n);
+			      border-style:dotted;
+			  }
+			  h4{
+			    @include adjust-font-size-to($font-size-large);
+			      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-large);
+			  }
+			  h5{
+			    @include adjust-font-size-to($font-size-med-2);
+			    @include rhythm($ms-2, 0, 0, $ms-1n,$font-size-med-2);
+			  }
+			  h6{
+			    @include adjust-font-size-to($font-size-med);
+			    @include rhythm($ms-2, 0, 0, $ms-1n, $font-size-med);
+
+			    background:shade($white, $ms-8);
+			    @include adjust-leading-to($ms-2);
+			  }
+			}//end $bp-desktop2-1
+
+
+			.b-featuredLink{
+              @extend .b-featuredLink;
+              img{ padding:0;}
+            }
+
+			.obj-titleWrapper{
+				font-size: 20px;
+			}
+
+		}//end .main
+
+
+		.sidebar, aside{
+			h3, h4, h5, h6, p, a, ul{
+			  padding: ms(-5) ms(0);
+			}
+			p a{ padding:0;	}
+			
+			@include b-featuredLink($white, $tertiary, $white, $coolblack, $font-size-med, $BdCn);	
+	
+			
+			hr{
+				width:100%;
+				float:left;
+			}
+			
+			h2{
+				padding-left:ms(0);
+				width:100%;
+				max-width:100%;
+				float:left;
+				background:mix($white, $primary, 95%) url(../images/noise.png) repeat;
+				color:$WarmGrey1;
+				text-transform:uppercase;
+				border-bottom:0;
+				border:ms(-10) solid mix($white, $primary, 92%);
+				border-top-color:mix($white, $primary, 97%);
+
+
+				@include adjust-font-size-to($font-size-med-2);
+				@include rhythm(0, $ms-1n, $ms-2n, $ms-0, $font-size-med-2);
+
+				@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+					@include adjust-font-size-to($font-size-med);
+					@include rhythm(0, $ms-2n, $ms-3n, $ms-1n, $font-size-med);
+				}
+			}//end h2
+
+			ul{
+			  @include rhythm(0, 0, 0, $ms-0, $font-size-med);	
+			}
+
+			li{
+				@include adjust-font-size-to($font-size-med);
+				@include rhythm($ms-6n, 0, 0, $ms-1n, $font-size-med);
+				@extend .font-Roman;
+				list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVQIW2N8tYrhPwMaYKSBIAANkAzlxv6z+QAAAABJRU5ErkJggg==");
+				float:left;
+				width:100%;
+				
+			}
+
+			.b-featuredLink{
+				margin: ms(0) auto ms(-3) auto;
+				width:100%;
+			}
+
+			@include b-sidebarLink();
+			@include b-sidebarLink--list();	
+
+			@include breakpoint($bp-mobile1-1 $bp-tablet-1){
+				@include rhythm($ms-3, 0, 0, $ms-0, $font-size-med);
+			}
+			
+		}//end .sidebar
+
+
+	}//end .s-academic
+
+	#s-academic_coursework{}
+	#s-academic_faculty{
+	  .m-academic_facultyList{
+	  	
+	  	& > li{	  	
+
+	  	  .m-academic_facultyList__photo{
+	  		
+	  	  }//end .m-academic_facultyList__photo
+	  	  .m-academic_facultyList__main{
+	  		
+	  	  }//end .m-academic_facultyList__main
+	    }//end li
+	  }//end m-academic_facultyList
+	}//end s-academic_faculty
+	#s-academic_beyondClass{}
+	#s-academic_career{}
+	#s-academic_apply{
+		.m-academic_applyProcess__main, .m-academic_applyPreReqs__main{
+			h2{
+				margin-top:0;
+			}
+		}
+	}//end #s-academic_apply
+	#s-academic_contact{}
+}//end s-core__academic

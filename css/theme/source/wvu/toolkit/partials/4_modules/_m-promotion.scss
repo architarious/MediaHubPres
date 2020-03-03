@@ -1,0 +1,52 @@
+@mixin m-promotion(
+    $bgColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+    .m-promotion{ width:100%; float:left;  }//end m-promotion
+    .m-promotion__section{ width:100%; float:left;  }//end m-promotion__section
+    .m-promotion__sectionTitle{ width:100%;}//end m-promotion__sectionTitle
+    .m-promotion__opener{ }//end m-promotion__opener    
+    .m-promotion__benefits{ @include rhythm($ms-0, 0, 0, $ms-4n, $font-size-med); }//end m-promotion__benefits
+
+    .m-promotion__cta{ @include rhythm($ms-0, 0, 0, $ms-4n, $font-size-med); }//end m-promotion__cta
+    .m-promotion__form{
+        width: 75%;
+        float:left;
+     }//end m-promotion__form
+    .m-promotion__moreInfo{ 
+        width: 25%; 
+        float:left;
+        h3{
+            @extend .font-Lt;
+            border-bottom-width: 1px;
+            @include rhythm($ms-4n, 0, $ms-5n, $ms-4n, $font-size-large); 
+        }
+    }//end m-promotion__moreInfo
+    
+   
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+        .m-promotion__form{width: 100%;}//end m-promotion__form
+        .m-promotion__moreInfo{width: 100%; margin-top: ms(1);}//end m-promotion__moreInfo
+    }//end bp-mobile1-1
+    @include breakpoint($bp-mobile2-2 $bp-tablet-1){
+    }//end bp-mobile2-1
+    @include breakpoint($bp-tablet-1){
+        .m-promotion__form{width: 100%;}//end m-promotion__form
+        .m-promotion__moreInfo{width: 100%; margin-top: ms(1);}//end m-promotion__moreInfo
+    }//end bp-tablet-1
+    @include breakpoint($bp-desktop1-1){        
+    }//end bp-desktop1-1
+    @include breakpoint($bp-desktop2-1){
+        .m-promotion__cta{@include grid-desktop2;}//end m-promotion__cta
+        .m-promotion__form{ @include grid-span(10, 1); }//end m-promotion__form
+        .m-promotion__moreInfo{@include grid-span(6, 11); margin-top:0;}//end m-promotion__moreInfo
+    }//end bp-desktop2-1
+    @include breakpoint($bp-desktop2-7){
+    }//end bp-desktop2-1
+}//end m-promotion mixin
+
+

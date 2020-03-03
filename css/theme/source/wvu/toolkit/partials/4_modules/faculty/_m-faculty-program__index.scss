@@ -1,0 +1,107 @@
+.m-faculty-program__index{
+	.b-faculty_card{
+		&:first-child{ }
+		//@include leading-border(ms(-11), 1, $font-size-med, solid);
+	  	a:hover, a:focus{
+	  		h2{color:$tertiary;}
+	  		h3{color:lighten($WarmGrey2, 10);}
+	  	}
+	}
+	.b-faculty_card__photo{
+		float:left;
+		.obj-roundedPhoto{
+			width:ms(8);
+			height:ms(8);
+			//border-width:ms(-9);
+		}
+	}// .b-faculty_card__photo
+	.b-faculty_card__main{
+		float:left;
+		
+		h2{
+			@include adjust-font-size-to($font-size-med-2);
+			@include rhythm(0, 0, 0, $ms-6n, $font-size-med-2);
+		}
+		h3{
+			@include adjust-font-size-to($font-size-med);
+			@include rhythm(0, 0, 0, $ms-6n, $font-size-med);
+			border-bottom:0;
+			color:$WarmGrey2;
+		}
+	}// .b-faculty_card__main
+  
+
+	&[data-eq-state="x-small"]{
+		//background:set-alpha(red, 0.15);float:left;
+		.b-faculty_card{
+			width:100%; float:left;
+			@include rhythm($ms-8n, $ms-1n, $ms-1n, $ms-8n, $font-size-med);
+		}//end .b-faculty_card
+		.b-faculty_card__photo{ width:100%;}
+		.b-faculty_card__main{ width:100%;
+		 }//end main
+	}//end eq-x-small 0px
+	&[data-eq-state="small"]{
+		//background:set-alpha(green, 0.15);float:left;
+		.b-faculty_card{
+			width:100%; float:left;
+			@include rhythm($ms-11n, $ms-5n, $ms-5n, $ms-3n, $font-size-med);
+		}//end .b-faculty_card
+		.b-faculty_card__photo{ width:34%;}
+		.b-faculty_card__main{ 
+			width:63%; margin-left: 3%;
+			@include rhythm($ms-0, 0, 0, $ms-8n, $font-size-med);		  
+		 }//end main
+	}//end eq-small 300px
+	&[data-eq-state="medium"]{
+		//background:set-alpha(yellow, 0.15);float:left;
+		.b-faculty_card{
+			width:50%; float:left; padding: 0 1%;
+			@include rhythm($ms-8n, $ms-5n, $ms-5n, $ms-3n, $font-size-med);
+			&:nth-child(2){}
+		}//end .b-faculty_card
+		.b-faculty_card__photo{	width:100%; }
+		.b-faculty_card__main{ width:100%;
+			
+			h2{margin-top:0;}
+		}//end main
+	}//end eq-medium  400px
+	&[data-eq-state="x-medium"]{
+		//background:set-alpha(blue, 0.15);float:left;
+		.b-faculty_card{
+			width:50%; float:left; padding: 0 1%;
+			@include rhythm($ms-11n, $ms-5n, $ms-5n, $ms-3n, $font-size-med);
+			&:nth-child(2){}
+		}//end .b-faculty_card
+		.b-faculty_card__photo{	width:34%; }
+		.b-faculty_card__main{ width:63%; margin-left:3%;
+			@include rhythm($ms-0, 0, 0, $ms-8n, $font-size-med);
+			h2{margin-top:0;}
+		}//end main
+	}//end eq-x-medium  500px
+	&[data-eq-state="large"]{
+		//background:set-alpha(brown, 0.15);float:left;
+		.b-faculty_card{width:50%; float:left; padding: 0 2%;
+			@include rhythm($ms-11n, $ms-5n, $ms-5n, $ms-3n, $font-size-med);
+			&:nth-child(2){}
+		}//end .b-faculty_card
+		.b-faculty_card__photo{ width:27%;}
+		.b-faculty_card__main{ width:73%; padding-left: 3%;
+			@include rhythm($ms-0, 0, 0, $ms-8n, $font-size-med);
+			h2{margin-top:0;}
+		}//end main
+	}//end eq-large 800px
+	&[data-eq-state="x-large"]{
+		//background:set-alpha(aqua, 0.15);float:left;
+		.b-faculty_card{width:33.33%; float:left; padding: 0 1.5%;
+			@include rhythm($ms-11n, $ms-5n, $ms-5n, $ms-3n, $font-size-med);
+			&:nth-child(2), &:nth-child(3){}
+		}//end .b-faculty_card
+		.b-faculty_card__photo{ width:36%;}
+		.b-faculty_card__main{ width:64%; padding-left:3%;
+			@include rhythm($ms-0, 0, 0, $ms-8n, $font-size-med);
+			h2{margin-top:0;}
+		}//end main
+	}//end eq-x-large  1000px
+
+}//end .m-faculty-program__index

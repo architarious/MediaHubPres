@@ -1,0 +1,75 @@
+@mixin s-links(
+    $bgColor: $quadrary,
+    $textColor: $black,
+    $titleColor: $primary,
+    $linkColor: $tertiary,
+    $shadow: $quadrary--shadow,
+    $light: $quadrary--light){
+
+    width:100%; float:left;        
+    background: url(../images/wvu-pattern-background--gold-fade.png) no-repeat top right $bgColor;
+    @include rhythm(0, $ms-6, $ms-6, 0, $font-size-med);    
+    .container {
+        display:flex;
+        flex-flow: row nowrap;
+    }    
+    .s-links__header{
+        font-size: 0.618em;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content:center;
+    }//end .s-links__header
+    .s-links__title{
+        &::before{ content: none;}
+    }//end .s-links__title
+    .s-links__body{
+        @extend %navList--simple;
+        @include navList--recolor($titleColor, $shadow, $light);
+        .navList{
+            column-count: 3;
+            column-gap: 2.618em;
+            & > li a{
+                text-decoration: underline;
+                &:hover, &:focus{
+                    color: mix($titleColor, $linkColor, 0.2 );
+                }
+            }
+        }
+    }//end .s-links__body 
+
+    
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+        background-position: -20vw -10vw;
+        .container{ flex-flow: column nowrap;}
+        .s-links__header{
+            width:100%;             
+            font-size: 0.75em;
+        }
+        .s-links__title{ padding: 0.618em 0; }
+        .s-links__body{
+            .navList{ column-count:1;}
+        }
+    }
+    @include breakpoint($bp-mobile2-3 $bp-tablet-1){
+        .s-links__body .navList{ column-count: 2;}
+    }
+    @include breakpoint($bp-tablet-1 $bp-desktop2-3){
+        background-position: 20vw -10vw;
+        .s-links__header{ max-width:33%; font-size: 0.75em;}
+        .s-links__body .navList{ column-count: 2;}
+    }
+    @include breakpoint($bp-desktop2-3 $bp-desktop2-5){
+        background-position: 17vw -12vw;
+        .s-links__header{ max-width:25%; font-size: 0.75em;}
+        .s-links__body .navList{ column-count: 3;}
+    }
+    @include breakpoint($bp-desktop2-5){
+        background-position: 20vw -10vw;
+        .s-links__header{ max-width:20%; }
+        .s-links__body .navList{ column-count: 4;}
+    }
+
+
+}.s-links, %s-links{
+    @include s-links();
+}

@@ -1,0 +1,93 @@
+@mixin s-collegeHero(
+    $bgColor: $primary,
+    $titleColor: $white,
+    $textColor: $white,
+    $linkColor: $quadrary,
+    $accentColor: $secondary,
+    $shadow: darken($bgColor, 5),
+    $light: lighten($bgColor, 10)
+){
+  .s-collegeHero--wrapper{
+      width:100%; float:left;
+      margin:0; padding:0;
+      background:url(../images/bigHero1.jpg) no-repeat center top;
+      background-size: cover;
+      position:relative;      
+  }//end s-collegeHero--wrapper
+  .s-collegeHero__bg{
+      width:100%;
+      float:left;
+      top:0;
+      z-index:0;
+      position:absolute;
+      display:none;
+  }//s-collegeHero__bg
+
+  .s-collegeHero{
+      width:100%; float:left;
+      position:relative;
+      z-index: 100;
+      float:left;
+      @include rhythm(0, $ms-5, $ms-2, 0, $font-size-med);
+      padding-left:0 !important;
+      padding-right:0 !important;
+  }//end s-collegeHero
+  
+  .s-collegeHero__opener{
+      float:left; width:100%;
+  }//end s-collegeHero__opener
+  .s-collegeHero__title{
+      width:100%; float:left;
+      text-transform:uppercase;
+      font-family: $BlkCn; 
+      font-weight: 900;
+      margin-top:0;
+       //font-size:4.5em;
+       //@include vw($font-size-xxlarge-2);
+      @include adjust-font-size-to($font-size-xlarge-2);  @include adjust-leading-to($ms-2n);
+        
+      @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xxlarge);  @include adjust-leading-to($ms-2n); }
+      @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge-2);  @include adjust-leading-to($ms-2n); }
+      @include breakpoint($bp-desktop1-1){ @include adjust-font-size-to($font-size-xxxlarge); @include adjust-leading-to($ms-2n); }
+      //@include breakpoint($bp-desktop2-1){ @include adjust-font-size-to($font-size-xxxlarge-2); @include adjust-leading-to(6);} 
+  }//end s-collegeHero__title
+  .s-collegeHero_title__top{
+      width:100%; float:left; color:$white;
+  }//end s-collegeHero_title__top
+  .s-collegeHero_title__bottom{
+      width:100%; float:left; color:$WVUGold;
+  }//end s-collegeHero_title__bottom
+  .s-collegeHero__copy{
+       width:100%; float:left;
+       color: $textColor;
+       
+       margin-bottom: 2em; 
+       font-family: $Bd;
+       font-weight:500;
+       max-width: 40em;
+       @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);
+       @include adjust-font-size-to($font-size-med-2);  
+      
+      @include breakpoint($bp-mobile2-3){
+        //@include rhythm(0, $ms-3, $ms-3, 0, $font-size-med);  
+      }//end bp-mobile2-3
+      
+      @include breakpoint($bp-tablet-1){
+       // @include rhythm(0, $ms-5, $ms-5, 0, $font-size-med);  
+      }//end bp-tablet-1 
+
+      
+      @include breakpoint($bp-desktop1-1){ 
+          @include adjust-font-size-to($font-size-large);
+
+      }
+      @include breakpoint($bp-desktop2-2){ 
+            @include rhythm(0, $ms-3n, $ms-3n, 0, $font-size-med); 
+      }  
+  }//end s-collegeHero__copy
+  
+  .s-collegeHero__academics{
+       float:left; width:100%;
+  }//end s-collegeHero__academics
+}//end mixin
+@include s-collegeHero();

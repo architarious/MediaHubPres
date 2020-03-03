@@ -1,0 +1,144 @@
+/*****************************************
+Original l-minor structure
+.l-minor{}//end .l-minor
+.l-minor__core{}//end .l-minor__core
+.l-minor__description{}//end .l-minor__description
+.l-minor__coursework{}//end .l-minor__coursework
+.l-minor__additional{}//end .l-minor__additional
+.l-minor__catalog{}//end .l-minor__catalog
+.l-minor__hours{}//end .l-minor__hours
+.l-minor__majors{}//end .l-minor__majors
+.l-minor__contact{}//end .l-minor__contact
+.l-minor__miscSidebar{}//end .l-minor__miscSidebar
+*/
+
+@mixin l-minor(
+    $bgColor: $lbg, 
+    $textColor: $black,
+    $titleColor: $primary,
+    $linkColor: $tertiary,
+	$barColor: $primary,
+	$accentColor: $quadrary,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light
+){
+
+.l-minor{
+  #core{
+    
+    .obj-titleWrapper{
+        width:100%; float:left;
+        margin-top: ms(2);
+    }//end obj-titleWrapper
+
+    .l-minor__description{
+        width:100%; float:left;
+        @include rhythm($ms-2, 0, 0, $ms-0, $font-size-med);
+     }//end .l-minor__description
+    .l-minor__coursework{
+        width:100%; float:left;
+        @include rhythm($ms-2, 0, 0, $ms-0, $font-size-med);
+     }//end .l-minor__coursework
+    .l-minor__additional{
+        width:100%; float:left;
+        @include rhythm($ms-2, 0, 0, $ms-0, $font-size-med);
+     }//end .l-minor__additional
+
+     .l-minor__catalog{
+         width:100%; float:left;
+         font-size:12px;
+         .b-ctaTile__link{ 
+             width:100%;
+             [data-mercury]{ width:100%; min-height:50px;}//end data-mercury
+         }//end b-ctaTile__link
+      }//end .l-minor__catalog
+     .l-minor__hours{         
+         width:100%; float:left;
+         background:$accentColor;
+         color:$titleColor;
+         padding: ms(1);
+         border-radius:0.2em;
+         text-align:center;
+         font-size:16px;         
+         @include rhythm($ms-0, $ms-1, $ms-1, 0, $font-size-med);
+         text-transform:uppercase;
+         strong{
+             @include adjust-font-size-to($font-size-med-2);
+             width:100%; float:left;
+             @extend .font-Lt;
+         }//end strong
+         span{
+             @include adjust-font-size-to($font-size-xxlarge-2);
+             width:100%; float:left;
+             @extend .font-BlkCn;
+         }//end span
+      }//end .l-minor__hours
+     .l-minor__majors, .l-minor__contact{
+         width:100%; float:left;
+         .title{
+             background:$barColor;
+             border-bottom:0;             
+             padding:ms(-1);
+             color:$accentColor;           
+             @include adjust-font-size-to($font-size-med);
+             @include rhythm($ms-0, $ms-1n, $ms-1n, $ms-2n, $font-size-med);
+         }//end title
+     }//end .l-minor__majors and l-minor__contact
+
+     .l-minor__majors{
+         ul li{
+             list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVQIW2N8tYrhPwMaYKSBIAANkAzlxv6z+QAAAABJRU5ErkJggg==");
+             @include rhythm(0, $ms-1n, $ms-4n, 0, $font-size-med);
+             @include adjust-font-size-to($font-size-med);
+             a:hover, a:focus{ text-decoration:underline;}
+         }
+     }//end l-minor__majors
+     .l-minor__contact{
+         hr{ float:left; width:100%;}
+     }//end .l-minor__contact
+     .l-minor__miscSidebar{
+         width:100%; float:left;
+         @include rhythm($ms-0, 0, 0, 0, $font-size-med);
+     }//end .l-minor__miscSidebar
+ 
+       
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){ 
+       @include grid-mobile1;
+       .main{@include grid-span(4,1); clear:both;}
+       .sidebar-l{@include grid-span(4,1); clear:both;}
+       .sidebar{@include grid-span(4,1); }
+     }
+     @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+       @include grid-mobile2;
+       .main{@include grid-span(6,1); clear:both;
+         padding-bottom: ms(2);
+    	 border-bottom: 1px solid $lbg--shadow;
+    	 box-shadow: 0 1px 0 0 $lbg--light;
+         margin-bottom: ms(2);
+       }//end main
+      .sidebar-l{@include grid-span(3,1); clear:right;}
+      .sidebar{@include grid-span(3,4); }
+    }
+    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+      @include grid-tablet;
+      .main{@include grid-span(5,1); }
+      .sidebar-l{@include grid-span(3,6);}
+      .sidebar{@include grid-span(3,6);  clear:right;}
+    }
+    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+      @include grid-desktop1;
+      .main{@include grid-span(6,4); }
+      .sidebar-l{@include grid-span(3,1);}
+      .sidebar{@include grid-span(3,10); }
+    }
+    @include breakpoint($bp-desktop2-1){
+      @include grid-desktop2;
+      .main{@include grid-span(10,4); }
+      .sidebar-l{@include grid-span(3,1);}
+      .sidebar{@include grid-span(3,14); }
+    }
+  }//end #core
+}//end l-minor
+
+}@include l-minor();
+

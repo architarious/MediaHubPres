@@ -1,0 +1,9 @@
+@mixin b-storyImage($bgColor: $primary,
+        $textColor: $white,
+        $accentColor: $primary,
+        $linkColor: $white){
+
+  .b-storyImage{ }//end b-storyImage
+  .b-storyImage__header{ }//end b-storyImage__header
+  .b-storyImage__body{ }//end b-storyImage__body
+}@include b-storyImage();

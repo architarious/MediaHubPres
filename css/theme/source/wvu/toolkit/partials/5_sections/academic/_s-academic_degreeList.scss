@@ -1,0 +1,117 @@
+.s-academic_degreeList{ }//end .s-academic_degreeList
+
+.s-academic_degreeList__program{
+	.m-academic_programCard{}//end .m-academic_programCard
+	.m-academic_programCard__links{}//end .m-academic_programCard__links
+	.m-academic_programCard__fastFacts{}//end .m-academic_programCard__fastFacts
+}//end .s-academic_degreeList__program
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.s-academic_degreeList{
+ @if $test=='on'{
+  background:$eqColor;
+  &:before{
+    font-size:ms(-2);
+    margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+  }
+ }//test settings
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+
+
+    .s-academic_degreeList__program{
+    	.m-academic_programCard{}//end .m-academic_programCard
+    	.m-academic_programCard__links{width:100%;}//end .m-academic_programCard__links
+    	.m-academic_programCard__fastFacts{ display:none;}//end .m-academic_programCard__fastFacts
+    }//end .s-academic_degreeList__program
+
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    
+    
+    .s-academic_degreeList__program{
+    	.m-academic_programCard{}//end .m-academic_programCard
+    	.m-academic_programCard__links{width:100%;}//end .m-academic_programCard__links
+    	.m-academic_programCard__fastFacts{ display:none;}//end .m-academic_programCard__fastFacts
+    }//end .s-academic_degreeList__program
+
+
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+
+    
+    
+    .s-academic_degreeList__program{
+    	.m-academic_programCard{}//end .m-academic_programCard
+    	.m-academic_programCard__links{}//end .m-academic_programCard__links
+    	.m-academic_programCard__fastFacts{}//end .m-academic_programCard__fastFacts
+    }//end .s-academic_degreeList__program
+
+
+
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+
+    
+    
+    .s-academic_degreeList__program{
+    	.m-academic_programCard{}//end .m-academic_programCard
+    	.m-academic_programCard__links{}//end .m-academic_programCard__links
+    	.m-academic_programCard__fastFacts{}//end .m-academic_programCard__fastFacts
+    }//end .s-academic_degreeList__program
+
+
+
+  }//end large
+
+
+
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+
+    
+    
+    .s-academic_degreeList__program{
+    	.m-academic_programCard{}//end .m-academic_programCard
+    	.m-academic_programCard__links{}//end .m-academic_programCard__links
+    	.m-academic_programCard__fastFacts{}//end .m-academic_programCard__fastFacts
+    }//end .s-academic_degreeList__program
+
+
+
+
+  }//end x-large
+}//end .s-academic_degreeList

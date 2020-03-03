@@ -1,0 +1,38 @@
+@mixin b-pagination($bgColor: $lbg,
+    $textColor: $black,
+    $accentColor: $quadrary,
+    $linkColor: $tertiary,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light){
+        
+    .b-pagination { 
+      float: left; 
+      padding-top: 10px; 
+      padding-left: 0; 
+      list-style-type: none; 
+      color:$textColor;
+    }
+    .b-pagination__older, .b-pagination__newer { 
+      display: inline; 
+      float: left; 
+      margin-right: 3px; 
+      a{
+          color: $linkColor;
+          &:hover, &:active{
+              color: lighten($linkColor, 5);
+              text-decoration:underline;
+          }
+        }//end a
+    }
+    .b-pagination__older { 
+      margin-right: 10px;
+      padding-right: 10px;
+      border-right: 1px solid $shadow;
+      box-shadow: 1px 0 0 0 $light;
+      //&:after { content: '|'; margin-left: 8px; }
+    } //.b-pagination__older
+    .b-pagination__disabled {
+      a, a:hover { color: $textColor; cursor: not-allowed; text-decoration: none; }
+    } //.b-pagination__disabled
+
+}@include b-pagination();

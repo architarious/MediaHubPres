@@ -1,0 +1,16 @@
+//Blocks
+@import "../3_blocks/b-deansMessage";                   //strategic plan
+@import "../3_blocks/b-downloadPDF";                    //strategic plan
+@import "../3_blocks/b-goal";                           //strategic plan
+
+//Modules
+
+//Sections
+@import '../5_sections/s-prefix__strategicPlan';          //strategic plan pages
+@import '../5_sections/s-postfix--strategicPlan';         //strategic plan pages
+
+
+//Templates
+@import "../6_templates/t-strategicPlan";
+
+.l-strategicPlan{}//end l-strategicPlan 

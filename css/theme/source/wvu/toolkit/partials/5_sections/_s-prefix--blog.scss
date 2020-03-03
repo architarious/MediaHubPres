@@ -1,0 +1,55 @@
+@mixin s-prefix--blog(
+  $bgColor: set-alpha(darken($black,6), 0.75),
+  $textColor: $white,
+  $accentColor1: $quadrary,
+  $accentColor2: $DarkGrey,
+  $shadow: darken($bgColor, 5),
+  $light: tint($bgColor, 10)
+){
+  
+  .s-prefix--blog{
+      position: relative;
+      float:left;
+      width:100%;
+      @include m-auxiliaryNav($bgColor, $bgColor, $textColor, $accentColor1, lighten($accentColor1,10), darken($accentColor1,5), $shadow, $light);
+
+      .m-auxiliaryNav-v2{
+          position:absolute;
+          top:0; 
+          //background: set-alpha($bgColor, 0.75);
+          z-index:500;
+      }//end m-auxiliaryNav
+      .m-hero__container{ 
+          min-height:320px; 
+          padding-top:0;  
+          padding-bottom:0;
+          @include breakpoint($bp-mobile1-1 $bp-mobile2-2){
+              //padding-bottom: ms(8); //here to accomodate m-tabNav
+          }//end breakpoint
+       }//end end m-hero__container
+      .m-hero__photo img{ 
+          min-height:320px;
+          @include breakpoint($bp-mobile1-1 $bp-mobile2-3){
+              width:auto; max-width: 150%; margin-left:-33%;
+          }
+      }//end m-hero__container
+
+      .m-hero__copy{
+          @include rhythm($ms-2, $ms-2, $ms-2, 0, $font-size-med);
+      }
+
+  }//end s-prefix--blog
+  
+
+  .s-prefix_facilities--home{
+     .m-hero__container{
+         padding: $ms-6+em 0;
+     } 
+  }//end s-prefix_facilities--home
+
+  .edit-mode .s-prefix--blog .m-auxiliaryNav-v2{
+      display:none;
+  }
+
+ 
+}

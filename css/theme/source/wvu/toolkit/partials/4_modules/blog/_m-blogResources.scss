@@ -1,0 +1,16 @@
+@mixin m-blogResources($bgColor: $primary,
+        $textColor: $white,
+        $accentColor: $primary,
+        $linkColor: $white){
+
+  .m-blogResources{
+      float:left;
+      width:100%;
+   }//end m-blogResources
+  .m-blogResources__storyImage{
+      float:left; width: 100%;
+  }//end m-blogResources__header
+  .m-blogResources__storyInfo{
+      float:left; width: 100%;
+  }//end m-blogResources__body
+}@include m-blogResources();

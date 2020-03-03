@@ -1,0 +1,87 @@
+/************************************************
+Original structure of b-careerPath
+
+.b-facultyCard{}//end b-facultyCard
+.b-facultyCard__photo{
+    .obj-roundedPhoto img{}//end obj-roundedPhoto img
+}//end b-facultyCard__photo
+.b-facultyCard__main{
+    h2{}//end h2
+    h3{}//end h3
+}//end b-facultyCard__main
+ 
+*/
+
+@mixin b-facultyCard(
+                    $titleColor: $primary,
+                    $subTitleColor: $WarmGrey2,
+                    $hoverColor: $tertiary){
+
+    .b-facultyCard, .b-facultyCard a{
+        display:flex;
+        flex-flow: row nowrap;
+        width:100%; float:left; 
+
+		&:first-child{ }
+		//@include leading-border(ms(-11), 1, $font-size-med, solid);
+	  	&:hover, &:focus{
+	  		h2, .b-facultyCard__title{color:$tertiary;}
+			h3, .b-facultyCard__subtitle{color:lighten($subTitleColor, 10);}
+			.b-facultyCard__photo .obj-roundedPhoto img{ opacity: 0.85;}
+	  	}
+	}//end b-facultyCard
+	.b-facultyCard__photo{
+		float:left;
+        width:ms(8);
+		.obj-roundedPhoto{
+			width:ms(8);
+			height:ms(8);
+			//border-width:ms(-9);
+		}
+	}// .b-facultyCard__photo
+	.b-facultyCard__main{
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+		float:left;
+		padding-left: 5%;
+		padding-right: 5%;
+		width:auto;
+		flex-grow:2;
+		
+		h2, .b-facultyCard__title{
+			@include adjust-font-size-to($font-size-med-2);
+			@include rhythm(0, 0, 0, $ms-6n, $font-size-med-2);
+			color:$titleColor;
+			
+			font-family:$Lt;
+			font-weight:200;
+			padding-right:1em;
+			width:100%;
+		}
+		h3, .b-facultyCard__subtitle{
+			@include adjust-font-size-to($font-size-med);
+			@include rhythm(0, 0, 0, $ms-6n, $font-size-med);
+			border-bottom:0;
+			color:$subTitleColor;			
+			font-family:$Bd;
+			font-weight:500;
+			width:100%;
+		}
+	}// .b-facultyCard__main 	
+
+}//@include b-facultyCard();
+
+@mixin b-facultyCard--stacked(
+    $titleColor: $primary,
+    $subTitleColor: $WarmGrey2,
+    $hoverColor: $tertiary
+){
+    @include b-facultyCard($titleColor, $subTitleColor, $hoverColor);
+    .b-facultyCard, .b-facultyCard a{
+    	width:100%; float:left;
+        flex-flow: column nowrap;
+    }//end .b-facultyCard
+    .b-facultyCard__photo{ width:100%; float:none;}
+    .b-facultyCard__main{ width:100%; text-align:center; padding-left:0; padding-right:0;}
+}//@include b-facultyCard--stacked();

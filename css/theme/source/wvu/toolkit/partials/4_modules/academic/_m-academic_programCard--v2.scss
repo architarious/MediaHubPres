@@ -1,0 +1,124 @@
+@mixin m-academic_programCard--v2(
+    $bgColor: $primary, 
+    $textColor: $lbg,
+    $titleColor: $quadrary,
+    $linkColor: $quadrary,
+    $shadow: $primary--shadow, 
+    $light: $primary--light 
+){
+
+.m-academic_programCard--v2{
+
+    
+    &.b-card{
+               
+        .b-card__header{}//end b-card__header
+        .b-card__image{}//end b-card__image
+        .b-card__body{padding: 0.618em;}//end b-card__body
+        .b-card__title{
+            a{ 
+                color:$titleColor;
+                @extend .font-BlkCn;
+                text-transform:uppercase;
+                font-size: 1.618em;
+                //line-height: 0.8049em;
+                min-height:1.7em;
+                float:left;
+                &:hover, &:active, &:focus{
+                    color: lighten($linkColor, 15);
+                }
+            }
+        }//end b-card__title
+        .b-card__copy{
+            .b-fastFacts{
+                border-left:0; box-shadow:none;
+                padding: 0; margin:0;
+                ul{ padding-left: 1em;}
+            }//end b-fastFacts
+        }//end b-card__copy
+        .b-card__cta{
+            background:darken($bgColor, 2);
+                ul > li{ 
+                    border-right-color: darken($bgColor, 4); 
+                    box-shadow: 1px 0 0 0 $bgColor; 
+                    &:last-child{box-shadow: none;} 
+
+                    a{
+                        color:$linkColor;
+                        &:hover, &:active, &:focus{
+                            color: lighten($linkColor, 15);
+                        }
+                    }
+                }
+        }//end b-card__cta
+    }//end .b-card
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black; 
+$eqColor_xx-small: set-alpha($SecOlive, 0.3);
+$eqColor_x-small: set-alpha($SecLightGold, 0.4);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_x-medium:set-alpha($SecLightOrange, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3); 
+$eqColor_x-large:set-alpha($SecBrown, 0.3); 
+
+    @if $test=='on'{
+     background:$eqColor; 
+     position:relative;
+     &:before{
+       font-size:ms(-2);
+       //margin-top:ms(-2)*(-1);
+       float:left;
+       color:$eqColor;
+       position:absolute; 
+       z-index:100;
+       top:-18px;
+     }
+    }
+
+&[data-eq-state="xx-small"]{
+    @if $test=='on'{$eqColor: $eqColor_xx-small; background: $eqColor; &:before{content:"xx-small"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 0.88em;}
+    .b-card__cta{ font-size: 0.618em;
+        ul > li{ border:0; box-shadow: none; width:50%; float:left;}}
+}
+&[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.15em;}
+    .b-card__cta{ font-size: 0.78em;
+        ul > li{ border:0; box-shadow: none; width:50%; float:left;}}
+}
+&[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.39em;}
+    .b-card__cta{ font-size: 0.64em;}
+}
+&[data-eq-state="x-medium"]{
+    @if $test=='on'{$eqColor: $eqColor_x-medium; background: $eqColor; &:before{content:"x-medium"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.55em;}
+    .b-card__cta{ font-size: 0.71em;}
+}
+&[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.618em;}
+    .b-card__cta{ font-size: 0.741em;}
+}
+&[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.75em;}
+    .b-card__cta{ font-size: 0.8em;}
+}
+&[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+    .b-card__title{ font-size: 1.975em;}
+    .b-card__cta{ font-size: 0.9em;}
+}
+
+
+ 
+}//end .m-academic_programCard
+}//@include m-academic_programCard--v2

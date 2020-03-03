@@ -1,0 +1,79 @@
+@mixin s-highlights(
+	$textColor1: $primary,
+	$textColor2: $DarkGrey,
+	$bgColor: shade($lbg, 4), 
+	$btnColor: $primary,
+	$shadow: shade($lbg--shadow, 4),
+	$light: shade($lbg--light, 4)){   
+ 
+
+    .s-highlights{
+      width:100%; float:left;         
+	  background: url('../images/noise.png') repeat $bgColor;
+	//background-size: contain;
+	  .container{
+	    @include rhythm(0, $ms-6, $ms-5, 0, $font-size-med);
+	  }//end container
+    }//end s-highlights
+
+    .s-highlights__shout{
+        width:100%; float:left;
+        h2{
+	        text-transform: uppercase;
+		    text-align:left; 
+		    font-size: $font-size-xxlarge-2;
+		    line-height: $lh-wvu-headline;
+		    color:$textColor1; 
+            border-bottom:0;
+            margin:0;
+		    padding-bottom:ms(2);
+		    @extend .font-BlkCn;
+		    @include breakpoint($bp-mobile1-1){ @include adjust-font-size-to($font-size-large-2);line-height: $lh-wvu-headline; }
+		    @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xlarge);line-height: $lh-wvu-headline;}
+     	    @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xlarge-2); line-height:$lh-wvu-headline;}
+     	    @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-xxlarge); line-height: $lh-wvu-headline;}
+            @include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-xxlarge-2); line-height:$lh-wvu-headline;}
+        }
+    }//end s-highlights__shout
+
+    .s-highlights__content{
+        width:100%; float:left;
+        h1, h2, h3, h4, h5, h6{ color:$textColor1;}
+        p, strong, em, i, b{color:$textColor2;} 
+        @include obj-multiCol(auto, $bgColor, $shadow, $light);
+    }//end s-highlights__content
+
+		//GRID
+    .s-highlights{
+      @include breakpoint($bp-mobile1-1){
+    	@include grid-mobile1;  //four columns
+    	.s-highlights__shout, .s-highlights__content{@include grid-span(4,1); float:none;}//end s-announcement__shout
+    	
+      }
+      @include breakpoint($bp-mobile2-1){
+    	@include grid-mobile2;  //six columns
+    	.s-highlights__shout, .s-highlights__content{@include grid-span(6,1); float:none;}//end s-announcement__shout
+    	
+      }
+      @include breakpoint($bp-tablet-1){
+    	@include grid-tablet;  //eight columns
+    	.s-highlights__shout, .s-highlights__content{@include grid-span(8,1); float:none;}//end s-announcement__shout
+    	
+      }
+      @include breakpoint($bp-desktop1-1){
+    	@include grid-desktop1;   //twelve columns
+    	.s-highlights__shout, .s-highlights__content{@include grid-span(12,1); float:none;}//end s-announcement__shout
+    	
+      }
+      @include breakpoint($bp-desktop2-1){
+    	@include grid-desktop2;  //sixteen columns
+    	.s-highlights__shout, .s-highlights__content{@include grid-span(16,1); float:none;}//end s-announcement__shout
+    	
+      }
+    }//end s-highlights
+
+
+
+    
+}@include s-highlights();
+

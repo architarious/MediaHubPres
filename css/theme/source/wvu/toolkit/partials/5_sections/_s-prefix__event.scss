@@ -1,0 +1,16 @@
+@mixin s-prefix__event(
+    $bgColor: set-alpha(darken($black,6), 0.75),
+    $textColor: $white, 
+    $accentColor1: $quadrary,
+    $accentColor2: $WarmGrey3,
+    $shadow: darken($bgColor, 5), 
+    $light: tint($bgColor, 10)
+){
+  .s-prefix__event{ 
+      position:relative;         
+      @include m-auxiliaryNav--overlay(); 
+  }  
+  .m-auxiliaryNav{ }//end m-auxiliaryNav
+  .m-hero{}//end m-hero  
+  .s-announcements{}//end s-announcements
+}@include s-prefix__event();

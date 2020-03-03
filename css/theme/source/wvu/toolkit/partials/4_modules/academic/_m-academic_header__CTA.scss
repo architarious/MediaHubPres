@@ -1,0 +1,44 @@
+.m-academic_header__CTA{
+	width:100%;
+	float:left;
+	@include rhythm($ms-2, 0, 0, $ms-0, $font-size-med);
+
+}// end .m-academic_header__CTA_
+
+.m-academic_header__CTA__degree{
+  float:left;  
+  //margin-right:ms(4);
+
+  a{
+  	//@include flag($black, $white, $coolblack, $font-size:$font-size-med-2);
+	color:$quadrary; text-transform:uppercase;	  
+	@extend .font-Lt;
+	&:hover, &:focus{ color:$quadrary--light; }  
+	&:active{ color:$quadrary--shadow;}
+  }
+
+
+}//end .m-academic_header__CTA__degree
+
+.m-academic_header__CTA__links{
+  float:left;
+  li{
+  	display:inline;
+  	float:left;
+  	margin-right:ms(0);
+  	&:last-child{ margin-right:0;}
+  }
+  a{
+  	color:$white;
+  	text-transform:uppercase;
+  	@include adjust-font-size-to($font-size-med);
+  	@include rhythm($ms-2n, 0, $ms-6n, $ms-4n, $font-size-med);
+  	border-bottom: 1px solid $white;
+  	float:left;
+
+  	&:hover{
+  		color:$SecLightGold;
+  		border-bottom-color: $SecLightGold;
+  	}
+  }
+}// end .m-academic_header__CTA__links

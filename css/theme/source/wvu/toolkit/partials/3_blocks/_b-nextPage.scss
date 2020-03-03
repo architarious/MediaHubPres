@@ -1,0 +1,33 @@
+@mixin b-nextPage(
+    $ctaColor: $tertiary
+){
+    .b-nextPage{
+        @include adjust-font-size-to($font-size-large);
+        @extend .font-Bd;
+        position: relative;
+        padding-right: 1em;
+        color: $tertiary;
+        &:before{
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            content: "\e6c5";
+            font-weight: 800;
+          
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            
+            position: absolute;
+            right: 0; 
+            padding-top: 0.236em;
+        }
+        &:hover, &:active{
+            text-decoration: underline;
+        }
+    }//end .b-nextPage
+}

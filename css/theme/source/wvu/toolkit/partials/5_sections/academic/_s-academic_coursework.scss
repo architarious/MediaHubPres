@@ -1,0 +1,37 @@
+#core.s-core__academic #s-academic_coursework{
+	.main{}//end .main
+	.sidebar{
+		ul li{
+	      //@include adjust-font-size-to($font-size-med);
+	      //@include rhythm($ms-4n, 0, 0, $ms-3n, $font-size-med);
+	      a{padding-left: ms(-6);}
+	    }//end ul li
+	    .s-academic_coursework__curriculumLink{
+		    width:100%; float:left;
+			
+	    	@include breakpoint($bp-mobile1-1 $bp-tablet-1){
+				.b-featuredLink{
+					@include b-featuredLink--mini(
+						ms(7),
+						$tertiary,
+						$white, 
+						$tertiary,
+						$lbg--shadow,
+						$font-size-med-2,
+						$BlkCn
+					);
+				}
+			}
+			@include breakpoint($bp-tablet-1){
+				@include b-featuredLink(
+					$lbg,
+					$tertiary,
+					$white,
+				    $lbg--shadow,
+					$font-size-med,
+					$BdCn
+				);
+			}
+	    }//end s-academic_coursework__sidebar_curriculumnLink
+	}//end .sidebar
+}//end s-academic__coursework

@@ -1,0 +1,99 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+@import "../5_sections/s-featTriptych"; 
+@mixin t-startFast(
+    $bgColor--top: $primary,
+    $shadow--top: $primary--shadow,
+    $light--top: $primary--light,
+    $textColor--top: $lbg,
+    $titleColor--top: $quadrary,
+    $ctaColor--top: $quadrary, 
+    $bgColor--bottom: $quadrary,
+    $shadow--bottom: $quadrary--shadow,
+    $light--bottom: $quadrary--light,
+    $textColor--bottom: $DarkGrey,
+    $titleColor--bottom: $primary,
+    $ctaColor--bottom: $primary
+){ 
+.t-startfast, .t-startFast{
+    #core, .t-startFast__core{  
+        padding-bottom:0;     
+
+        @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+	       @include grid-mobile1;
+	    }
+	    @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+	      @include grid-mobile2; //6 columns
+	    }
+	    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+	      @include grid-tablet;  //8 columns
+	    }
+	    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+	      @include grid-desktop1;  //12 columns
+	    }
+	    @include breakpoint($bp-desktop2-1){
+	      @include grid-desktop2;  //16 columns
+	    }
+
+    }// end #core
+    
+
+    .t-startFast__blue{
+        width:100%; float:left;
+        .m-auxiliaryNav{ background: transparent;}
+        
+        @include s-featTriptych($bgColor--top, 
+                                "../images/startFast/startFast_bg.jpg", 
+                                $textColor--top, 
+                                $textColor--top, 
+                                "gold", 
+                                set-alpha($bgColor--top, 0.65), 
+                                $titleColor--top, 
+                                $textColor--top, 
+                                $ctaColor--top, 
+                                $textColor--top, 
+                                $shadow--top, 
+                                $light--top);
+       
+        &#prefix{margin-bottom:0;}
+    }//end t-startFast__blue
+    .t-startFast__gold{
+        width:100%; float:left;
+        
+        @include s-featTriptych($bgColor--bottom, 
+                                "../images/startFast/finishStrong_bg.jpg", 
+                                $lbg, 
+                                $lbg, 
+                                "blue", 
+                                set-alpha($quadrary, 0.65), 
+                                $primary, 
+                                $DarkGrey, 
+                                $primary, 
+                                $DarkGrey, 
+                                $quadrary--shadow, 
+                                $quadrary--light);
+        //.s-featTriptych__list>li .b-card__cta{ 
+        //    background-color:$ctaColor--bottom;
+        //    a{background-color: $ctaColor--bottom;}
+        // }
+    }
+
+
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+    }//end #footer
+    
+    
+    .edit-mode{ }
+}//end t-startFast
+
+
+
+
+}@include t-startFast;

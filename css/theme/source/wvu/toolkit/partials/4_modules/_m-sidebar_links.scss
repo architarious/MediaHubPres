@@ -1,0 +1,46 @@
+.m-sidebar_links, #core aside.m-sidebar_links{
+	.m-sidebar_links__associations, .m-sidebar_links__resources{
+	  float:left; width:100%;
+
+	  @include rhythm($ms-0, 0 , 0, $ms-0, $font-size-med-2);
+ 
+	  h2{
+	  	padding-left:ms(0);
+	  	width:100%;
+	  	max-width:100%;
+	  	float:left;
+	  	background:mix($white, $primary, 95%) url(../images/noise.png) repeat;
+	  	color:$WarmGrey1;
+	  	text-transform:uppercase;
+	  	border-bottom:0;
+	  	border:ms(-10) solid mix($white, $primary, 92%);
+	  	border-top-color:mix($white, $primary, 97%);
+
+
+	  	@include adjust-font-size-to($font-size-med);
+	  	@include rhythm(0, $ms-1n, $ms-2n, $ms-0, $font-size-med);
+
+	  	@include breakpoint($bp-mobile2-1 ){
+	  		@include adjust-font-size-to($font-size-med);
+	  		@include rhythm(0, $ms-2n, $ms-3n, $ms-1n, $font-size-med);
+	  	}
+	  }//end h2
+
+
+	}
+
+	.b-featuredLink{
+		max-width:100%;
+		width:100%;
+		height:auto;
+		img{width:100%;
+			height:auto;}
+	}
+
+
+	.m-sidebar_links__apply{
+		@include b-featuredLink($white, $primary, $white, $coolblack, $font-size-large, $BlkCn);
+		margin-bottom:ms(2);
+		float:left;
+	}
+}//end .m-sidebar_links

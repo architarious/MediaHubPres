@@ -1,0 +1,33 @@
+@mixin b-bioContact($bgColor: $primary,
+                     $textColor: $white,
+                     $linkColor: $SecLightGold,
+					 $btnColor: $SecDarkOrange,
+					 $accentColor: tint($WarmGrey3,20),
+                     $shadowColor: $primary--shadow ){
+.b-bioContact{
+	width:100%; float:left;
+    @include adjust-font-size-to($font-size-med);
+	@include adjust-leading-to($ms-0, $font-size-med);
+    @include rhythm($ms-2n, 0, 0, $ms-8n, $font-size-med);
+	color:$textColor;
+	strong{ color:$accentColor;}
+	p{ color:$textColor;}  
+	a{
+		color:$textColor;
+		&:hover, &:focus, &:active{
+			background:none;
+			color:tint($linkColor, 10);
+		}
+		&.btn{
+			@include btn_icon($btnColor, $shadowColor, $textColor, "\e63a", "true");
+			@include rhythm(0, $ms-7n, $ms-8n, 0, $font-size-med);
+		}
+	}//end a
+}//end b-bioContact
+.b-bioContact__email{}//end b-bioContact__email
+.b-bioContact__phone{}//end b-bioContact__phone
+.b-bioContact__location{}//end b-bioContact__location
+.b-bioContact__hours{}//end b-bioContact__hours
+.b-bioContact__cv{}//end b-bioContact__cv
+
+}@include b-bioContact

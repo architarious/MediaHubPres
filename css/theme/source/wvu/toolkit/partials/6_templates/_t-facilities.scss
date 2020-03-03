@@ -1,0 +1,192 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+@mixin t-facilities(
+    $bgColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $accentColor1: $quadrary, 
+    $accentColor2: $WarmGrey2,
+    $accentColor3:lighten($secondary,8),
+    $shadow: $lbg--shadow,
+    $light: $lbg--light
+){ 
+.t-facilities__body{     
+
+
+	#prefix{
+      @include s-prefix__facilities;
+      .s-prefix__content{ @include rhythm($ms-4, 0, 0, $ms-4, $font-size-med);}
+      .subTitle{ 
+          color:$bgColor;
+      }//end subTitle 
+
+    /** commented out until needed
+    
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1; //4 columns
+	  }
+	  @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+	    @include grid-mobile2; //6 columns
+	  }
+	  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+	    @include grid-tablet;  //8 columns
+	  }
+	  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+	    @include grid-desktop1;  //12 columns
+	  }
+	  @include breakpoint($bp-desktop2-1){
+	    @include grid-desktop2; //16 columns
+    }
+    */
+
+
+	}//end #prefix
+
+
+
+
+	#core, .t-facilities__core{
+
+
+    .t-facilities__pageHeader{
+      width:100%; float:left;
+      @include rhythm($ms-6, 0, 0, $ms-4, $font-size-med);
+      @include b-shout($titleColor, $textColor);
+      .b-shout__subtitle{max-width: 26em;}
+    }//end t-facilities__heading
+
+    .t-facilities__pageFooter{
+      width:100%; float:left;      
+      border-top: $shadow solid 1px; 
+      box-shadow: inset 0 2px 2px -2px $light;  
+      @include b-nextPage($ctaColor);
+      @include rhythm($ms-0, $ms-0, 0, $ms-1, $font-size-med); 
+    }//end t-facilities__heading
+
+        
+    .main{           
+        padding: 1.618em 0;
+        article{ 
+          display:flex; 
+          flex-flow: column nowrap;
+         }//end article
+    }//end main
+    .sidebar{
+          #m-secNav{
+              
+              li{ font-size: 1em;}
+              
+          }  
+    }//end sidebar 
+       
+       
+      
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		 @include grid-mobile1;
+        .main{@include grid-span(4,1); }
+	    .sidebar{@include grid-span(4,1); clear:left; }
+	  }
+	  @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+	    @include grid-mobile2; //6 columns
+        .main{@include grid-span(6,1); }
+	    .sidebar{@include grid-span(6,1); clear:left; }
+	  }
+	  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+	    @include grid-tablet;  //8 columns
+        .main{@include grid-span(5,1); }
+	    .sidebar{@include grid-span(3,6); }
+	  }
+	  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+	    @include grid-desktop1;  //12 columns
+        .main{@include grid-span(9,1); }
+	    .sidebar{@include grid-span(3,10); }
+	  }
+	  @include breakpoint($bp-desktop2-1){
+	    @include grid-desktop2;  //16 columns
+	    .main{@include grid-span(12,1); }
+	    .sidebar{@include grid-span(4,13); }
+	  }
+    }// end #core
+
+}//end t-facilities__body
+
+.edit-mode{ }
+
+.t-facilities--features{
+     @include m-cardListing( shade($bgColor,2.5), //bgColor
+                             $bgColor,            //cardColor
+                             $textColor,          //textColor
+                             $titleColor,         //titleColor
+                             $ctaColor,           //ctaColor
+                             $accentColor3,        //accentColor
+                             shade($shadow,2),    //shadowColor
+                             shade($light,1));    //lightColor
+
+    .m-cardListing{
+      .b-card__cta{
+        background:$accentColor3;
+        .btn{ @include btn(darken($ctaColor, 5), darken($accentColor3, 3), $accentColor3 ); &:visited{ color:$accentColor3;} }
+        .btn--outline{@include btn_outline($accentColor3, darken($accentColor3, 3), darken($ctaColor, 5) ); }
+      }
+    }//end m-cardListing
+
+     //.b-card__cta{ .btn--outline{@include btn_outline($bgColor, darken($bgColor, 3), $linkColor ); }}
+}//end l-facilities--features
+
+.t-facilities--home{
+  #core.t-facilities__core{
+    background:$textColor;
+    color: $bgColor;
+    article{
+      h2{
+        color:$bgColor;
+        @extend .font-BlkCn;
+        text-transform: uppercase;
+        border:0;        
+        margin:0;
+        padding:0;
+        line-height: 0.8049em;
+      }//end h2
+      p{
+        color:$bgColor;
+        font-size:$ms-1+em;
+        margin:$ms-2n+em 0; 
+        line-height: 1.25em;
+      }//end p
+      .btn--outline{
+        @include btn_outline($textColor, darken($textColor, 10), $bgColor);
+        &:hover, &:focus{ border-color: $accentColor1; color: $accentColor1; }
+      }
+
+      .obj-multiCol{        
+        padding: $ms-4+em  0;
+         li{border:0; box-shadow:none;}//end li
+      }
+
+      @include breakpoint($bp-desktop2-5){
+        .obj-multiCol{ font-size: $ms-1+em;}
+      }
+
+    }//end article
+  }//end t-facilities__core
+}//end t-facilities--home
+
+
+.t-facilities--backpage{
+    #core.main{}//end #core.main
+}//end l-facilities--goal
+
+.t-facilities--feature{
+  .b-featureAssets{margin: 0.618em 0;}
+  .b-featureAssets__img, .b-featureAssets__cta{
+    margin-top: 1.618em;
+    @extend %obj-wrapper;
+   }
+}//end t-facilities--feature
+
+}@include t-facilities;

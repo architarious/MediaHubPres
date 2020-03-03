@@ -1,0 +1,101 @@
+@mixin b-card($bgColor: $lbg, 
+              $textColor: $black,
+              $titleColor: $primary,
+              $linkColor: $tertiary,
+			  $accentColor: shade($bgColor, 5),
+              $shadow: $lbg--shadow, 
+              $light: $lbg--light ){
+    .b-card{
+        display:flex;
+        position:relative;  
+        flex-flow: column nowrap;
+        width:100%;
+        background:$bgColor;
+        border-radius: 0.2em;        
+        box-shadow: 0 6px 11px -5px $shadow;
+        justify-content: flex-start;
+       
+    }//end b-card
+
+    .b-card__header{
+        display:flex;
+        width:100%;
+        order:1;
+        
+        
+    }//end b-card__header
+    .b-card__image{ 
+        width:100%;
+        img{
+            width:100%; height:auto;
+            padding:0; margin:0;
+            border-top-left-radius: 0.2em;
+            border-top-right-radius: 0.2em;
+        }//end img
+    }//end b-card__image
+    .b-card__body{
+        display:flex;
+        order:2;
+        flex-grow:1;
+        width:100%;
+        flex-flow:column nowrap;
+        padding: ms(-5);
+    }//end b-card__body
+    .b-card__title{
+        color:$titleColor;
+        border-bottom:0;
+        @include adjust-font-size-to($font-size-med-2);
+        @include rhythm(0, $ms-2n, $ms-4n, 0, $font-size-med-2);
+    }//end b-card__title
+    .b-card__copy{
+        color:$textColor;
+        p, li, strong, em, h2, h3, h4, h5, h6{ color: $textColor; margin-top:0; padding-top:0;}
+        @include adjust-font-size-to($font-size-med);
+        @include rhythm(0, $ms-2n, $ms-2n, 0, $font-size-med);
+        a{ color: $linkColor;  }
+        p a{ 
+            border-bottom-color: $linkColor; 
+            color: $textColor;
+            &:hover, &:active{ background-color: lighten($bgColor, 5); border-top-color: $linkColor;}
+
+          
+        }//end p a
+    }//end b-card__copy
+    .b-card__cta{
+        background: $accentColor;
+        display:flex;
+        flex-flow:row wrap;
+        order:3;
+        align-self: flex-end;
+        padding: ms(-5);
+        width:100%;   
+        border-radius:0; 
+        border-bottom-left-radius: 0.2em;
+        border-bottom-right-radius: 0.2em;
+        @include adjust-font-size-to($font-size-small-2);
+        @include rhythm(0, $ms-2n, $ms-2n, 0, $font-size-med-2); 
+        .btn{ @include btn($linkColor, darken($bgColor, 3), $bgColor ); &:visited{ color:$bgColor;} }
+        .btn--outline{@include btn_outline($bgColor, darken($bgColor, 3), $linkColor ); }
+        a{
+            margin-right: 0.618em;
+            &:last-child{margin-right:0;}
+        }//end a
+        ul{ 
+            padding:0; margin:0;
+            & > li{ 
+                display: inline;
+                list-style:none;
+                padding: 0.618em;
+                border-right: solid 1px darken($accentColor, 5);
+                box-shadow: 1px 0 0 0 lighten($accentColor, 5);
+                &:last-child{border-right:0; box-shadow:none;}
+                a{ color: $linkColor; text-decoration: underline; }
+            }//end li
+        }
+          
+    }//end b-card__trigger
+
+
+
+
+}@include b-card();

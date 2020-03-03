@@ -1,0 +1,115 @@
+/******************************************
+Original structure of m-uGradProgs
+
+.m-uGradProgs{
+  .container{}//end container
+}//end m-uGradProgs
+.m-uGradProgs__head{}//end m-uGradProgs__head
+.m-uGradProgs_head__title{}//end m-uGradProgs_head__title
+.m-uGradProgs__body{}//end m-uGradProgs__body
+.m-uGradProgs__list{
+  li{
+    .b-ctaTile{}//end b-ctaTile
+  }//end li
+}//end m-uGradProgs__list
+.m-uGradProgs__featLinkList{}//end m-uGradProgs_head__featLinkList
+*/
+
+
+@mixin m-uGradProgs(
+  $bgColor: $primary,
+  $titleColor: $white,
+  $ctaColor: $quadrary,
+  $accentColor: $secondary,
+  $shadow: $primary--shadow,
+  $light: $primary--light
+){
+.m-uGradProgs{
+  background:$bgColor;
+}//end m-uGradProgs
+.m-uGradProgs{}//end m-uGradProgs
+.m-uGradProgs__head{
+  width:100%; float:left;
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}//end m-uGradProgs__head
+.m-uGradProgs_head__title{
+  color:$titleColor;
+  border:0;
+  @extend .font-Bd;
+  @include adjust-font-size-to($font-size-large);
+  @include rhythm(0, $ms-0, $ms-0, 0, $font-size-large);
+}//end m-uGradProgs_head__title
+.m-uGradProgs__body{
+  width:100%; float:left;
+}//end m-uGradProgs__body
+.m-uGradProgs__list{
+  display:flex;
+  flex-flow: row nowrap;
+  padding:0; margin:0;
+  li{ 
+    //width:31.3%;
+    float:left;
+    list-style:none;
+    margin-left: 1%;
+    &:first-child{margin-left:0}
+    //&:nth-child(4){margin-left:0;}
+    @include b-ctaTile($coolblack, $titleColor, $accentColor, $bgColor);
+    .b-ctaTile__text{font-size: 1.1em;}
+  }//end li
+  .b-ctaTile{ }//end b-ctaTile
+}//end m-uGradProgs__list
+.m-uGradProgs__featLinkList{ 
+  @include adjust-font-size-to($font-size-large);
+  @include rhythm(0, $ms-3n, $ms-3n, 0, $font-size-large);
+  @include b-featLinkList__main($bgColor);
+  width:100%;  float:left;
+  .b-featLinkList{ 
+    float:left;
+    li{ float:right;}
+    li:last-child{ padding-left: 0;}
+    li:first-child{ padding-left: 10px;}
+
+  }//end b-featLinkList
+}//end m-uGradProgs_head__featLinkList
+
+
+@include breakpoint($bp-mobile1-1 $bp-tablet-1){
+  .m-uGradProgs__list{
+    flex-flow: row wrap;
+    li{      
+      width:48%;
+      margin-left:2%;
+      &:nth-child(4){margin-left: 2%;}
+      &:nth-child(odd){margin-left:0;}
+      }//end li
+  }//end m-uGradProgs__list
+}//end breakpoint
+
+@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+  .m-uGradProgs__list{
+    flex-flow: row wrap;
+    li{
+      width:48%;
+      margin-left:2%;
+      &:nth-child(4){margin-left: 2%;}
+      &:nth-child(odd){margin-left:0;}
+      }//end li
+  }//end m-uGradProgs__list
+}//end breakpoint
+
+
+@include breakpoint($bp-desktop1-1 $bp-desktop2-5){
+  .m-uGradProgs__list{
+    flex-flow: row wrap;
+    li{
+      width:23%;
+      margin-left:2%;
+      &:nth-child(5){margin-left: 0%;}
+      //&:nth-child(odd){margin-left:0;}
+      }//end li
+  }//end m-uGradProgs__list
+}//end breakpoint
+
+}//end mixin

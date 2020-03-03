@@ -1,0 +1,93 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+@mixin l-auctionHome(
+    $bgColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light
+){
+body.template-auction_home, .l-auctionItem{
+
+//@extend body.template-backpage;
+   #page-wrap{
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    }
+
+ 
+	#header{
+		#s-header__cpass{}
+		#s-header__site{}
+	}//end #header
+	#prefix{
+      .s-prefix__content{ @include rhythm($ms-4, 0, 0, $ms-4, $font-size-med);}
+      .subTitle{ 
+          color:$bgColor;
+      }//end subTitle
+      .b-aucItem{}//end .b-aucItem
+      .b-aucItem__img{}//end .b-aucItem__img
+      .b-aucItem__body{}//end .b-aucItem__body
+      .b-aucItem__name{}//end .b-aucItem__name
+      .b-aucItem__description{}//end .b-aucItem__description
+      .b-aucItem__bids{}//end .b-aucItem__bids
+      .b-aucItem__bids_current{}//end .b-aucItem__bids_current
+      .b-aucItem__bids_opening{}//end .b-aucItem__bids_opening  
+
+
+      @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+           .b-aucItem{ flex-flow: column nowrap;}//end b-aucItem
+           .b-aucItem__img{}//end .b-aucItem__img
+           .b-aucItem__body{ padding-left:0; padding-top:ms(0);}//end .b-aucItem__body
+		 }
+		 @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+		   @include grid-mobile2; //6 columns
+           .b-aucItem{ flex-flow: column nowrap;}//end b-aucItem
+           .b-aucItem__img{}//end .b-aucItem__img
+           .b-aucItem__body{ padding-left:0; padding-top:ms(0);}//end .b-aucItem__body
+		 }
+		 @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		   @include grid-tablet;  //8 columns
+		   .b-aucItem{}//end b-aucItem
+           .b-aucItem__img{}//end .b-aucItem__img
+           .b-aucItem__body{}//end .b-aucItem__body
+		 }
+		 @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		   @include grid-desktop1;  //12 columns
+		   .b-aucItem{}//end b-aucItem
+           .b-aucItem__img{}//end .b-aucItem__img
+           .b-aucItem__body{}//end .b-aucItem__body
+		 }
+		 @include breakpoint($bp-desktop2-1){
+		   @include grid-desktop2;
+		   .main{@include grid-span(10,4); }
+		   .sidebar-l{@include grid-span(3,1);}
+		   .sidebar{@include grid-span(3,14); }
+		 }
+
+
+	}//end #prefix
+
+
+
+
+	#core{
+      @include m-auctionListing($bgColor, $textColor, $titleColor, $ctaColor, $shadow, $light); 
+     }// end #core
+	#postfix{}//end #postfix
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+}//end body
+
+.edit-mode{ 
+        .b-aucItem__img{min-width: 300px;} 
+}
+}@include l-auctionHome;

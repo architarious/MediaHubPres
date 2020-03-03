@@ -1,0 +1,33 @@
+@mixin b-downloadPDF(
+    $bgColor: $white,
+    $shadow: shade($bgColor, 10),
+    $fontSize: $font-size-med,
+    $fontWeight: $BlkCn
+){
+   .b-downloadPDF{ 
+
+       @include b-featuredLink($bgColor, $SecDarkOrange, $white, $shadow, $fontSize, $fontWeight);
+
+       .b-featuredLink h3:before, .b-featuredLink .title:before{ box-shadow:none;}
+
+
+       //begin element queries
+        &[data-eq-state="small"]{
+            //0px
+         } 
+        &[data-eq-state="medium"]{
+            //200px
+            //@include b-featuredLink($bgColor, $SecDarkOrange, $white, $shadow, $fontSize*1.618, $fontWeight);
+            .b-featuredLink h3{ font-size: $fontSize*1.618; line-height: 0.8048em;}
+         }
+        &[data-eq-state="large"],  &[data-eq-state="x-large"]{
+            //400px
+             .b-featuredLink{ @include b-featuredLink--mini(ms(7), $SecDarkOrange, $white, darken($SecDarkOrange, 5), $shadow, $fontSize, $fontWeight); }          
+         }
+        &[data-eq-state="x-large"]{
+            //550px
+            .b-featuredLink h3{ font-size: $fontSize*1.618; line-height: 0.8048em;}
+         }//end element queries 
+
+    }//end .b-downloadPDF
+}//end b-downloadPDF mixin

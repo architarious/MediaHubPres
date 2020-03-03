@@ -1,0 +1,76 @@
+@mixin s-HoF(
+    $bgColor: $secondary,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $accentColor: $quadrary,
+    $linkColor: $tertiary,
+    $shadow: $secondary--shadow,
+    $light: $secondary--light){
+        .s-HoF{
+            width:100%; float:left;
+            @include add-noise();            
+            background-color: $bgColor;
+            display:flex;
+            flex-flow: column nowrap;
+            font-size:1rem;
+            @include rhythm(0, $ms-4, $ms-4, 0, $font-size-med);    
+        }//end s_HoF
+        .s-HoF__header{
+            display:flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }//end s_HoF__header
+        .s-HoF__title{
+            h2{ 
+                @extend %font-Serif;
+                border-bottom: none;
+                @include adjust-font-size-to($font-size-xxlarge);
+                margin:0; padding:0;
+                color:$titleColor;
+            }
+            
+            &:hover, &:focus{
+                h2{ color: $linkColor;}
+            }
+        }//end s_HoF__title
+        .s-HoF__nav{
+            align-items:center;
+            display:flex;
+            .navList{
+                @extend %font-Bd;
+                @include navList--recolor($linkColor, $shadow, $light);
+                li a{ text-transform: none ;}
+            }
+        }//end s_HoF__nav
+        .s-HoF__profiles{
+            .m-facultyIndex{
+                @include rhythm($ms-0, 0, 0, $ms-0, $font-size-med);                
+                
+                .b-facultyCard__title{ 
+                    color: $textColor !important; 
+                    border-bottom: ms(-9) solid $linkColor !important;
+                }
+                .b-facultyCard__subtitle{ color: $textColor !important;}
+                .b-facultyCard{ 
+                    &:focus, &:hover{
+                        text-decoration: none;
+                        .b-facultyCard__title, .b-facultyCard__subtitle{
+                            color: darken($linkColor,5) !important;
+                        }
+                    } 
+                }
+
+                &[data-eq-state=xx-large]{
+                    .m-facultyIndex__full li{
+                        .b-facultyCard__title{font-size: $font-size-large;} 
+                    }
+                } 
+            }//end m-facultyIndex
+            
+            
+        }//end s_HoF__profiles
+        //.s-HoF__footer{}//end s_HoF__footer
+        @include breakpoint($bp-mobile1-1 $bp-desktop2-1){
+            .s-HoF__header{ flex-flow: column nowrap;}            
+        }
+    }@include s-HoF

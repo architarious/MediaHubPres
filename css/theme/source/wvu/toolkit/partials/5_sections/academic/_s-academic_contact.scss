@@ -1,0 +1,166 @@
+#core #s-academic_contact{
+	.main{}//end main
+	.sidebar{}//end .sidebar
+	.main--full{
+		h2{ width: 100%; max-width:100%;}
+	}
+
+	.m-academic_resources{}//end .m-academic_resources
+
+	.b-contactCard{}//end .b-contactCard
+}//end #s-academic_contact
+
+
+@mixin s-academic_contact(
+	$bgColor: $primary,
+	$titleColor: $quadrary,
+	$textColor: $lbg,
+	$ctaColor: $quadrary,
+	$shadow: $primary--shadow,
+	$light: $primary--light
+){
+	.s-academic_contact,#s-academic_contact{
+		background: url('../images/academic/contact-bg.jpg') no-repeat top right $bgColor;
+		background-size: cover;
+		margin-bottom:0;
+		padding-bottom:5.30091em;
+		box-shadow: inset 0 7px 9px -7px $shadow;
+		.main{
+			width:100%;
+			.s-academic_contact__header{
+				.obj-titleWrapper{
+					font-size: 2.023em;				
+					.obj-preHeader{ color:$textColor;}//end obj-preHeader
+					h1{ 
+						color:$textColor;
+						background: url('../images/diagonal-gold.png') no-repeat top right;
+						background-size: contain;
+						width: auto;
+						padding-right: 0.9em;
+						}//end h1
+				}//end obj-titleWrapper
+				.obj-contentWrapper{
+					p.kicker{
+						color:$titleColor;
+						@extend .font-Obl;
+					}//end kicker
+				}//end obj-contentWrapper
+			}//.s-academic_contact__header
+			.s-academic_contact__body{ float:left; width:100%;}//.s-academic_contact__body
+			.s-academic_contact__column{}//end s-academic_contact__column 
+			.s-academic_contact__inquire{width:60%; float:left;}//end s-academic_contact__inquire 
+			.s-academic_contact__request, .s-academic_contact__visit, .s-academic_contact__webinar{ 
+				padding-right: 3em;
+				.btn--outline{ @include btn_outline(transparent, $shadow, $SecLightOrange); }
+			}//.s-academic_contact__request	
+			.s-academic_contact__visit{ 
+				padding-right: 3em; 
+				.btn--outline{ @include btn_outline(transparent, $shadow, $SecLightBlue); }
+			}//.s-academic_contact__visit	
+			.s-academic_contact__webinar{}
+			.s-academic_contact__eventListing{
+				display: flex;
+				flex-flow: row wrap;
+				.calEvent{
+
+					margin-bottom: 0.5em;
+					display: inline-block;
+					margin-right: $ms-2n+em;
+					float:left;
+					@include rhythm(0, 0, $ms-8n, $ms-4n, $font-size-small-2);
+					//@include trailing-border(ms(-10), $ms-2n, $font-size-small-2, solid);
+					//border-color:$shadow;
+					//box-shadow:0 ms(-10) 0 0 $light;
+			
+					&:last-child{}
+			
+			
+				  .eventDate{
+					  float: left;
+					  text-align: center;
+					  padding-bottom: ms(-4);					
+					  min-width: $ms-7+em;
+					  @include btn_outline(transparent, $shadow, $ctaColor);
+					  @include rhythm(0, $ms-4n, $ms-4n, 0, $font-size-small-2);
+					//border-color:transparent;
+					@include standard-transition(all, 0.25s);
+					//&:hover, &:focus{ border-color: $titleColor;}
+					  }//end .b-wvuCalendar__event
+			
+					  .eventMonth{
+						  @include adjust-font-size-to($font-size-small-2);
+					  line-height:1em;
+						  text-transform: uppercase;
+						  @include breakpoint($bp-mobile1-1){
+							font-family:$Lt;
+							font-weight:200;
+						  }
+					  }
+					  .eventDay{
+						  display: block;
+						  @include adjust-font-size-to($font-size-large-2);
+					  line-height:1em;
+						  //@include adjust-leading-to($ms-1);
+						  @include rhythm(0, 0, 0, 0, $font-size-small-2);
+						  @include breakpoint($bp-mobile1-1){
+							font-family:$BlkCn;
+							font-weight:800;
+						  }
+					  }
+				}
+			}
+			.s-academic_contact__eventDay{ margin-right: $ms-1+em; &:last-child{ margin-right:0;}}
+			.s-academic_contact__info{width:40%; float:left;}//.s-academic_contact__info
+
+			.s-academic_contact__subTitle{
+				color:$textColor;				
+				border-bottom:0;
+				padding-bottom:0;
+				margin-bottom:0;
+				@extend .font-Bd;
+			}//.s-academic_contact__subTitle
+			.s-academic_contact__subText{
+				color:$textColor;
+			}//.s-academic_contact__subText
+			.s-academic_contact__cta{
+				
+			}//end .s-academic_contact__cta
+			.s-academic_contact__cards{
+				@include b-contactCard($bgColor, $textColor, $ctaColor, $bgColor, $shadow); 
+				.b-contactCard{
+					border-bottom: 1px solid $shadow; box-shadow: 0 3px 4px -3px $light;
+					padding-bottom: 1em;
+					&:last-child{padding-top: 1.618em; border-bottom:0; box-shadow:none;}
+				}//end b-contactCard
+			}//end .s-academic_contact__cards
+
+			@include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+				@include grid-mobile1;
+				.s-academic_contact__inquire{@include grid-span(4,1); clear:both;}
+				.s-academic_contact__info{@include grid-span(4,1); }
+				.s-academic_contact__header .obj-titleWrapper{ font-size: 1.618em; }
+			  }
+			  @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+				@include grid-mobile2;
+				.s-academic_contact__inquire{@include grid-span(6,1); clear:both;}
+				.s-academic_contact__info{@include grid-span(6,1); }
+			  }
+			  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+				@include grid-tablet;
+				.s-academic_contact__inquire{@include grid-span(5,1); }
+				.s-academic_contact__info{@include grid-span(3,6); }
+			  }
+			  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+				@include grid-desktop1;
+				.s-academic_contact__inquire{@include grid-span(8,1); }
+				.s-academic_contact__info{@include grid-span(4,9); }
+			  }
+			  @include breakpoint($bp-desktop2-1){
+				@include grid-desktop2;
+				.s-academic_contact__inquire{@include grid-span(12,1); }
+				.s-academic_contact__info{@include grid-span(4,13); }
+			  }
+		}//end main
+	}//.s-academic_contact, #s-academic_contact
+}//end s-academic_contact
+#core{ @include s-academic_contact(); }

@@ -1,0 +1,26 @@
+//Blocks
+@import "./cpass-toolkit/3_blocks/b-cta__events"; //~40kb -- take a look
+//@import "../../../../cpass-toolkit/scss/partials/3_blocks/b-cta__news"; 
+@import "../3_blocks/b-chip"; 
+
+//Modules
+//@import "../4_modules/m-programDir"; //40kb --take a look    //used on old homepage
+@import "../4_modules/m-cta--news";                          //used on homepage
+@import "../4_modules/m-facultySpotlight";                   //used on homepage
+@import "../4_modules/m-gradProgs";                          //used on homepage
+@import "../4_modules/m-uGradProgs";                         //used on homepage  
+@import "../4_modules/m-newsFeed";
+
+//Sections
+@import './cpass-toolkit/5_sections/s-spotlights';      //homepage only 
+@import '../5_sections/s-collegeNews';  // 50kb -- have a look
+@import '../5_sections/s-collegeHero';  
+@import '../5_sections/s-programs-v2'; 
+//@import '../5_sections/s-commencement'; 
+//@import '../5_sections/s-150years';   
+@import '../5_sections/s-startFast-v2';
+
+//Templates
+@import "../6_templates/t-frontpage"; 
+
+.l-frontpage{}//end l-frontpage

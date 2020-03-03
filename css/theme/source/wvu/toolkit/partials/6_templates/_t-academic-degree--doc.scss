@@ -1,0 +1,77 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+ 
+body.template-academic-degree--doc{   
+  
+   #page-wrap{
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    } 
+  
+
+	#header{
+		#s-header__cpass{}
+		#s-header__site{}
+	}//end #header
+	#prefix{
+	}
+	#core{
+		//@include secNav(right);  
+
+		//@include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		//   @include grid-mobile1;
+		//   .main{@include grid-span(4,1); clear:both;
+		//   	  .b-faculty_card{}
+		//   }//end .main
+		//   .sidebar{@include grid-span(4,1); clear:both}
+		//   .m-sidebar_links{@include grid-span(4,1); }
+		// }
+		// @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+		//   @include grid-mobile2;
+		//   .main{@include grid-span(6,1); clear:both;
+		//   	  .b-faculty_card{}
+		//   	}//end .main
+		//   	.sidebar{@include grid-span(3,1); clear:right;}
+		//   	.m-sidebar_links{@include grid-span(3,4);  }
+		// }
+		// @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		//   @include grid-tablet;
+		//   .main{@include grid-span(5,1); 
+		//   	.b-faculty_card{}
+		//   }//end .main
+		//   .sidebar{@include grid-span(3,6);}
+		//   .m-sidebar_links{@include grid-span(3,6); clear:right; }
+		// }
+		// @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		//   @include grid-desktop1;
+		//   .m-sidebar_links{@include grid-span(3,10);  }
+		//   .main{@include grid-span(6,4); 
+		//   	.b-faculty_card{ }
+		//   }//end .main
+		//   .sidebar{@include grid-span(3,1); }
+		//   @include secNav(left);
+		// }
+		// @include breakpoint($bp-desktop2-1){
+		//   @include grid-desktop2;
+		//   .m-sidebar_links{@include grid-span(3,14);  }
+		//   .main{@include grid-span(10,4); 
+		//   	.b-faculty_card{ }
+		//   }//end .main
+		//   .sidebar{@include grid-span(3,1); }
+		//   @include secNav(left);
+		// }
+
+		 
+	}// end #core
+	#postfix{
+	}
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+	
+}//end body

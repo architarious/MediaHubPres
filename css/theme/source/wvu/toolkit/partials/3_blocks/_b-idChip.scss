@@ -1,0 +1,241 @@
+@mixin b-idChip($bgColor: $white,
+                $textColor: $black,
+                $linkColor: $tertiary,
+                $shadow:shade($bgColor, 5),
+                $light: tint($bgColor, 10)){
+
+.b-idChip{
+  width:100%;
+  float:left;
+  position:relative;
+  display: flex;
+  flex-flow: row nowrap; 
+  align-items:center;
+  //@include rhythm($ms-6n, 0, 0, $ms-6n, $font-size-med);
+}//end b-idChip
+
+.b-idChip__left{
+  width:auto; max-width:25%; float:left;
+}//end b-idChip__left
+.b-idChip__photo{
+   float:left;
+   padding:0 !important;
+   position:relative;
+   top:0;
+   left:0;
+
+   &:hover, &:focus{
+     outline: 0;
+   }
+   .obj-roundedPhoto{
+     @include roundedPhoto(ms(6), $bgColor, $bgColor);
+     background-image:none;
+     border-width:0;
+     box-shadow:none;
+   }
+ }//end .b-idChip__photo
+
+.b-idChip__right{
+  width:auto; max-width:75%; float:left;
+  padding-left: ms(-2);
+}//end b-idChip__right
+.b-idChip__main{
+  width:100%; float:left;
+  @include rhythm(0, $ms-4n, $ms-4n, 0, $font-size-med);
+}//end b-idChip__main
+.b-idChip_main__name{ 
+  float:left; width:100%;
+  color:$textColor;
+  @extend .font-Bd; 
+  @include adjust-font-size-to($font-size-med);
+}//end b-idChip_main__name
+.b-idChip_main__title{  
+  float:left; width:100%;
+  color:tint($textColor, 20);
+  @include adjust-font-size-to($font-size-med);
+  @extend .font-Lt;
+}//end b-idChip_main__title
+
+/////////////////////////////////////////////////
+// link stylez
+/////////////////////////////////////////////////
+a .b-idChip{
+  .b-idChip_main__name{ 
+    color: $linkColor;
+    &:hover, &:focus{
+      outline: 0;
+      color: lighten($linkColor, 5);
+    }
+    &:active, &:visited{
+      color: darken($linkColor, 5);
+    }
+  }//end b-idChip_main__name
+}//end a .b-idChip
+
+    
+
+    //figcaption{
+    //  width:auto;
+    //  float:left;
+    //  padding-left:ms(-1); 
+    //  position:absolute;
+    //  top:50%;
+    //  transform:translateY(-50%);
+    //  left: ms(6);
+    //  color:$textColor;
+    //}//end figCaption
+
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_xx-small: set-alpha($SecOlive, 0.3);
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.b-idChip{
+ @if $test=='on'{
+  background:$eqColor;
+  position:relative;
+  &:before{
+    font-size:ms(-2);
+    //margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+    position:absolute; 
+    z-index:100;
+    top:-18px;
+  }
+ }//test settings
+
+  &[data-eq-state="xx-small"]{
+    @if $test=='on'{$eqColor: $eqColor_xx-small; background: $eqColor; &:before{content:"xx-small"; color:darken($eqColor,40);}}
+    flex-flow: column nowrap;
+    text-align:center;
+    margin:0;
+    .b-idChip__left{width:100%; max-width:100%; float:left; }//end b-idChip__left
+    .b-idChip__right{
+      width:100%; max-width:100%; float:left;
+      padding-left:0;   
+     }//end b-idChip__right
+    .b-idChip__photo{
+      float:none;
+      margin:0 auto;
+      .obj-roundedPhoto{
+        @include roundedPhoto(ms(6), $bgColor, $bgColor);
+        background-image:none;
+        border-width:0;
+        box-shadow:none;       
+      }
+    }//end b-idChip__photo
+    .b-idChip__main{
+      padding:0;
+    }//end b-idChip__main
+  }//end x-small
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    flex-flow: column nowrap;
+    text-align:center;
+    margin:0;
+    .b-idChip__left{width:100%; max-width:100%; float:left; }//end b-idChip__left
+    .b-idChip__right{
+      width:100%; max-width:100%; float:left;
+      padding-left:0;   
+     }//end b-idChip__right
+    .b-idChip__photo{
+      float:none;
+      margin:0 auto;
+      .obj-roundedPhoto{
+        @include roundedPhoto(ms(8), $bgColor, $bgColor);
+        background-image:none;
+        border-width:0;
+        box-shadow:none;       
+      }
+    }//end b-idChip__photo
+    .b-idChip__main{
+      padding:0;
+    }//end b-idChip__main
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    .b-idChip_main__name{ 
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }//end .b-idChip_main__name and title
+    .b-idChip__photo .obj-roundedPhoto{
+      @include roundedPhoto(ms(6), $bgColor, $bgColor);
+      background-image:none;
+      border-width:0;
+      box-shadow:none;   
+    }
+    
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+     .b-idChip__main{
+       @include rhythm(0, $ms-2n, $ms-4n, 0, $font-size-med);
+     }//end b-idChip__main
+    .b-idChip_main__name{ 
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }//end .b-idChip_main__name and title
+    .b-idChip__photo .obj-roundedPhoto{
+      @include roundedPhoto(ms(7), $bgColor, $bgColor);
+      background-image:none;
+      border-width:0;
+      box-shadow:none;   
+    }
+    
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+    .b-idChip__main{
+       @include rhythm(0, $ms-0, $ms-4n, 0, $font-size-large);
+     }//end b-idChip__main
+    .b-idChip_main__name{
+      @include adjust-font-size-to($font-size-large);
+      line-height:ms(2);
+    }//end .b-idChip_main__name and title
+    .b-idChip_main__title{
+      @include adjust-font-size-to($font-size-med-2);
+      line-height:ms(1);
+    }
+    .b-idChip__photo .obj-roundedPhoto{
+      @include roundedPhoto(ms(8), $bgColor, $bgColor);
+      background-image:none;
+      border-width:0;
+      box-shadow:none;   
+    }
+    
+  }//end large
+
+
+}//end .b-idChip 
+
+
+
+}//end mixin
+@include b-idChip;
+

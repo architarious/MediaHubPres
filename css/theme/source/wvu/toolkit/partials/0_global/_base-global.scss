@@ -1,0 +1,86 @@
+////////////////////////
+// Base Partials
+//
+// These files will be shared across all three of your output
+//  CSS files. Generally included here are only Compass Extension
+//  imports and imports for variables, functions, mixins, and extendables.
+//
+// Toolkit imports all of Compass, so there is no need to import it separately.
+////////////////////////
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//rewriting variables from wvu-patterns to play nice with compass extensions
+$base-font-size: 16px; 
+$base-line-height: 20.022px;
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////
+// Vendor imports via bower
+//////////////////////////
+
+$bowerPath: '../../../bower_components/';
+
+// Compass mixins
+// -----------------------------------------------------------------------------
+@import "vendor/lib/_compass";
+//@import "vendor/lib/_lemonade";
+
+// Compass reliant tools
+// -----------------------------------------------------------------------------
+//@import "vendor/breakpoint/breakpoint";
+@import "vendor/modular-scale/modularscale";
+//@import "vendor/singularity/singularitygs";
+@import "vendor/color-schemer/color-schemer";  // make sure to comment out @import blendmodes in this file when first setting up
+//@import "vendor/sassy-buttons/sassybuttons";
+
+// Normalize 
+// -----------------------------------------------------------------------------
+//@import "vendor/normalize-scss/normalize";
+
+// SCUT: Common sass utilities ( https://davidtheclark.github.io/scut/ )
+// ----------------------------------------------------------------------------- 
+//@import "vendor/Scut/";
+
+// Element Queries
+// -----------------------------------------------------------------------------
+//@import "vendor/element-queries/eq";
+
+// FontAwesome
+// -----------------------------------------------------------------------------
+//@import "font-awesome";
+
+// Bootstrap 
+// -----------------------------------------------------------------------------
+//@import "vendor/bootstrap/bootstrap";
+
+
+$legacy-support-for-ie: true;  
+$legacy-support-for-mozilla: false;    
+
+       
+
+////////////////////////
+// Vendor imports
+////////////////////////
+
+//@import 'vendor/eq';
+//@import 'vendor/bootstrap-variables';
+
+
+////////////////////////
+// Private Imports
+////////////////////////
+
+
+@import 'variables'; 
+@import 'functions';
+@import 'mixins';
+@import 'extendables';
+
+
+////////////////////////
+// NON-TOOLKIT Imports
+////////////////////////
+

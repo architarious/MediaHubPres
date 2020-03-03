@@ -1,0 +1,33 @@
+@mixin m-jobListing($bgColor: $lbg,
+        $textColor: $black,
+        $titleColor: $primary,
+        $accentColor: $quadrary,
+        $linkColor: $tertiary,
+        $light: $lbg--light,
+        $shadow: $lbg--shadow){
+
+  .m-jobListing{
+      float:left; width:100%;
+      & > div {float:left; width:100%;}
+      //h2{}//end h2
+      //p{}//end p
+   }//end m-jobListing
+  .m-jobListing__deadline{
+      font-size: 2em;
+      background: $primary;
+      border-radius: 0.02em;
+      padding: 0.618em; 
+      color:$bgColor;
+      margin-top:1.618em;
+      span{ color:$accentColor; text-transform: uppercase;}
+  }//end m-jobListing__deadline
+  // listed for reference, but commented out to prevent compiling
+  //.m-jobListing__summary{}//end m-jobListing__summary
+  //.m-jobListing__duties{}//end m-jobListing__duties
+  //.m-jobListing__requirements{}//end m-jobListing__requirements
+  //.m-jobListing__addQual{}//end m-jobListing__addQual
+  //.m-jobListing__compensation{}//end m-jobListing__compensation
+  //.m-jobListing__contract{}//end m-jobListing__contract
+  //.m-jobListing__apply{}//end m-jobListing__apply
+  //.m-jobListing__addDetails{}//end m-jobListing__addDetails
+}

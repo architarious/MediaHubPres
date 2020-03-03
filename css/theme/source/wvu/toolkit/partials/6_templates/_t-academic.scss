@@ -1,0 +1,93 @@
+.template-academic, .template-academic-mds{
+  #page-wrap{
+  	    //@include bgImage( url(../images/bgImage-pete.png));
+   } 
+ 
+ .s-prefix__academic{
+  section{
+   width:100%; float:left; 	
+  }
+  .m-academic_alumni{
+  	width:100%; float:left;
+  }
+  @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+     @include grid-mobile1;
+     .main{@include grid-span(4,1); clear:both;}
+     .sidebar{@include grid-span(4,1); }
+     
+   }
+   @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+     @include grid-mobile2;
+     .main{@include grid-span(6,1); clear:both;}
+     .sidebar{@include grid-span(6,1); }
+     
+   }
+   @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+     @include grid-tablet;
+     .main{@include grid-span(5,1); }
+     .sidebar{@include grid-span(3,6); }
+     
+   }
+   @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+     @include grid-desktop1;
+     .main{@include grid-span(8,1); }
+     .sidebar{@include grid-span(4,9); }
+     
+   }
+   @include breakpoint($bp-desktop2-1){
+     @include grid-desktop2;
+     .main{@include grid-span(12,1); }
+     .sidebar{@include grid-span(4,13); }
+
+   }
+ }//end #s-prefix__academic
+ #core{
+  padding-bottom:0;
+  section{
+  	@include rhythm($ms-4, $ms-6, 0, $ms-2n, $font-size-med);
+  	width:100%;
+  	float:left;
+    &:first-child{
+      margin-top:0;
+    }
+  }	
+  @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+     @include grid-mobile1;
+     .main{@include grid-span(4,1); clear:both;}
+     .sidebar{@include grid-span(4,1); }
+     .main--full{width:100%; float:left; clear: both;}
+   }
+   @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+     @include grid-mobile2;
+     .main{@include grid-span(6,1); clear:both;}
+     .sidebar{@include grid-span(6,1); }
+     .main--full{width:100%; float:left; clear: both;}
+   }
+   @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+     @include grid-tablet;
+     .main{@include grid-span(5,1); }
+     .sidebar{@include grid-span(3,6); }
+     .main--full{width:100%; float:left; clear: both;}
+   }
+   @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+     @include grid-desktop1;
+     .main{@include grid-span(8,1); }
+     .sidebar{@include grid-span(4,9); }
+     .main--full{width:100%; float:left; clear: both;}
+   }
+   @include breakpoint($bp-desktop2-1){
+     @include grid-desktop2;
+     .main{@include grid-span(12,1); }
+     .sidebar{@include grid-span(4,13); }
+     .main--full{width:100%; float:left; clear: both;}
+   }
+ }//end #core
+}//end .template-academic
+.t-academic-online{
+  .s-prefix__academic{
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: top center;
+    .m-auxiliaryNav, .m-auxiliaryNav-v2{ background:none; border:0;}
+  }
+}

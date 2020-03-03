@@ -1,0 +1,291 @@
+@mixin m-bioCard(  $bgColor: $lbg,
+                     $textColor: $black,
+                     $linkColor: $tertiary,
+                     $accentColor: $secondary,
+                     $btnTextColor: $white,
+                     $shadowColor: $lbg--shadow,
+                     $lightcolor: $lbg--light ){
+ 
+.m-bioCard{  
+    font-size:16px;      
+	@include rhythm($ms-2, 0, 0, $ms-2, $font-size-med);
+    width:100%; float:left;
+    display:flex;
+    align-items: center;    
+	.b-bioPhoto{
+		@include roundedPhoto(ms(12), $shadowColor);
+		float:left;
+		border-image:none;  
+		img{ margin: 0 0 0 -50%;} 
+	}
+   
+}//end .m-bioCard
+
+.m-bioCard__photo{
+    order:1; 
+    float:left; align-self:flex-start;
+    .b-bioPhoto{
+        float:none; margin:0 auto;
+    }//end b-bioPhoto
+}//end m-bioCard__photo 
+.m-bioCard__header{
+    order:2; 
+    .b-bioHeader{
+        .b-bioHeader__name{
+            width:100%; float:left;
+        } 
+        .b-bioHeader__title, .b-bioHeader__title-2, .b-bioHeader__title-2 p{
+            width:100%; float:left;
+            color:tint($textColor, 15);
+            line-height:ms(1);
+        }
+        .b-bioHeader__title{ @extend .font-Bd;}
+        .b-bioHeader__title-2, .b-bioHeader__title-2 p{ @extend .font-Lt;}
+        .b-bioHeader__title-2 p{ width:auto; float:none; display:inline;}
+    }//end b-bioHeader
+}//end m-bioCard__header 
+.m-bioCard__contact{
+    order:3; 
+    .b-bioContact{
+        color:$textColor;
+        strong{ color:tint($textColor, 10);}
+        a{ color:$linkColor;}
+        a:hover, a:focus{ color:tint($linkColor, 15);}
+        a:active, a:visited{ color: darken($linkColor, 5);} 
+        @include rhythm($ms-2n, 0, 0, $ms-2n, $font-size-med);
+
+        li{ 
+            width:100%; float:left;
+            @include rhythm($ms-6n, 0, 0, $ms-6n, $font-size-med );
+            &:first-child{ margin-top:0;}
+            
+        }//end li
+    }//end b-bioContact
+}//.m-bioCard__contact
+.m-bioCard__details{
+    order:4; 
+    .b-bioDetails{
+        width:100%; float:left;
+        @include rhythm($ms-0, 0, 0, $ms-2n, $font-size-med);
+       & > li{
+         .title{ width:100%; float:left;
+             @include rhythm($ms-2n, 0, 0, $ms-6n, $font-size-med );
+         }//end title
+         .copy{ 
+             width:100%; float:left;
+             @include rhythm(0, $ms-6n, $ms-6n, 0, $font-size-small-2 );
+           p{ 
+               width:100%; float:left;
+               @include rhythm(0, 0, 0, 0, $font-size-small-2 );
+           }//end p:first-child
+           ul{
+               width:100%; float:left;
+               @include rhythm(0, 0, 0, 0, $font-size-small-2 ); 
+               padding-left: ms(0);          
+               li{ 
+                   @include adjust-font-size-to($font-size-med);
+                   @include rhythm(0, $ms-7n, $ms-7n, 0, $font-size-med );
+                   list-style:disc;
+                }
+           }//end ul 
+         }//end copy
+         &:first-child h4{ margin-top:0;}
+       }//end & > li
+    }//end b-bioDetails
+}//m-bioCard__details
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black; 
+$eqColor_xx-small: set-alpha($SecOlive, 0.3);
+$eqColor_x-small: set-alpha($SecLightGold, 0.4);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3); 
+$eqColor_x-large:set-alpha($SecBrown, 0.3); 
+ 
+
+
+
+  .m-bioCard{
+   @if $test=='on'{
+    background:$eqColor; 
+    position:relative;
+    &:before{
+      font-size:ms(-2);
+      //margin-top:ms(-2)*(-1);
+      float:left;
+      color:$eqColor;
+      position:absolute; 
+      z-index:100;
+      top:-18px;
+    }
+   }//test settings  
+  
+  
+      &[data-eq-state="xx-small"], &[data-eq-state="x-small"], &[data-eq-state="small"]{
+           @if $test=='on'{$eqColor: $eqColor_xx-small; background: $eqColor; &:before{content:"xx-small"; color:darken($eqColor,40);}}
+        
+        flex-direction:column;
+        .m-bioCard__header{
+            width:100%; float:left;
+        }//wnd m-bioCard__header
+        .b-bioPhoto{ @include roundedPhoto(ms(9), $shadowColor); }
+        .b-bioHeader__name{
+            @include adjust-font-size-to($font-size-large);
+        }
+        .b-bioHeader__title, .b-bioHeader__title-2, .b-bioHeader__title-2 p{
+            font-size:$font-size-med-2;
+            line-height: ms(1);
+        }
+        .b-bioContact{
+            strong{ 
+                width:100%;
+                float:left; 
+                border-bottom: 1px solid $shadowColor;
+                box-shadow: 0px 1px 1px 0 $lightcolor;
+                text-transform:uppercase;
+                @include rhythm(0, 0, $ms-8n, $ms-7n, $font-size-small-2 );
+                @extend .font-Lt; 
+                @include adjust-font-size-to($font-size-small-2);
+                
+            }//end strong
+        }//end b-bioContact
+        .b-bioDetails{
+            & > li{
+              .title{
+
+              }//end .title  
+              ul li{
+                @include rhythm(0, $ms-6n, $ms-6n, 0, $font-size-small-2 );
+                border-bottom: 1px solid $shadowColor;
+                box-shadow: 0px 1px 1px 0 $lightcolor;
+                width:100%; float:left;
+                &:last-child{ border-bottom:0; box-shadow:none;}                
+              }
+              p{
+                  width:100%; float:left;
+                  @include rhythm(0, 0, 0, 0, $font-size-small-2 );
+              }
+              h4{ 
+                  width:100%; float:left;
+                  @include adjust-font-size-to($font-size-med-2);
+                }
+              &:first-child{
+                  h4{ margin-top:0;}
+              }
+            }//end & > li           
+        }//end b-bioDetails
+      }//end x-small
+      &[data-eq-state="x-small"]{
+          @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+         .b-bioPhoto{ @include roundedPhoto(ms(10), $shadowColor); }
+      }//end small
+      &[data-eq-state="small"]{
+          @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+
+         flex-flow: row wrap;
+         .m-bioCard__photo{ width:auto; max-width:34%; float:left;}
+         .b-bioPhoto{border-radius: 0; }
+         .m-bioCard__header{ width: 65.9%; float:left; padding-left: ms(0);}
+         .b-bioContact li{
+             @include rhythm($ms-4n, 0, 0, $ms-6n, $font-size-med );    
+           }
+
+      }//end small
+      &[data-eq-state="medium"]{
+          @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+
+          flex-flow: row wrap;
+          .m-bioCard__photo{ width:auto; max-width:44%; float:left;}
+          .b-bioPhoto{ @include roundedPhoto(ms(11), $shadowColor); border-radius: 0; }
+          .m-bioCard__header{ width: 55.9%; float:left; padding-left: ms(0);}
+
+          .b-bioHeader__name{ @include adjust-font-size-to($font-size-large-2); }
+          .b-bioHeader__title, .b-bioHeader__title-2, .b-bioHeader__title-2 p{
+            font-size:$font-size-large;
+            line-height: ms(1);
+           }
+           .b-bioContact li{
+             @include rhythm($ms-3n, 0, 0, $ms-6n, $font-size-med );    
+           }
+   
+      }//end medium
+      &[data-eq-state="large"], &[data-eq-state="x-large"],  &[data-eq-state="xx-large"]{
+          @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+          flex-flow: row wrap;
+          //.m-bioCard__photo{ width:28%; float:left;}
+          //.m-bioCard__header{ width: 71.99%; float:left; padding-left: ms(-4);}
+          //.m-bioCard__contact{ width:28%; float:left;}
+          //.m-bioCard__details{ width:71.99%; float:left; padding-left:ms(-4);}
+          .b-bioPhoto{ 
+              @include roundedPhoto(ms(11), $shadowColor); 
+              float:left; border-radius: 0;
+              width:100%; background: transparent; height: auto;
+              img{ position:relative; margin:0; left:auto;} 
+              }
+          .b-bioHeader__name{ @include adjust-font-size-to($font-size-large-2);}
+          display:block;
+
+          .b-bioHeader__title, .b-bioHeader__title-2, .b-bioHeader__title-2 p{
+            font-size:$font-size-large;
+            line-height: ms(1);
+           }
+          @include grid-tablet;
+          .m-bioCard__photo{ @include grid-span(2,1);}
+          .m-bioCard__header{ @include grid-span(6,3);}
+          .m-bioCard__contact{ @include grid-span(6,3);}
+          .m-bioCard__details{ @include grid-span(6,3);}
+          
+    
+      }//end large
+      &[data-eq-state="x-large"]{
+          @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color: darken($eqColor,40);}}
+  
+      }//end x-large
+      &[data-eq-state="xx-large"]{
+           @if $test=='on'{$eqColor: $eqColor_xx-large; background: $eqColor; &:before{content:"xx-large"; color: darken($eqColor,40);}}
+      }//end xx-large
+  }//end m-bioCard Element Queries
+  
+  @include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+    .m-bioCard__photo{ width:100%; float:left;}//end m-bioCard__photo
+    .m-bioCard__content{
+         width:100%; float:left;
+        .b-bioHeader{}//end b-bioHeader
+        .b-bioDetails{}//end b-bioDetails
+    }//end m-bioCard__content
+  }
+  @include breakpoint($bp-mobile2-1 $bp-tablet-1){
+    .m-bioCard__photo{}//end m-bioCard__photo
+    .m-bioCard__content{
+        .b-bioHeader{}//end b-bioHeader
+        .b-bioDetails{}//end b-bioDetails
+    }//end m-bioCard__content
+  }
+  @include breakpoint($bp-tablet-1){
+    .m-bioCard__photo{width:25%;}//end m-bioCard__photo
+    .m-bioCard__content{ width: 74.99%; padding-left:1em;
+        .b-bioHeader{}//end b-bioHeader
+        .b-bioDetails{}//end b-bioDetails
+    }//end m-bioCard__content
+  }
+  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+    .m-bioCard__photo{}//end m-bioCard__photo
+    .m-bioCard__content{ 
+        .b-bioHeader{}//end b-bioHeader
+        .b-bioDetails{}//end b-bioDetails
+    }//end m-bioCard__content  
+  }
+  @include breakpoint($bp-desktop2-1){
+    .m-bioCard__photo{}//end m-bioCard__photo
+    .m-bioCard__content{
+        .b-bioHeader{}//end b-bioHeader
+        .b-bioDetails{}//end b-bioDetails
+    }//end m-bioCard__content
+  }
+
+}@include m-bioCard();

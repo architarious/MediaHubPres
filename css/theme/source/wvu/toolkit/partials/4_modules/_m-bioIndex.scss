@@ -1,0 +1,23 @@
+ //This class essentially wraps m-faculty-program__index.... eventually it will replace it
+ 
+ .m-bioIndex{
+    width: 100%; float:left;
+    font-size:16px;
+}
+.m-bioIndex__section{
+    width:100%;
+    float:left; 
+    margin: 1.618em 0 1em 0;
+}
+.m-bioIndex_section__title{
+    width:100%; float:left;        
+} 
+
+.m-bioIndex_section__index{
+    width:100%; float:left;
+    margin-top: 1.618em;
+
+    .m-faculty-program__index{
+      width:100%; float:left; margin:0; padding:0;
+    }
+}

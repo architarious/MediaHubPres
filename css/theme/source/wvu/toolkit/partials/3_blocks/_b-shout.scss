@@ -1,0 +1,77 @@
+@mixin b-shout(
+    $titleColor: $primary,
+    $textColor: $DarkGrey,
+    $check: "gold"
+){
+    
+    display:flex;
+    flex-flow: column nowrap;
+    width:100%;        
+    position: relative;
+    @include rhythm(0, $ms-2, $ms-2, 0, $font-size-med);
+    @include breakpoint($bp-mobile2-1){ @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);}
+    @include breakpoint($bp-tablet-1){ @include rhythm(0, $ms-1, $ms-1, 0, $font-size-med); }
+    @include breakpoint($bp-desktop1-1){ @include rhythm(0, $ms-2, $ms-2, 0, $font-size-med); }
+    @include breakpoint($bp-desktop2-1){ @include rhythm(0, $ms-3, $ms-3, 0, $font-size-med);}
+        
+    
+    .b-shout__title{
+        margin:0;padding:0; border:0;  //reset in case of header styles
+        color:$titleColor;
+        text-transform:uppercase !important;
+        font-family: $BlkCn; 
+        font-weight: 900; 
+        z-index: 5;        
+        position: relative;
+        padding-bottom: 0.182em;       
+        @include adjust-font-size-to($font-size-xlarge-2);  line-height: 0.8049em;        
+        @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xxlarge);  line-height: 0.8049em; }
+        @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge-2);  line-height: 0.8049em; }
+        @include breakpoint($bp-desktop1-1){ @include adjust-font-size-to($font-size-xxxlarge); line-height: 0.8049em; }
+        &:before{ 
+            @include obj-slash($check);
+            background-size: 1.618em;
+            height: 1.25em;
+            top:-0.382em;
+            left:-0.85em;
+            z-index:-1;
+        }
+    }//end .b-shout__title
+    .b-shout__subtitle{
+        @include adjust-font-size-to($font-size-xlarge-2 * 0.292); line-height: 1.083em;
+        margin-bottom: 0;
+        margin-top: 0; 
+        font-family: $Bd;
+        font-weight:500;
+        max-width: 30em;
+        color:$textColor;
+        @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xxlarge * 0.292);  line-height: 1.083em; }
+        @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge-2 * 0.292);  line-height:  1.083em; }
+        @include breakpoint($bp-desktop1-1){ @include adjust-font-size-to($font-size-xxxlarge * 0.292); line-height:  1.083em;} 
+    }//end .b-shout__subTitle
+}
+
+.b-shout, %b-shout{
+    @include b-shout; 
+}//end .b-shout
+
+@mixin b-shout--recolor(
+$titleColor: $quadrary,
+$textColor: $lbg,
+$check: "white"
+){
+    .b-shout__title{
+        color:$titleColor;  
+        &:before{ 
+            @include obj-slash($check);            
+            background-size: 1.618em;
+            height: 1.25em;
+            top:-0.382em;
+            left:-0.85em;
+            z-index:-1;
+        }
+    }
+    .b-shout__subtitle{
+        color:$textColor;
+    }
+}

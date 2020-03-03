@@ -1,0 +1,93 @@
+#core #s-academic_apply{
+
+
+  .m-informedCTA{
+    .s-academic_apply__process{
+      @include m-informedCTA__lvl($white, $WVUBlue, $white, $WVUGold, $primary--shadow, $font-size-large, $BlkCn);
+    }
+    .s-academic_apply__preReqs{
+      @include m-informedCTA__lvl($white, $SecDarkOrange, $white, darken($SecDarkOrange, 15), $primary--shadow, $font-size-med, $BdCn);
+    }
+    &[data-eq-state="x-small"]{
+      .s-academic_apply__process{   
+        .m-informedCTA__CTA .b-featuredLink{}  
+      }//end s-academic_apply__process
+      .s-academic_apply__preReqs{
+        .m-informedCTA__CTA .b-featuredLink{}    
+      }//end s-academic_apply__preReqs
+      .s-academic_apply__extraInfo{
+      }//end s-academic_apply__extraInfo
+      .s-academic_apply__deadline{
+      }//end s-academic_apply__deadline
+    }//end element query
+    &[data-eq-state="small"]{
+      .s-academic_apply__process{        
+      }//end s-academic_apply__process
+      .s-academic_apply__preReqs{
+        .m-informedCTA__CTA .b-featuredLink{}   
+      }//end s-academic_apply__preReqs
+      .s-academic_apply__extraInfo{
+      }//end s-academic_apply__extraInfo
+      .s-academic_apply__deadline{
+      }//end s-academic_apply__deadline
+    }//end element query
+    &[data-eq-state="medium"]{
+      .s-academic_apply__process{
+        .m-informedCTA__CTA .b-featuredLink{ }  
+      }//end s-academic_apply__process
+      .s-academic_apply__preReqs{
+        .m-informedCTA__CTA .b-featuredLink{}   
+      }//end s-academic_apply__preReqs
+      .s-academic_apply__extraInfo{
+      }//end s-academic_apply__extraInfo
+      .s-academic_apply__deadline{
+      }//end s-academic_apply__deadline
+    }//end element query
+    &[data-eq-state="large"]{
+      .s-academic_apply__process{
+        .m-informedCTA__CTA .b-featuredLink{ }  
+      }//end s-academic_apply__process
+      .s-academic_apply__preReqs{
+        .m-informedCTA__CTA .b-featuredLink{}   
+      }//end s-academic_apply__preReqs
+      .s-academic_apply__extraInfo{
+      }//end s-academic_apply__extraInfo
+      .s-academic_apply__deadline{
+      }//end s-academic_apply__deadline
+    }//end element query
+  }//end .m-informedCTA
+
+  @include breakpoint($bp-mobile1-1 $bp-mobile2-1){
+  	@include grid-mobile1;
+       
+  }//end $bp-mobile2-1
+
+  @include breakpoint($bp-mobile2-1 $bp-tablet-1){
+  	@include grid-mobile2;
+  	 h2{margin-top:0;}
+        
+  }//end $bp-mobile2-1
+
+  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+  	@include grid-tablet;
+  	h2{margin-top:0;}
+    
+
+  }//end $bp-tablet1-1
+
+  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+  	@include grid-desktop1;
+  	h2{margin-top:0;}
+
+  }//end $bp-dekstop1-1
+
+  @include breakpoint($bp-desktop2-1){
+  	@include grid-desktop2;
+  	h2{margin-top:0;}
+    
+  }//end $bp-desktop2-1
+
+
+}//end s-academic_apply
+
+

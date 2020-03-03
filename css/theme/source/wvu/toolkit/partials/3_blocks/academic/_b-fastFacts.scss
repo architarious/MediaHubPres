@@ -1,0 +1,35 @@
+.b-fastFacts{
+	border-left:ms(-10) $primary--light solid;
+	//box-shadow: ms(-7)*(-1) 0  ms(-10) (-(ms(-10))) $primary--shadow;
+	box-shadow: -1px 0 0 0 $primary--shadow;
+
+	//border-left:ms(-10) $coolblack solid;
+	//box-shadow: inset ms(-7) 0 ms(-10) (-(ms(-10))) lighten($coolblack, 4); 
+	padding-left: ms(4);
+	h2{
+		@include adjust-font-size-to($font-size-large);
+		@include rhythm(0, 0, 0, $ms-1n, $font-size-large);
+		@extend .font-BlkCn;
+		color:$white;
+		border-bottom:0;
+		text-transform:uppercase;
+	}
+
+	li{
+		@include adjust-font-size-to($font-size-med);
+		@include rhythm($ms-2, 0, 0, $ms-1n, $font-size-med);
+		@extend .font-Roman;
+		list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVQIW2N8tYrhPwMaYKSBIAANkAzlxv6z+QAAAABJRU5ErkJggg==");
+		
+	}
+
+	@include breakpoint($bp-mobile1-1 $bp-tablet-1-1){
+		border-left:0; padding-left: 0;
+		@include rhythm($ms-1, $ms-1, $ms-1n, 0, $font-size-med);
+		border-top:ms(-10) $primary--light solid;
+		box-shadow: 0 ms(-7)*(-1) ms(-10) (-(ms(-10))) $primary--shadow;
+
+	}
+
+}//end b-fastFActs
+

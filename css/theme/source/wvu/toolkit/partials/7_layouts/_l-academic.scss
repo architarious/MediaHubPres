@@ -1,0 +1,43 @@
+//Blocks
+@import "../3_blocks/academic/b-fastFacts";             //academic pages
+@import "../3_blocks/b-careerPath";                     //academic - MDS program
+@import "../3_blocks/academic/b-spotlight"; 
+
+//Modules
+@import "../4_modules/academic/m-academic_header__CTA"; 
+@import "../4_modules/academic/m-academic_pageNav"; 
+@import "../4_modules/academic/m-academic_alumni"; 
+@import "../4_modules/academic/m-scroller--alumni"; 
+@import "../4_modules/academic/m-academic_facultyList";
+@import "../4_modules/academic/m-academic_resources";
+@import "../4_modules/academic/m-academic_programCard"; 
+@import "../4_modules/academic/m-academic_degreeList"; 
+
+
+//Sections
+@import '../5_sections/s-prefix__academic';               
+@import '../5_sections/s-core__academic';                 
+@import '../5_sections/academic/s-academic_header';       
+@import '../5_sections/academic/s-academic_coursework';   
+//@import '../5_sections/academic/s-academic_faculty'; 
+//@import '../5_sections/academic/s-academic_beyondClass';
+//@import '../5_sections/academic/s-academic_career'; 
+@import '../5_sections/academic/s-academic_apply';       
+@import '../5_sections/academic/s-academic_contact';
+@import '../5_sections/academic/s-academic_degreeList';
+@import '../5_sections/academic/s-academic_overview';  
+@import '../5_sections/academic/s-minors';    
+
+
+//Templates
+@import "../6_templates/t-academic"; 
+@import "../6_templates/t-academic-degree";
+@import "../6_templates/t-academic-degree--doc";
+@import "../6_templates/t-academic-home"; 
+@import "../6_templates/t-academic--graduate";
+@import "../6_templates/t-minor";
+@import "../6_templates/t-careerPath";
+@import "../6_templates/t-startFast";
+@import "../6_templates/t-academic-degree-online";
+
+.l-academic{}//end l-academic

@@ -1,0 +1,13 @@
+#s-prefix__academic{
+  .m-academic_alumni{
+	h3{
+		max-width:100%;
+		border-bottom:$WVUGold;
+		border-style:solid;
+		@extend .font-Lt;
+		@include rhythm($ms-2, 0, $ms-3n, $ms-0, $font-size-med-2);
+
+	}//end h3
+  }//end .m-academic_alumni
+}//end #s-prefix__academic
+

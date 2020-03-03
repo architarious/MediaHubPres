@@ -1,0 +1,117 @@
+////////////////////////
+// Layouts Partials
+// 
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+ 
+
+ //@import "../../../../cpass-toolkit/scss/partials/6_templates/t-backpage";
+ //@import "../../../../../cpass-toolkit/app/scss/partials/6_templates/t-backpage--navRight";
+ //@import "../../../../../cpass-toolkit/app/scss/partials/6_templates/t-backpage--sidebarx2";
+ //@import "../../../../cpass-toolkit/scss/partials/6_templates/t-frontpage"; 
+
+ 
+ @import "./cpass-toolkit/6_templates/t-backpage--navRight";
+ @import "./cpass-toolkit/6_templates/t-backpage--sidebarx2";
+
+ //layouts specific to this website
+ @import "t-backpage";
+ //@import "t-discover"; 
+ 
+ @import "t-faculty";
+ @import "t-faculty-program"; 
+ @import "t-faculty-home";
+
+ @import "t-siteResources";
+ @import "t-event";
+
+
+
+
+body{
+      //pure WVUBlue striped pattern
+      //background: $WVUBlue url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAUUlEQVQYV2Nk0Aj9z4APMDExMHx9ycCIVyFUEQOnKB6FSIpAFmI3EU0RdoVYFGEqxKEIVSEeRQiFBBRBFGqF/weFEygI8AFGBnmH/4QUgQwAAHI4IMXLrAYzAAAAAElFTkSuQmCC");    
+      //  background: $WVUBlue;
+    
+      //darker WVUBlue striped pattern
+      //background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAARklEQVQYV2NkkLX+z0AIcEsxMBJUyC3FwPD1GQGFUEUgC3GbiKQIt0I0RdgVYlGEqRCHIlSFeBQhFBJQBFGoEfofFE6EAAC4Ah+W35ep8wAAAABJRU5ErkJggg==");
+
+      //darkest WVUBlue striped pattern
+      //background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAN0lEQVQIW2MUkZT/z4AF8LIzMDBikwRJfP6JRRImATIMRSeyBIokugRcEpsEWFJRQf4/yHJsAAAVuxUpz+378gAAAABJRU5ErkJggg==) repeat;
+      
+      //WVUBlue noise + striped pattern
+      background:$WVUBlue url(../images/noise--blue.jpg) repeat;
+
+
+   	#page-wrap{		
+   		//shadows for $DarkGrey -> $WVUBlue
+   		// background: radial-gradient(farthest-corner at 50% -98%, 
+   		// 	          rgba(255, 254, 251, 0.15) 4%, 
+   		// 	          rgba(0, 40, 85, 0.25) 67%, 
+   		// 	          rgba(9, 11, 14, 0.65));
+   		//shadows for $WVUBlue (from sportsintegration.wvu.edu) + striped pattern
+   		//background: radial-gradient( farthest-corner at 50% -155%, 
+   		//			set-alpha(lighten($WVUBlue, 50), 0.3) 0%, 
+   		//			set-alpha($WVUBlue,0.25) 53%, 
+   		//			set-alpha(darken($WVUBlue, 10), 0.65)) 100%;
+   					//url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANklEQVQYV2NkwAekLP4z4pSXsvjP8OwEI3YFUEmQZkwFSJKYCtAkURVgkUQowCEJUYBHEqQAAKHyFlrcD+KgAAAAAElFTkSuQmCC) repeat;
+   		    		//url(../images/noise--blue--line.jpg) repeat;
+   		float:left;
+   		width:100%;
+   	}
+
+	#header{
+		width:100%; 
+		float:left;
+		#s-header__cpass{}
+		#s-header__site{}  
+	}//end #header
+	#prefix{
+		width:100%;
+		float:left;
+	}
+	#core{
+		width:100%; 
+		float:left;
+	}
+	#postfix{
+		width:100%;
+		float:left;
+	}
+	#footer{
+		width:100%;
+		float:left;
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+
+	.container{
+		width:84.715%;
+		margin:0 auto;
+		@include breakpoint($bp-mobile1-1){
+			width:92%;
+		}
+		@include breakpoint($bp-tablet-1){
+			min-width:ms(16);
+			width:95%;
+		}
+		@include breakpoint($bp-desktop1-1){
+			min-width:ms(17);
+			width:84.715%;
+		}
+		@include breakpoint($bp-desktop2-1){
+			width:84.715%;
+			min-width:ms(18);
+		}
+		@include breakpoint($bp-desktop2-5){
+			width:84.715%;
+			max-width:ms(19);
+		}
+	}//end .container
+	
+	.b-social--share{display: none;}
+}//end body
+
+

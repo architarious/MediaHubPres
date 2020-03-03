@@ -1,0 +1,53 @@
+@mixin s-featTriptych(
+    $bgColor: $primary,
+    $bgImage: "../images/startFast/startFast_bg.jpg",
+    $shoutColor: $lbg,
+    $kickerColor: $lbg,
+    $check: "gold",
+    $cardBgColor: $primary,
+    $titleColor: $quadrary,
+    $textColor: $lbg,
+    $ctaColor: $quadrary,
+    $footerTextColor: $white,
+    $shadow: $primary--shadow,
+    $light: $primary--light
+){
+    
+        background: url($bgImage) $bgColor top center no-repeat;
+        background-size: cover; 
+    .s-featTriptych__header{
+        @include b-shout($shoutColor, $kickerColor, $check);
+        margin-top: ms(7);
+    }//end s-featTriptych__header
+    .s-featTriptych__body{
+        margin-bottom: 1.618em;
+    }//end s-featTriptych__body
+    .s-featTriptych__list{
+        width:100%; padding:0; margin:0; list-style:none;
+        display:flex; 
+        flex-flow: row nowrap;        
+        justify-content:flex-start;
+        & > li{
+          width: 33%;
+          padding-right: 1em;
+          list-style:none;
+          @include b-card($cardBgColor, $textColor, $titleColor, $ctaColor, $cardBgColor, $shadow, $light);
+          .b-card{ height:100%;}
+        }//end li
+    }//end s-featTriptych__list
+    .s-featTriptych__footer{
+        color:$footerTextColor; 
+        p, li, strong, em, h2, h3, h4, h5, h6{ color: $textColor;}
+    }//end s-featTriptych__footer
+    @include breakpoint($bp-mobile1-1 $bp-tablet-1){
+        .s-featTriptych__list{
+            flex-flow: row wrap;
+            & > li{
+                width:100%; padding-right:0;
+            }//end li
+        }//end s-featTriptych__list
+
+        background-size:contain;
+
+    }//end breakpoint
+}

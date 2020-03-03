@@ -1,0 +1,183 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+ 
+body.template-academic-home, body.template-academic-home--hardCodedContent{   
+  
+   #page-wrap{
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    } 
+  
+
+	#header{
+		#s-header__cpass{}
+		#s-header__site{}
+	}//end #header
+	#prefix{
+	}
+	#core{
+		.l-aca-home{
+			h1, h2{max-width:100%;}
+			.m-academic_degreeList{}//end .m-academic_degreeList
+			.m-academic_degreeList__program{
+				ul li{
+					
+				}//end ul li
+			}//end .m-academic_degreeList__program
+			// @include breakpoint($bp-mobile1-1){
+      //        h1{
+      //          @include adjust-font-size-to($font-size-large-2);
+      //          @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-large-2);
+			//					text-align:center;
+      //        }
+      //        h2{
+      //          @include adjust-font-size-to($font-size-large);
+      //          @include rhythm($ms-4, 0, $ms-7n, $ms-1n, $font-size-large);
+			//					text-align:center;
+      //        }
+      //  }//end $bp-mobile1-1
+      // @include breakpoint($bp-mobile2-2){
+      //        h1{
+      //          @include adjust-font-size-to($font-size-xlarge);
+      //          @include rhythm($ms-2, 0, 0, $ms-1n, $font-size-xlarge);
+			//					text-align:left;
+      //        }
+      //        h2{
+      //          @include adjust-font-size-to($font-size-large);
+      //          @include rhythm($ms-5, 0, $ms-7n, $ms-1n, $font-size-large);
+			//					text-align:left;
+      //        }
+      //  }//end $bp-mobile2-1
+      // @include breakpoint($bp-tablet-1){
+      //    h1{
+      //      @include adjust-font-size-to($font-size-xlarge-2);
+      //      @include rhythm($ms-3, 0, 0, $ms-1n, $font-size-xlarge-2);
+      //    }
+      //    h2{
+      //      @include adjust-font-size-to($font-size-large-2);
+      //        @include rhythm($ms-4, 0, $ms-7n, $ms-1n, $font-size-large-2);
+      //    }
+      // }//end $bp-tablet1-1
+      // @include breakpoint($bp-desktop1-1){
+      //    h1{
+      //      @include adjust-font-size-to($font-size-xlarge-2);
+      //          @include rhythm($ms-3, 0, 0, $ms-3, $font-size-xlarge-2);
+      //    }
+      //    h2{
+      //      @include adjust-font-size-to($font-size-xlarge);
+      //        @include rhythm($ms-3, 0, $ms-5n, $ms-1n, $font-size-xlarge);
+      //    }
+      //  }//end $bp-dekstop1-1
+      // @include breakpoint($bp-desktop2-1){
+      //    h1{
+      //      @include adjust-font-size-to($font-size-xxlarge);
+      //          @include rhythm($ms-4, 0, 0, $ms-3, $font-size-xxlarge);
+      //    }
+      //    h2{
+      //      @include adjust-font-size-to($font-size-xlarge);
+      //        @include rhythm($ms-2, 0, $ms-5n, $ms-1n, $font-size-xlarge);
+      //    }
+      //  }//end $bp-desktop2-1
+		}//end l-aca-home
+		.l-aca-home__undergrad{
+			float:left;
+			width:100%;
+		 }//end l-aca-home__undergrad
+		.l-aca-home_undergrad__minors{
+			float:left;
+			width:100%;
+			//min-height: ms(14);
+			//background:set-alpha($WVUBlue, 0.3);
+		}//end l-aca-home_undergrad__minors
+		.l-aca-home_undergrad__bachelors{
+			float:left;
+			width:100%;
+			//min-height: ms(14);
+			//background:set-alpha($WVUGold, 0.3);
+		}//end l-aca-home_undergrad__bachelors
+		.l-aca-home__grad{
+			float:left;
+			width:100%;
+		 }//end l-aca-home__grad
+		.l-aca-home_grad__masters{
+			float:left;
+			width:100%;
+			//min-height: ms(14);
+			//background:set-alpha($SecLightGold, 0.3);
+		}//end l-aca-home_grad__masters
+		.l-aca-home_grad__masters-online{
+			float:left;
+			width:100%;
+			//min-height: ms(14);
+			//background:set-alpha($SecLightOrange, 0.3);
+		}//end l-aca-home_grad__masters-online
+		.l-aca-home_grad__doctorate{
+			float:left;
+			width:100%;
+			//min-height: ms(14);
+			//background:set-alpha($SecOrange, 0.3);
+		}//end l-aca-home_grad__doctorate
+		
+		
+
+		@include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+		   .main{@include grid-span(4,1); clear:both;
+		   }//end .main
+			//  .l-aca-home_undergrad__bachelors, 
+			//  .l-aca-home_undergrad__masters-online,
+			//  .l-aca-home_undergrad__doctorate{
+			// 	 margin-top:ms(0);
+			//  }//end bachelors, masters-online and doctorate
+		   .m-sidebar_links{@include grid-span(4,1); }
+
+		 }
+		 @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+		   @include grid-mobile2;
+		   .main{@include grid-span(6,1); clear:both;}//end .main
+		   .m-sidebar_links{@include grid-span(6,1);  }
+		 }
+		 @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		   @include grid-tablet;
+		   .main{@include grid-span(5,1);		
+		   }//end .main
+		   .m-sidebar_links{@include grid-span(3,6); }
+			 
+		 }
+		 @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		   @include grid-desktop1;
+		   .m-sidebar_links{@include grid-span(3,10);  }
+		   .main{@include grid-span(9,1); }//end .main		   
+		 }
+		 @include breakpoint($bp-desktop2-1){
+		   @include grid-desktop2;
+		   .m-sidebar_links{@include grid-span(3,14);  }
+		   .main{@include grid-span(13,1); }//end .main
+			 .l-aca-home_undergrad__minors{
+				 @include grid-span(4,13);
+			 }//end bachelors
+			 .l-aca-home_undergrad__bachelors{
+				 @include grid-span(12,1);
+			 }//end bachelors
+			 .l-aca-home_grad__masters{
+				 @include grid-span(8,1);
+			 }//end bachelors
+			 .l-aca-home_grad__masters-online{
+				 @include grid-span(8,9);
+			 }//end bachelors
+		 }
+
+		 
+	}// end #core
+	#postfix{
+	}
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+	
+}//end body

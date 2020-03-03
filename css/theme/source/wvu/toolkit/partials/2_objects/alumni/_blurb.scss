@@ -1,0 +1,50 @@
+@mixin blurb(
+  $textColor: $DarkGrey,
+  $titleColor: $primary,
+  $shadow: $lbg--shadow,
+  $light: $lbg--light
+){
+    display:flex;
+    flex-flow:column nowrap;
+    border-top: 1px solid $shadow;
+    border-bottom: 1px solid $shadow;
+    padding: ms(2) 0;
+    margin: ms(2) 0;
+    box-shadow: 0 1px 1px 0 $light, inset 0 1px 1px 0 $light;
+
+    .blurb__title{
+        font-size: $font-size-large;
+        @extend %font-Bd;
+        text-transform: uppercase;    
+        margin: 0 0 ms(1) 0;
+        padding:0;
+        color: $titleColor;
+    }
+    .blurb__body{
+        font-size: $font-size-med;
+        color: $textColor;
+        margin: 0 0 ms(1) 0;
+        padding:0;
+        @extend %font-Roman;
+        max-width: 40em;
+    }
+    .blurb__cta{
+        font-size: $font-size-small-2;
+        display: flex;
+        flex-flow: row wrap;
+        .btn{ margin-right: ms(-6); margin-top: 0.2em; &:last-child{margin-right:0;} }
+    }
+
+}.blurb, %blurb{@include blurb();} 
+
+@mixin blurb--recolor(
+  $textColor: $lbg,
+  $titleColor: $quadrary,
+  $shadow: $primary--shadow,
+  $light: $primary--light
+){
+  border-color:$shadow;
+  box-shadow: 0 1px 1px 0 $light, inset 0 1px 1px 0 $light;
+  .blurb__title{ color: $titleColor; }
+  .blurb__body{ color: $textColor; }
+}

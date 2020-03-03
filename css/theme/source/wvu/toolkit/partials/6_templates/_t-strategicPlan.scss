@@ -1,0 +1,145 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+@mixin l-strategicPlan(
+    $bgColor: $lbg,
+    $textColor: $DarkGrey,
+    $titleColor: $primary,
+    $ctaColor: $tertiary,
+    $accentColor1: $quadrary, 
+    $accentColor2: $WarmGrey2,
+    $accentColor3: $WarmGrey1,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light
+){ 
+.l-strategicPlan{ 
+
+     
+
+
+	#prefix{
+      @include s-prefix__strategicPlan;
+      .s-prefix__content{ @include rhythm($ms-4, 0, 0, $ms-4, $font-size-med);}
+      .subTitle{ 
+          color:$bgColor;
+      }//end subTitle
+
+
+      @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+	  }
+	  @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+	    @include grid-mobile2; //6 columns
+	  }
+	  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+	    @include grid-tablet;  //8 columns
+	  }
+	  @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+	    @include grid-desktop1;  //12 columns
+	  }
+	  @include breakpoint($bp-desktop2-1){
+	    @include grid-desktop2; //16 columns
+	  }
+
+
+	}//end #prefix
+
+
+
+
+	#core, .l-strategicPlan__core{
+        background: url(../images/strategicPlan/grid.svg) top center no-repeat, url(../images/noise.png) repeat $bgColor;
+        background-size:cover;
+        
+       .main{           
+           padding: 1.618em 0;
+       }//end main
+       .sidebar{
+             #secNav{
+                 padding:0; margin:1.618em 0 2.618em 0; float:left; width:100%;
+                 li a{
+                     //font-size: 1.618em;
+                     @include adjust-font-size-to($font-size-large);
+                     @include rhythm(0, $ms-0, $ms-0, 0, $font-size-large);
+                     float:left;
+                     width:100%;
+                     @extend .font-Bd;
+                     padding-left: ms(0);
+                     padding-right: ms(0);
+                     margin-left:-(ms(0));
+                     border-bottom: 1px solid $shadow;
+                     box-shadow: 0 1px 1px 0 $light;
+                     &.active{
+                         background: $accentColor1;
+                         color:$titleColor;
+                     }
+                 }
+             }  
+       }//end sidebar 
+       
+       
+
+        @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+          .main{@include grid-span(4,1); }
+	      .sidebar{@include grid-span(4,1); clear:left; }
+	    }
+	    @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+	      @include grid-mobile2; //6 columns
+          .main{@include grid-span(6,1); }
+	      .sidebar{@include grid-span(6,1); clear:left; }
+	    }
+	    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+	      @include grid-tablet;  //8 columns
+          .main{@include grid-span(5,1); }
+	      .sidebar{@include grid-span(3,6); }
+	    }
+	    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+	      @include grid-desktop1;  //12 columns
+          .main{@include grid-span(9,1); }
+	      .sidebar{@include grid-span(3,10); }
+	    }
+	    @include breakpoint($bp-desktop2-1){
+	      @include grid-desktop2;  //16 columns
+	      .main{@include grid-span(12,1); }
+	      .sidebar{@include grid-span(4,13); }
+	    }
+
+     }// end #core
+	#postfix{
+         @include s-postfix--strategicPlan($secondary, $textColor, $accentColor1, $accentColor2, $secondary--shadow, $secondary--light)
+    }//end #postfix
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+}//end l-strategicPlan
+
+.edit-mode{ }
+
+.l-strategicPlan--home{
+    #core .main{ @include b-deansMessage($bgColor, $textColor, $titleColor, $ctaColor, $accentColor1, $accentColor2, $shadow, $light);  }
+}//end l-strategicPlan--home
+
+.l-strategicPlan--goal{
+    #core .main{ @include b-goal($bgColor, $textColor, $titleColor, $ctaColor, $accentColor3, $shadow, $light);  }
+}//end l-strategicPlan--goal
+
+.l-strategicPlan--backpage{
+    #core .main{ 
+        .title{
+            @extend .font-wvuTraditional;
+        }
+        .b-article__footer{
+            @include rhythm(0, $ms-4, 0, 0, $font-size-med);
+            @include breakpoint($bp-mobile1-1 $bp-tablet-1){ display:none; }
+        }//end b-article__footer
+     }
+}//end l-strategicPlan--goal
+
+.page-48963{ .b-article__footer{ display:none;}}
+}@include l-strategicPlan;

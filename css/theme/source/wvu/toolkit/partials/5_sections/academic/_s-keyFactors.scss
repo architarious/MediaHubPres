@@ -1,0 +1,74 @@
+@mixin s-keyFactors($bgColor: $lbg,
+        $textColor: $DarkGrey,
+        $titleColor: $primary,
+        $accentColor: $quadrary,
+        $ctaColor: $tertiary,
+        $shadow: $lbg--shadow,
+        $light: $lbg--light){
+    .s-keyFactors{
+        @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+            @include grid-mobile1;
+            &__header{ font-size: 1rem !important; }
+            &__body{ font-size: 1rem !important;  }//end s-keyFactors__body
+         }
+         @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+           @include grid-mobile2; //6 columns
+         }
+         @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+           @include grid-tablet;  //8 columns
+           .s-keyFactors__article{ @include grid-span(6, 1); clear:left;}
+           .s-keyFactors__sidebar{ @include grid-span(2, 7); }
+         }
+         @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+           @include grid-desktop1;  //12 columns
+           .s-keyFactors__article{ @include grid-span(9, 1); clear:left;}
+           .s-keyFactors__sidebar{ @include grid-span(3, 10); }
+           &__body{ font-size: 1.25rem; }//end s-keyFactors__body
+         }
+         @include breakpoint($bp-desktop2-1){
+           @include grid-desktop2;  //16 columns
+           .s-keyFactors__article{ @include grid-span(12, 1); clear:left;}
+           .s-keyFactors__sidebar{ @include grid-span(4, 13); }
+         }
+        &__article{float:left;  margin:ms(7) 0;}//end s-keyFactors__article
+        &__header{           
+            font-size: 0.9rem;
+            //.b-shout__title{}//end b-shout__title
+            //.b-shout__subtitle{}//end b-shout__subtitle
+        }//end s-keyFactors__header
+        &__body{ font-size: 1.25rem;}//end s-keyFactors__body
+        &__list{
+            padding:0; margin:0;
+        }//end s-keyFactors__list
+        &__item{ list-style:none; }//end s-keyFactors__item
+        //&-item__title{}//end s-keyFactors_item__title
+        &-item__list{ 
+            color: $textColor;
+            li{  
+                margin-top: $ms-1n+em; 
+                list-style:none;
+                a{text-decoration:underline;}                
+                &:before{
+                    content: "\2022"; 
+                    color: $accentColor;
+                    width: 1em;
+                    margin-left: -1em;
+                    display: inline-block;
+                }//end ::before
+            }//end ul li 
+        }//end s-keyFactors_item__list
+        
+        &__sidebar{
+            float:left; 
+            #m-secNav{
+            @include breakpoint($bp-mobile2-1+1rem $bp-tablet-1){
+                border-left:0; border-top: 1px solid $shadow;
+                box-shadow: 0 1px 0 0 $light;
+            }}
+        }//end s-keyFactors__sidebar
+
+
+    }//end s-keyFactors
+    
+    
+}

@@ -1,0 +1,62 @@
+/******************************************
+Original structure of s-programs
+
+.s-programs{}//end s-programs
+.s-programs__uGrad{}//end s-programs__uGrad
+.s-programs__grad{}//end s-programs__grad
+*/
+
+
+@mixin s-programs(
+  $bgColor: $primary,
+  $titleColor: $white,
+  $ctaColor: $quadrary,
+  $accentColor: $secondary,
+  $shadow: $primary--shadow,
+  $light: $primary--light
+){
+.s-programs{
+  background:$bgColor;
+  width:100%; float:left;
+  @include rhythm(0, $ms-4, $ms-4, 0, $font-size-med);
+  .container{    
+    display:flex;
+    flex-flow:row nowrap;
+  }//end container
+}//end s-programs
+.s-programs__uGrad{
+  @include m-uGradProgs($bgColor, $titleColor, $ctaColor, $accentColor, $shadow, $light);
+  width:66.67%;
+}//end s-programs__uGrad
+.s-programs__grad{
+  @include m-gradProgs($bgColor, $titleColor, $ctaColor, $accentColor, $shadow, $light);
+  width:33.33%;
+  padding-left: ms(0);
+}//end s-programs__grad
+
+@include breakpoint($bp-mobile1-1 $bp-tablet-1){
+  .s-programs .container{ flex-flow: column nowrap;}
+  .s-programs__uGrad, .s-programs__grad{
+    width:100%;
+    padding-left:0;
+  }
+}//end breakpoint
+
+@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+  .s-programs__uGrad{
+    width:60%
+  }//end s-programs__uGrad 
+  .s-programs__grad{
+    width:39.99%;
+  }
+}//end breakpoint
+
+@include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+  .s-programs__uGrad{
+    //width:77%
+  }//end s-programs__uGrad 
+  .s-programs__grad{
+    //width:29.99%;
+  }
+}//end breakpoint
+}@include s-programs();

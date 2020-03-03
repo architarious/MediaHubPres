@@ -1,0 +1,110 @@
+#prefix.s-prefix--bio{
+     $bgColor: $primary;
+     $textColor: $white;
+     $accentColor1: $quadrary;
+     $accentColor2: $WarmGrey3;
+     $shadow: $primary--shadow;
+     $light: $primary--light;
+
+     background:$primary url(../images/bg_hero--building1.jpg) top center no-repeat;
+     background-size:cover; 
+
+
+	margin:0; padding:0;
+	.s-prefix__content{
+		@include rhythm(0, $ms-2, $ms-2, 0, $font-size-med);
+	 }//end content
+
+
+	.m-bioPrefix{		
+		width:100%;
+		float:left;
+        .m-bioPrefix__photo{
+            padding:0; margin:0;
+        }//end m-bioPrefix__photo
+        .m-bioPrefix__content{
+            padding:0; margin:0;
+        }//end m-bioPrefix__content
+		@include breakpoint($bp-mobile1-1){
+          @include grid-mobile1;
+		   .m-bioPrefix__photo{
+               width:100%; float:left;
+              .b-bioPhoto{ @include roundedPhoto(ms(11), $shadow); }
+          }//end m-bioPrefix__photo
+          .m-bioPrefix__content{
+              width:100%; float:left; 
+              .b-bioHeader{ text-align:center;}
+              .b-bioHeader__name{ @include adjust-font-size-to($font-size-large);}  
+              .b-bioHeader__title, .b-bioHeader__title-2{@include adjust-font-size-to($font-size-med);}
+              .b-bioContact{ border-top: 1px solid $shadow; box-shadow:inset 0 1px 0 0 $light; }
+          }//end m-bioPrefix__content
+		}//end breakpoint
+		@include breakpoint($bp-mobile2-1 ){
+          @include grid-mobile2;
+		  .m-bioPrefix__photo{
+               width:100%; float:left;
+              .b-bioPhoto{ @include roundedPhoto(ms(12), $shadow); }
+          }//end m-bioPrefix__photo
+          .m-bioPrefix__content{
+              width:100%; float:left; 
+              .b-bioHeader{}
+              .b-bioHeader__name{ @include adjust-font-size-to($font-size-large-2);}  
+              .b-bioHeader__title, .b-bioHeader__title-2{@include adjust-font-size-to($font-size-med-2);}
+              
+          }//end m-bioPrefix__content
+		}//end breakpoint
+		@include breakpoint($bp-tablet-1 ){
+            @include grid-tablet;
+		  .m-bioPrefix__photo{
+               @include grid-span(3, 1);
+              .b-bioPhoto{ @include roundedPhoto(ms(11), $shadow); }
+          }//end m-bioPrefix__photo
+          .m-bioPrefix__content{
+              @include grid-span(5, 4);
+              .b-bioHeader{ text-align:left;}
+              .b-bioHeader__name{ margin-top:0;}  
+              .b-bioContact{ border-top: 0; box-shadow: none; }
+          }//end m-bioPrefix__content
+		}//end breakpoint
+		@include breakpoint($bp-desktop1-1){
+            @include grid-desktop1;
+			.m-bioPrefix__photo{
+               @include grid-span(4, 1);
+                .b-bioPhoto{ @include roundedPhoto(ms(12), $shadow); }
+            }//end m-bioPrefix__photo
+            .m-bioPrefix__content{
+                @include grid-span(8, 5);
+                .b-bioHeader{ }
+                .b-bioHeader__name{ @include adjust-font-size-to($font-size-xlarge);}  
+                .b-bioHeader__title, .b-bioHeader__title-2{@include adjust-font-size-to($font-size-large);}
+              
+            }//end m-bioPrefix__content
+		}//end breakpoint
+		@include breakpoint($bp-desktop2-1){
+            @include grid-desktop2;
+			.m-bioPrefix__photo{
+               @include grid-span(4, 1);
+                .b-bioPhoto{ @include roundedPhoto(ms(12), $shadow); }
+            }//end m-bioPrefix__photo
+            .m-bioPrefix__content{
+                @include grid-span(12, 5);
+                .b-bioHeader{}
+                .b-bioHeader__name{ @include adjust-font-size-to($font-size-xlarge-2);}  
+                .b-bioHeader__title, .b-bioHeader__title-2{@include adjust-font-size-to($font-size-large);}
+                
+            }//end m-bioPrefix__content
+		}//end breakpoint
+		@include breakpoint($bp-desktop2-6){
+            .m-bioPrefix__photo{
+                .b-bioPhoto{ @include roundedPhoto(ms(13), $shadow); }
+            }//end m-bioPrefix__photo
+			.m-bioPrefix__content{
+                .b-bioHeader{ }
+                .b-bioHeader__name{ @include adjust-font-size-to($font-size-xxlarge);}  
+                .b-bioHeader__title, .b-bioHeader__title-2{@include adjust-font-size-to($font-size-large-2);}
+            
+            }//end m-bioPrefix__content
+		}//end breaktpoint
+		@include breakpoint($bp-desktop2-6){}//end breaktpoint
+	}//end .m-faculty_header
+}//end #prefix.s-prefix--bio

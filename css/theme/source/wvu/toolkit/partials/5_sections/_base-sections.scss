@@ -1,0 +1,66 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+
+/*-------------------------------------*\
+    Stuff from WVU-Patterns
+\*--------------------------------------*/
+@import '../../wvu-patterns--old/1-base/wvu-masthead';
+@import '../../wvu-patterns--old/1-base/wvu-footer';
+@include wvu-masthead-is-two-line-lockup();
+@include wvu-masthead-has-signature();
+@include wvu-masthead-background();  
+ 
+ 
+
+//primary sections for every default layout
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-header__wvu';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-header__cpass';
+////@import '../../../../cpass-toolkit/scss/partials/5_sections/s-header__cpass--min';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-header__site';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/prefix';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/core'; //120kb -- shrink this one
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/postfix';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-footer__site';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-footer__cpass';
+//@import '../../../../../cpass-toolkit/app/scss/partials/5_sections/s-footer__wvu';   
+//@import "../../../../../cpass-toolkit/app/scss/partials/5_sections/s-header"; 
+//@import "../../../../../cpass-toolkit/app/scss/partials/5_sections/s-footer";
+
+//primary sections for every default layout
+@import './cpass-toolkit/5_sections/s-header__wvu';
+@import './cpass-toolkit/5_sections/s-header__cpass';
+@import './cpass-toolkit/5_sections/s-header__site';
+@import './cpass-toolkit/5_sections/prefix';
+@import './cpass-toolkit/5_sections/core'; //120kb -- shrink this one (@extend .b-featuredLink is HUGE)
+@import './cpass-toolkit/5_sections/postfix';
+@import './cpass-toolkit/5_sections/s-footer__site';
+@import './cpass-toolkit/5_sections/s-footer__cpass';
+@import './cpass-toolkit/5_sections/s-footer__wvu';   
+@import "./cpass-toolkit/5_sections/s-header"; 
+@import "./cpass-toolkit/5_sections/s-footer";
+
+ 
+//primary sections for this website -- not pulled from bootstrap 
+
+//@import 's-prefix__discover'; 
+//@import 's-core__discover';
+
+@import 's-prefix__faculty';                //faculty pages
+@import 's-prefix--bio';                    //bio pages
+@import 's-prefix__event';
+
+@import 's-announcements';                  //event and homepage pages
+@import 's-cta';                            //event pages
+@import 's-highlights';                     //event pages
+//@import 's-core__faculty';   //~60kb -- needs shrunk and takes long to process
+
+
+
+
+
+
+ 

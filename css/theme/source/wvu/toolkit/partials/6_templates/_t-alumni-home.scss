@@ -1,0 +1,15 @@
+.t-alumni-home{
+    .m-hero__cta .b-featLinkList{
+      
+      width:100%;
+      ul{
+        display:flex; 
+        flex-flow: row nowrap;
+        li{ 
+            padding-right: 0.618em;
+            
+            a{font-size:1em !important;}
+        }
+      }
+    }//end m-hero__cta
+}//end t-alumni-home

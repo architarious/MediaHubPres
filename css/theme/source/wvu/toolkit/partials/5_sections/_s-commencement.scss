@@ -1,0 +1,70 @@
+@mixin s-commencement(
+  $bgColor: $primary,
+  $titleColor: $white,
+  $ctaColor: $quadrary,
+  $accentColor: $secondary,
+  $shadow: set-alpha($coolblack, 0.55),
+  $light: $primary--light
+){
+.s-commencement{
+  background:$bgColor url(../images/homepage/hero--commencement2017.jpg) no-repeat top center;
+  background-size:cover;
+  width:100%; float:left;
+  @include rhythm(0, $ms-5, $ms-5, 0, $font-size-med);
+  .container{ }//end container
+}//end s-commencement
+
+.s-commencement__header{width:100%; float:left;}//end s-commencement__header
+.s-commencement__title{
+    width:100%; 
+    @extend .s-collegeNews_opener__title;
+    color:$titleColor;
+    text-shadow: 1px 0 1px $shadow;
+    padding-top:0;
+}//end s-commencement__title
+.s-commencement__body{width:100%; float:left;}//end s-commencement__body
+.s-commencement__copy{
+    width:100%; float:left;
+    @extend .s-collegeNews_opener__kicker;
+    color: $titleColor;
+    font-family: $Bd;
+    font-weight:500;
+    margin-top:0;
+    text-shadow: 1px 0 1px $shadow;
+    
+    //@include adjust-font-size-to($font-size-med-2);
+    
+}//end s-commencement__copy
+.s-commencement__cta{
+    text-align:center;
+    .btn2{@include btn($bgColor, $shadow, $ctaColor); background-image: none; margin-left: 0.618em;}
+    .btn1{@include btn($ctaColor, $shadow, $bgColor); background-image: none; margin-right: 0.618em;}
+}//end s-commencement__cta
+
+
+@include breakpoint($bp-mobile1-1 $bp-tablet-1){
+  .s-commencement .container{ flex-flow: column nowrap;}
+  .s-commencement__uGrad, .s-commencement__grad{
+    width:100%;
+    padding-left:0;
+  }
+}//end breakpoint
+
+@include breakpoint($bp-tablet-1 $bp-desktop1-1){
+  .s-commencement__uGrad{
+    width:60%
+  }//end s-commencement__uGrad 
+  .s-commencement__grad{
+    width:39.99%;
+  }
+}//end breakpoint
+
+@include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+  .s-commencement__uGrad{
+    //width:77%
+  }//end s-commencement__uGrad 
+  .s-commencement__grad{
+    //width:29.99%;
+  }
+}//end breakpoint
+}@include s-commencement();

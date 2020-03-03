@@ -1,0 +1,76 @@
+////////////////////////
+// Base Partials
+//
+// These files will be shared across all three of your output
+//  CSS files. Generally included here are only Compass Extension
+//  imports and imports for variables, functions, mixins, and extendables.
+//
+// Toolkit imports all of Compass, so there is no need to import it separately.
+////////////////////////
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//rewriting variables from wvu-patterns to play nice with compass extensions
+$base-font-size: 16px; 
+$base-line-height: 20.022px;
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+////////////////////////
+// Compass Extensions
+////////////////////////
+//@import 'compass';
+//@import 'breakpoint';
+//@import 'singularitygs';
+//@import 'toolkit';
+//@import 'sassy-buttons';
+//@import 'normalize';   
+//@import 'modular-scale';     
+//@import 'color-schemer';
+//@import 'bootstrap-compass'; 
+//@import 'bootstrap'; 
+//@import 'recipes';
+
+//////////////////////////
+// Vendor imports via bower
+//////////////////////////
+
+@import '../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap'; 
+@import "../../../bower_components/compass-mixins/lib/_compass";
+//@import "../../../bower_components/compass-mixins/lib/_lemonade";
+@import "../../../bower_components/breakpoint-sass/stylesheets/breakpoint";
+@import '../../../bower_components/modular-scale/stylesheets/modular-scale';
+@import '../../../bower_components/singularity/stylesheets/singularitygs';
+@import '../../../bower_components/color-schemer/stylesheets/color-schemer';  // make sure to comment out @import blendmodes in this file when first setting up
+//@import '../../../bower_components/normalize-scss/sass/normalize';
+//@import '../../../bower_components/Scut/dist/scut';
+@import '../../../bower_components/eq.js/sass/eq';
+@import '../../../bower_components/sassy-buttons/sassybuttons'; 
+
+
+$legacy-support-for-ie: true;  
+$legacy-support-for-mozilla: false;    
+     
+
+////////////////////////
+// Vendor imports
+////////////////////////
+
+//@import '../../../../cpass-toolkit/scss/partials/0_global/vendor/eq';
+//@import '../../../../cpass-toolkit/scss/partials/0_global/vendor/bootstrap-variables';
+
+
+////////////////////////
+// Private Imports
+////////////////////////
+
+@import '../../../../cpass-toolkit/app/scss/partials/0_global/variables';
+@import '../../../../cpass-toolkit/app/scss/partials/0_global/functions';
+@import '../../../../cpass-toolkit/app/scss/partials/0_global/mixins';
+@import '../../../../cpass-toolkit/app/scss/partials/0_global/extendables';
+
+
+////////////////////////
+// NON-TOOLKIT Imports
+////////////////////////
+

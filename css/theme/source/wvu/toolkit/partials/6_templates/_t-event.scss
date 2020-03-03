@@ -1,0 +1,70 @@
+////////////////////////
+// Layouts Partials
+//
+// Your SMACSS Layouts go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+
+body.t-event, body.t-event--bottomCTA{
+
+   #page-wrap{
+   	    //@include bgImage( url(../images/bgImage-future.png));
+    }
+
+
+	#header{
+		#s-header__cpass{}
+		#s-header__site{} 
+	}//end #header 
+	#prefix{
+	}
+	#core{  
+		 .m-informedCTA{ 
+			border-top:0; box-shadow: none;
+		 }
+
+		 
+	    .s-snippet_radius{width:100%; float:left;}
+
+		@include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+		   @include grid-mobile1;
+		   .main{@include grid-span(4,1); clear:both;}
+		   .sidebar{@include grid-span(4,1); }
+		 }
+		 @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+		   @include grid-mobile2;
+		   .main{@include grid-span(6,1); clear:both;
+                 padding-bottom: ms(2);
+				 border-bottom: 1px solid $lbg--shadow;
+				 box-shadow: 0 1px 0 0 $lbg--light;
+				 margin-bottom: ms(2);
+       }//end main
+		   .sidebar{@include grid-span(6,1); }
+		 }
+		 @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+		   @include grid-tablet; 
+		   .main{@include grid-span(5,1); }
+		   .sidebar{@include grid-span(3,6);  clear:right;}
+		 }
+		 @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+		   @include grid-desktop1;
+		   .main{@include grid-span(9,1); }
+		   .sidebar{@include grid-span(3,10); }
+		 }
+		 @include breakpoint($bp-desktop2-1){
+		   @include grid-desktop2;
+		   .main{@include grid-span(12,1); }
+		   .sidebar{@include grid-span(4,13); }
+		 }
+
+		
+	}// end #core
+	#postfix{
+	}
+	#footer{
+		#s-footer__site{}
+		#s-footer__cpass--wrapper{}
+		#s-footer__wvu--wrapper{}
+	}//end #footer
+
+}//end body

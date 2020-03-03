@@ -1,0 +1,11 @@
+@mixin m-blogNav($bgColor: $primary,
+        $textColor: $white,
+        $accentColor: $primary,
+        $linkColor: $white){
+
+  .m-blogNav{
+    h3{font-size: 1.25em; font-weight: 100;}
+   }//end m-blogNav
+  .m-blogNav__related{}//end m-blogNav__header
+  .m-blogNav__archives{}//end m-blogNav__body
+}@include m-blogNav();

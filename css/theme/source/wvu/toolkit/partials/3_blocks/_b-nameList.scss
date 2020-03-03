@@ -1,0 +1,230 @@
+@mixin b-nameList($bgColor: $white,
+                     $headerColor: $primary,
+                     $textColor: $WarmGrey2,
+                     $linkColor: $tertiary,
+                     $accentColor: $quadrary,
+                     $shadowColor:shade($bgColor, 10),
+                     $lightColor: lighten($bgColor, 10) ){
+
+.b-nameList{
+    width:100%; float:left;    
+    //@include rhythm($ms-2, 0, 0, $ms-0, $font-size-med);
+}//end b-nameList
+.b-nameList__title{
+    width:100%; float:left;
+    font-size: $font-size-med-2 !important;
+    margin-top:0 !important;
+    padding: ms(-4) !important;
+    background: $headerColor;
+    color:$accentColor;
+    border:0 !important;
+    max-width:100%;
+    a, a:link{ color:$accentColor; 
+      &:hover, &:focus{
+        color:lighten($accentColor, 10);
+      }
+    }//end a
+}//end b-nameList__title
+.b-nameList__list{
+    width:100%; float:left;
+}//end b-nameList__list
+.b-nameList__item{
+    padding-left: ms(-4);
+    width:100%; float:left;
+    @include rhythm(0, $ms-3n, $ms-3n, 0, $font-size-med-2);
+    border-bottom:ms(-10) solid $shadowColor;
+    box-shadow: 0 1px 2px -2px $lightColor;
+    &:last-child{
+        border:0;
+        box-shadow:none;
+    }//end last-child
+    
+}//end b-nameList__item
+.b-nameList__name{
+    width:100%; float:left;
+    @include adjust-font-size-to($font-size-med-2);
+    color:$headerColor;
+    @extend .font-Lt;
+    &:hover, &:focus{
+        color:$linkColor;
+    }
+    &:aftive{
+        color:darken($linkColor, 10);
+    }
+}//end b-nameList__name
+.b-nameList__description{
+    width:100%; float:left;
+    @include adjust-font-size-to($font-size-med);
+    color:$textColor;
+    @extend .font-Roman;
+    font-style:normal;
+}//end b-nameList__description
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_x-medium:set-alpha($SecOlive, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.b-nameList{
+ @if $test=='on'{
+  background:$eqColor;
+  &:before{
+    font-size:ms(-2);
+    margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+  }
+ }//test settings
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    
+    .b-nameList__name{ 
+      @include adjust-font-size-to($font-size-med);
+    }
+    .b-nameList__description{
+      display:none;
+    }
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    .b-nameList__name{ 
+      @include adjust-font-size-to($font-size-med);
+    }
+    .b-nameList__description{
+      //@include adjust-font-size-to($font-size-small-2)
+      display:none;
+    }
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+    .b-nameList__name{ 
+      @include adjust-font-size-to($font-size-med);
+    }
+    .b-nameList__description{
+      //@include adjust-font-size-to($font-size-small-2)
+      display:none;
+    }
+    
+  }//end medium
+  
+  &[data-eq-state="x-medium"]{
+    @if $test=='on'{$eqColor: $eqColor_x-medium; background: $eqColor; &:before{content:"x-medium"; color:darken($eqColor,40);}}
+    .b-nameList__name{ 
+      @include adjust-font-size-to($font-size-med);
+    }
+    .b-nameList__description{
+      @include adjust-font-size-to($font-size-small-2)
+      //display:none;
+    }
+    
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+    .b-nameList__item{
+      width:50%;
+      min-height:100px;
+      &:nth-child(odd){padding-right:ms(-4);}
+      &:nth-child(even){padding-left:ms(-4);}
+      &:nth-last-child(2){border:0; box-shadow:none;}
+    }//end .b-nameList__item
+    
+  }//end large
+
+
+
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+    .b-nameList__item{
+      width:50%;
+      min-height:100px;
+      &:nth-child(odd){padding-right:ms(-4);}
+      &:nth-child(even){padding-left:ms(-4);}
+      &:nth-last-child(2){border:0; box-shadow:none;}
+    }//end .b-nameList__item
+   
+  }//end x-large
+}//end ELEMENT QUERIES
+
+
+@include breakpoint($bp-mobile1-1){
+    .b-nameList__title{
+         @include adjust-font-size-to($font-size-med-2);
+         @include rhythm($ms-5, 0, 0, $ms-1n, $font-size-med-2);
+    }
+}//end $bp-mobile2-1
+@include breakpoint($bp-mobile2-1){
+    .b-nameList__title{
+         @include adjust-font-size-to($font-size-med-2);
+         @include rhythm($ms-5, 0, 0, $ms-1n, $font-size-med-2);
+     }
+}//end $bp-mobile2-1
+@include breakpoint($bp-tablet-1){
+    .b-nameList__title{
+         @include adjust-font-size-to($font-size-med-2);
+         @include rhythm($ms-5, 0, 0, $ms-1n, $font-size-med-2);
+         border-bottom-color:tint($WarmGrey3,75);
+     }
+}//end $bp-tablet1-1
+@include breakpoint($bp-desktop1-1){    
+    .b-nameList__title{
+         @include adjust-font-size-to($font-size-large);
+         @include rhythm($ms-5, 0, 0, $ms-1n, $font-size-large-2);
+         @include trailing-border(ms(-9), $ms-3n);
+         border-style:dotted;
+    }
+}//end $bp-dekstop1-1
+@include breakpoint($bp-desktop2-1){    
+    .b-nameList__title{
+        @include adjust-font-size-to($font-size-large-2);
+        @include rhythm($ms-5, 0, 0, $ms-1n, $font-size-large-2);
+        @include trailing-border(ms(-9), $ms-2n);  
+        border-style:dotted;
+    }
+}//end $bp-desktop2-1
+
+
+
+}//end mixin
+@include b-nameList();
+
+
+/***********************************
+The following is an example for content that is pasted into cleanslate
+
+<div class="b-nameList">
+  <h1 class="b-nameList__title"><a href="<r:page:url />"><r:page:name/></a></h1>
+  <ul class="b-nameList__list">
+    <r:children:each>
+      <li class="b-nameList__item">
+        <a class="b-nameList__name" href="<r:page:url />"><r:page:name /></a></br>
+        <em class="b-nameList__description"><r:page:content name="b-faculty_title"/></em>
+      </li>
+    </r:children:each>
+  </ul>
+</div>
+*******************************/

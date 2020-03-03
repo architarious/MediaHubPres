@@ -1,0 +1,94 @@
+@mixin s-cta(
+	$textColor1: $primary,
+	$textColor2: $DarkGrey,
+	$bgColor: $quadrary,
+	$btnColor: $primary,
+	$btnColor2: $white,
+	$shadow: darken($quadrary, 3),
+	//$shadow: darken($bgColor, 3), 
+	$light: lighten($quadrary, 3)){
+
+
+    .s-cta{
+      width:100%; float:left;        
+	  background: url(../images/wvu-pattern-background--gold-fade.png) no-repeat top center $bgColor;
+	//background-size: contain;
+	.container{
+	  @include rhythm(0, $ms-6, $ms-6, 0, $font-size-med);
+	}//end container
+    }//end s-cta
+
+    .s-cta__shout{
+      margin-left: auto !important; margin-right: auto !important;
+      max-width: 12em;
+	    text-transform: uppercase;
+		  text-align:center; 
+		  font-size: $font-size-xxlarge-2;
+		  line-height: $lh-wvu-headline;
+		  color:$textColor1; 
+      border-bottom:0;
+      margin-bottom:0;
+      margin-top: 0.382em;
+		  padding-bottom:0;
+      @extend .font-BlkCn;      
+      @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xxlarge);  line-height: $lh-wvu-headline; }
+      @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge-2);  line-height: $lh-wvu-headline; }
+      @include breakpoint($bp-desktop1-1){ @include adjust-font-size-to($font-size-xxxlarge); line-height: $lh-wvu-headline; }
+    }
+    .s-cta__kicker{
+        @extend .font-Lt;
+        color: $textColor1;
+        text-align:center;
+        line-height: $lh-wvu-title;
+        font-size: $font-size-xxlarge-2 * 0.292; 
+        margin:0;
+        padding:ms(2) 0;
+        @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xxlarge * 0.292);  line-height: $lh-wvu-title; }
+        @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge-2 * 0.292);  line-height:  $lh-wvu-title; }
+        @include breakpoint($bp-desktop1-1){ @include adjust-font-size-to($font-size-xxxlarge * 0.292); line-height:  $lh-wvu-title; }
+    }//end s-cta__kicker
+
+    .s-cta__content{
+        padding-top:ms(3);
+        text-align:center;
+        h1, h2, h3, h4, h5, h6{ color:$textColor1;}
+        p, strong, em, i, b{color:$textColor2;}  
+        @include obj-multiCol(auto, $bgColor, $shadow, $light);
+        .btn, .btn--large{ @include btn_outline($bgColor, $shadow, $btnColor ); }//end btn
+        .btn--large{ font-size: $font-size-xxlarge-2 * 0.292; border-width: 0.146em; line-height: $lh-wvu-title; }//end btn--large
+    }
+
+		//GRID
+    .s-cta{
+      @include breakpoint($bp-mobile1-1){
+    	@include grid-mobile1;  //four columns
+    	.s-cta__shout{@include grid-span(4,1); float:none;}//end s-announcement__shout
+    	.s-cta__kicker, .s-cta__content{@include grid-span(4,1); clear:both;  float:none;}//end s-announcement__news
+      }
+      @include breakpoint($bp-mobile2-1){
+    	@include grid-mobile2;  //six columns
+    	.s-cta__shout{@include grid-span(6,1); float:none;}//end s-announcement__shout
+    	.s-cta__kicker, .s-cta__content{@include grid-span(6,1); clear:both;  float:none;}//end s-announcement__news
+      }
+      @include breakpoint($bp-tablet-1){
+    	@include grid-tablet;  //eight columns
+    	.s-cta__shout{@include grid-span(8,1); float:none;}//end s-announcement__shout
+    	.s-cta__kicker, .s-cta__content{@include grid-span(6,2); clear:both;  float:none;}//end s-announcement__news
+      }
+      @include breakpoint($bp-desktop1-1){
+    	@include grid-desktop1;   //twelve columns
+    	.s-cta__shout{@include grid-span(12,1); float:none;}//end s-announcement__shout
+    	.s-cta__kicker, .s-cta__content{@include grid-span(8,3); clear:both;  float:none;}//end s-announcement__news
+      }
+      @include breakpoint($bp-desktop2-1){
+    	@include grid-desktop2;  //sixteen columns
+    	.s-cta__shout{@include grid-span(16,1); float:none;}//end s-announcement__shout
+    	.s-cta__kicker, .s-cta__content{@include grid-span(12,3); clear:both;  float:none;}//end s-announcement__news
+      }
+    }//end s-cta
+
+
+
+    
+}@include s-cta();
+

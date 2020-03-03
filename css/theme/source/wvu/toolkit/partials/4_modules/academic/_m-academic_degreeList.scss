@@ -1,0 +1,225 @@
+@mixin m-academic_degreeList(
+    $background:$lbg,
+    $headerColor: $primary,
+    $auxLinkColor: $tertiary,
+    $shadowColor: $lbg--shadow,
+    $lightColor: $lbg--light    
+){
+    .m-academic_degreeList{
+        width:100%; float:left;
+    }//end m-academic_degreeList
+    .m-academic_degreeList__program{
+        width:100%; float:left;
+        border-bottom:ms(-10) solid $shadowColor;
+		box-shadow: 0 1px 2px -2px $lightColor;
+        @include rhythm(0, $ms-2n, $ms-2n, 0, $font-size-small-2);  
+        &:last-child{border-bottom:0; box-shadow:none;}
+              
+        h3{
+            color:$headerColor;
+            margin:0; padding:0; border-bottom:0;
+            @include adjust-font-size-to($font-size-large);
+        }//end h3
+        ul{
+            @include rhythm(0, $ms-4n, $ms-4n, 0, $font-size-small-2);
+            li{
+                display:inline;
+				padding: 0 ms(-2);
+				border-left:ms(-10) solid $shadowColor;
+		        box-shadow: -1px 0px 2px -2px $lightColor;	
+                @include rhythm(0, $ms-7n, $ms-7n, 0, $font-size-small-2);	                
+                @include adjust-font-size-to($font-size-small-2);		
+				&:first-child{padding-left:0; border-left:0; box-shadow:none;}					
+                a{ 
+                    color: $auxLinkColor;
+                }//end a 
+            }//end li
+        }//end ul
+        
+    }//end m-academic_degreeList__program
+    
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_x-medium:set-alpha($SecOlive, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.m-academic_degreeList{
+ @if $test=='on'{
+  background:$eqColor;
+  &:before{
+    font-size:ms(-2);
+    margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+  }
+ }//test settings
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+
+
+    .m-academic_degreeList__program{
+    	h3{
+            @include adjust-font-size-to($font-size-med);
+            text-align:center;
+            @include adjust-leading-to(1, $font-size-med);
+        }//end h3
+        ul{
+            li{
+                padding:ms(-5);
+                width:50%;
+                float:left;
+                text-align:center;
+                border:0;
+                box-shadow:none;
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+    
+    
+    .m-academic_degreeList__program{
+    	h3{
+            @include adjust-font-size-to($font-size-med-2);
+            text-align:center;
+            @include adjust-leading-to(1, $font-size-med-2);
+        }//end h3
+        ul{
+            li{
+                padding:ms(-5);
+                width:50%;
+                float:left;
+                text-align:center;
+                border:0;
+                box-shadow:none;
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+
+
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+
+    
+    
+    .m-academic_degreeList__program{
+    	h3{
+            @include adjust-font-size-to($font-size-med-2);
+            @include adjust-leading-to(1, $font-size-med-2);
+        }//end h3
+        ul{
+            li{
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+    
+
+  }//end medium
+  @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+    &[data-eq-state="medium"]{		  
+      .m-academic_degreeList__program{
+	    li{
+	      width:50%; float:left;
+	  	  &:nth-child(odd){padding-left:0; border-left:0;}
+        }					 
+	  }
+    }//end medium			 
+ }//end tablet breakpoint
+ @include breakpoint($bp-desktop2-1){
+     &[data-eq-state="medium"]{		  
+      .m-academic_degreeList__program{
+	    h3{
+            @include adjust-font-size-to($font-size-large);
+        }//end h3				 
+	  }
+    }//end medium
+ }//end desktop2 breakpoint
+ 
+  &[data-eq-state="x-medium"]{
+    @if $test=='on'{$eqColor: $eqColor_x-medium; background: $eqColor; &:before{content:"x-medium"; color: darken($eqColor,40);}}
+
+    
+    
+    .m-academic_degreeList__program{
+    	h3{
+            @include adjust-font-size-to($font-size-large);
+        }//end h3
+        ul{
+            li{
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+
+
+
+  }//end large
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+
+    
+    
+    .m-academic_degreeList__program{
+    	h3{}//end h3
+        ul{
+            li{
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+
+
+
+  }//end large
+
+
+
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+
+    
+    
+    .m-academic_degreeList__program{
+    	h3{}//end h3
+        ul{
+            li{
+                a{}//end a
+            }//end li
+        }//end ul
+    }//end .m-academic_degreeList__program
+
+
+
+
+  }//end x-large
+}//end .m-academic_degreeList
+}@include m-academic_degreeList

@@ -1,0 +1,42 @@
+@mixin b-aucItem(
+    $bgColor: $lbg,    
+    $textColor: $DarkGrey,
+    $titleColor: $primary,    
+    $ctaColor: $tertiary,
+    $shadow: shade($bgColor, 10),
+    $light: tint($bgColor, 10)
+){
+   .b-aucItem{ 
+       width:100%; 
+       //padding: ms(0);
+       float:left; 
+       //border-bottom:1px solid $shadow;
+       //box-shadow: 0 1px 0 0 $light; 
+       @include rhythm($ms-0, 0, 0, $ms-3n, $font-size-med);
+       color:$textColor;
+       display:flex;
+       flex-flow: column nowrap;
+    }//end .b-aucItem
+    .b-aucItem__img{}//end .b-aucItem__img
+    .b-aucItem__body{ color:$textColor;}//end .b-aucItem__body
+    .b-aucItem__name{ line-height: 0.8049em; margin-top:0; color:$titleColor;}//end .b-aucItem__name 
+    .b-aucItem__description{ color:$textColor;}//end .b-aucItem__description
+    .b-aucItem__bids{ 
+        color:$textColor; 
+        @include adjust-font-size-to($font-size-med);
+        @include rhythm($ms-2, 0, 0, 0, $font-size-med);
+    }//end .b-aucItem__bids
+    .b-aucItem__bids_current{@include adjust-font-size-to($font-size-med-2); @extend .font-Bd;}//end .b-aucItem__bids_current
+    .b-aucItem__bids_opening{color: set-alpha($textColor, .50);}//end .b-aucItem__bids_opening
+    .b-aucItem__cta{
+        @include rhythm($ms-2, 0, 0, 0, $font-size-med);
+        a{ 
+            @include btn($ctaColor, $shadow, $bgColor); 
+            background-image: none; 
+            text-transform:uppercase;
+        }  
+    }//end b-aucItem__cta
+
+    @include breakpoint($bp-mobile1-1 $bp-desktop2-1){}//end bp-mobile1-1
+}//end b-aucItem mixin
+

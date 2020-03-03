@@ -1,0 +1,198 @@
+@mixin m-hero($textColor1: $white,
+			  $textColor2: $WVUGold,
+			  $bgColor: $primary,
+			  $shadow: $coolblack,
+			  $btnColor: $tertiary,
+        $photoWidth: 1720px,
+        $photoHeight: 580px
+			  ){
+   
+   $vw100-height: $photoHeight*100vw/$photoWidth;       
+   
+   .m-hero{
+    width:100%;
+    max-height:$photoHeight;
+    float:left;
+    position:relative;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-image: url(../images/hero-bg.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+      //height: $photoHeight;
+    }//end bp-tablet-1
+    @include breakpoint($bp-desktop2-1){
+      min-height:$photoHeight;
+      height: $vw100-height;
+      max-height:ms(16);
+    }
+    
+  }//end m-hero
+ 
+  .m-hero__container{    
+    @extend .container;
+    z-index:100;
+    position:relative;
+  }//end m-hero__container
+  
+  
+  .m-hero__copy{
+      color: $textColor1;
+      text-shadow: 1px 0px 1px $shadow;
+      float:left; width:100%;
+      @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);  
+      
+      @include breakpoint($bp-mobile2-3){
+        @include rhythm(0, $ms-3, $ms-3, 0, $font-size-med);  
+      }//end bp-mobile2-3
+      
+      @include breakpoint($bp-tablet-1){
+        @include rhythm(0, $ms-5, $ms-5, 0, $font-size-med);  
+      }//end bp-tablet-1
+       
+  }//end m-hero__copy  
+  .m-hero_copy__title{
+      width:100%; float:left;
+      text-transform:uppercase;
+     	font-family: $BlkCn; 
+     	font-weight: 900;
+       //font-size:4.5em;
+       //@include vw($font-size-xxlarge-2);
+      @include adjust-font-size-to($font-size-xlarge);
+     	@include adjust-leading-to(2);
+        
+      @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xlarge-2);@include adjust-leading-to(2.5);}
+     	@include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge); @include adjust-leading-to(3);}
+     	@include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-xxlarge-2); @include adjust-leading-to(3.5);}
+     	@include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-xxxlarge); @include adjust-leading-to(5);} 
+  }//end m-hero_copy__title  
+  .m-hero_title__top{color: $textColor1;}//end m-hero_title__top
+  .m-hero_title__bottom{color:$textColor2}//end m-hero_title__bottom
+  
+  .m-hero_copy__paragraph{
+    width:100%; float:left;
+    color: $textColor1;
+    @include adjust-font-size-to($font-size-med-2);
+    margin-bottom: 2em; 
+    font-family: $Bd;
+    font-weight:500;
+    max-width: 40em; 
+  }//end m-hero_copy__paragraph
+  
+  .m-hero_copy__cta{
+    width:100%; float:left;
+    height: $vw100-height;
+    position:relative;
+    a{ 
+      @include btn_icon($btnColor, $shadow, $textColor1);
+     	text-decoration:none;
+      position:absolute;
+      top:50%;
+      z-index:100;
+      padding-right:2.618em;
+      &:after{
+        right: 0.618em;
+      }//end after
+    }//end a
+    
+    @include breakpoint($bp-mobile2-3){
+      height: auto;
+      a{ position:relative;}
+    }//end bp-tablet-1
+  }//end m-hero_copy__cta
+  
+  .m-hero__photo{
+    width:100%;
+    float:left;
+    bottom:0;
+    z-index:0;
+    position:absolute;
+    
+    @include breakpoint($bp-mobile2-3){
+      top:0;
+      bottom:auto;
+      height: $photoHeight;
+      width: $photoWidth;
+      left: $photoWidth*(-4/12);
+    }//end breakpoint bp-mobile2-3
+    
+    @include breakpoint($bp-tablet-1){
+      left: $photoWidth*(-3/12);
+    }
+    
+    @include breakpoint($bp-desktop1-1){
+      left: $photoWidth*(-2/12);
+    }//end bp-desktop1-1
+    
+    @include breakpoint($bp-desktop2-1){
+      width: 100vw;
+      min-height:$photoHeight;
+      height:$vw100-height;
+      left:0;
+      img{
+        min-height:$photoHeight;
+        min-width:$photoWidth;
+      }
+    }//end breakpoint bp-desktop2-1
+    
+    @include breakpoint($bp-desktop2-8){
+      max-height:ms(16);
+      overflow:hidden;
+    }
+    
+    img{
+      width:100%;
+    }//end img
+  }//end m-hero__photo
+
+}//end m-hero mixin
+
+
+@include m-hero;
+
+//this mixins are now irrelevent, but they're here
+//for future reference
+@mixin shout-length($shout-length: 'medium') {
+  @if $shout-length == 'medium' {
+    @if $m-hero-title-typeface == $shout {
+      .m-hero {
+        h1 { font-size: $medium-shout-font-size; }
+      }
+      .m-hero__container {
+        padding: 4em 3em;
+        @include mq($bp-jumbo) {
+          padding: 4em 0;
+        }
+      }
+    }
+  }
+  @else if $shout-length == 'long' {
+    @if $m-hero-title-typeface == $shout {
+      .m-hero {
+        h1 { font-size: $long-shout-font-size; }
+      }
+    }
+  }
+}
+
+
+$max-breakpoint: 2080; //see $bp-desktop2-8 in _variables.scss
+$wide-screen: "(min-width: #{$max-breakpoint}px)";
+//Converts a value in pixels to it's relative size in VW units
+//input: a pixel size
+//output: the relative size in VW units
+@function get-vw($target){
+  $vw-context:($max-breakpoint * 0.01) * 1px; //1% viewport width
+  @return ($target/$vw-context)* 1vw;
+}//end get-vw function
+
+@mixin vw($size){
+  font-size: get-vw($size);
+  
+  @media #{$wide-screen}{
+    font-size: $size;
+  }
+}//end vw mixin      
+

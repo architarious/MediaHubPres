@@ -1,0 +1,292 @@
+@mixin m-facultySpotlight($bgColor: $white,
+                     $textColor: $black,
+                     $linkColor: $tertiary,
+                     $btnTextColor: $white,
+                     $shadow:shade($bgColor, 5),
+                     $light:tint($bgColor, 10)){
+
+.m-facultySpotlight{
+  width:100%;
+  float:left;
+}//end .m-facultySpotlight
+.m-facultySpotlight__title{}//end .m-facultySpotlight__title
+.m-facultySpotlight__list{
+  width:100%; float:left;
+}//end .m-facultySpotlight__list
+.m-facultySpotlight__card{
+  width:100%; float:left;  
+  @include rhythm(0, $ms-2n, $ms-2n, 0, $font-size-med);
+  //border-bottom: 1px solid $shadow;
+  //box-shadow: 0 1px 0 0 $light; 
+  &:last-child{
+    border-bottom:0;
+    box-shadow:none;
+  }  
+}//end .m-facultySpotlight__card
+.m-facultySpotlight_card__id{
+  width:100%; float:left;
+  @include rhythm(0, 0, $ms-6n, 0, $font-size-med);
+}//end .m-facultySpotlight_card__id
+.m-facultySpotlight_card__copy{
+  width:100%; float:left;
+  @include rhythm(0, $ms-6n, $ms-6n, 0, $font-size-med);
+  p{
+    margin:0;
+    @include adjust-font-size-to($font-size-med);
+    }//end p
+}//end .m-facultySpotlight_card__copy
+.m-facultySpotlight_card__cta{
+  width:100%; float:left;
+  @include rhythm(0, $ms-6n, 0, 0, $font-size-med);
+  a{ float:left; width:auto; text-align:center; }
+  .btn--more{
+    @include btn($linkColor, $shadow, $btnTextColor); 
+    margin-right:ms(-2);  
+  }//end b-btn
+  .btn--profile{
+    @include btn_outline($btnTextColor, $shadow, $linkColor); 
+  }//end b-btn--outline
+}//end .m-facultySpotlight_card__cta
+
+/*========================================================*/
+/*Begin Styling Dropdown =================================*/
+/*========================================================*/
+.m-facultySpotlight__facList{
+  float:left; width:100%;
+  @include rhythm(0, $ms-2n, $ms-8n, 0, $font-size-med);
+  border-top: 1px solid $shadow;
+  box-shadow: inset 0 1px 0 0 $light; 
+  @include adjust-font-size-to($font-size-med); 
+  
+
+  &.dropdown{
+      a{
+        color:$linkColor;
+        &:hover{
+           color:lighten($linkColor,15);
+		  	   text-decoration:underline;
+		  	   outline:0;
+        }//end hover
+        &:active{
+          color: darken($linkColor, 5);
+        }//end active
+      }//end a
+
+     .dropdown-toggle{
+       height:ms(1);
+       width:100%; 
+       float:left;
+			 color:$linkColor;
+      &:hover, &:focus{
+         color:lighten($linkColor,15);
+			   text-decoration:underline;
+			   outline:0;
+      }//end hover
+      &:active{
+        color: darken($linkColor, 5);
+      }//end active
+
+       &:after{
+        content: '\e9bf';
+        font-family: 'icomoon';
+	      speak: none;
+	      font-style: normal;
+	      font-weight: normal;
+	      font-variant: normal;
+	      text-transform: none; 
+	      line-height: 1;
+        /* Better Font Rendering =========== */
+	      -webkit-font-smoothing: antialiased;
+	      -moz-osx-font-smoothing: grayscale;
+
+        /*cta styling ====================== */
+       
+        width: ms(1);
+        height: ms(1);
+        float: right;
+        text-align: center;
+        transition: 0.15s ease;
+        transition-property:  content;
+       }//end after
+
+      }//end .dropdown-toggle
+      &.open .dropdown-toggle{
+        text-decoration:underline;                
+        &:after{ 
+          content: "\e9c0";
+          //padding-bottom:1px;       
+
+        }//end :after
+      }//end &.open .dropdown-toggle
+      .dropdown-menu{
+          padding:0;
+          background-color: set-alpha($bgColor, 0.9);
+          width:100%;
+          float:left;
+          border: 0;
+          //@include trailing-border(ms(-7), $ms-2n, $font-size-small-2, solid);
+          //border-bottom-color:shade($linkColor,10);          
+          border-radius: 2px;
+          top:100%;
+          @include standard-transition(height);
+
+         background-image: url(../images/noise.png);
+         box-shadow: 0 ms(-7) ms(-5) ms(-6)*(-1) black;
+         height:0;
+         overflow:hidden;
+
+          li{
+            width:100%; float:left;
+            a{
+              @include adjust-font-size-to($font-size-med);
+              white-space:normal;
+              @extend .font-Roman;
+              padding-left:0;
+              line-height:1.083em;
+              padding-top: ms(-3);
+              padding-bottom: ms(-5);
+              float:left; width:100%;
+              &:hover, &:focus{
+                background-color: set-alpha($shadow, 0.8);
+              }//end hover/focus
+            }//end a
+          }//end .dropdown-menu li a
+
+          .dropdown-header{
+            @include adjust-font-size-to($font-size-med);
+            text-transform:uppercase;
+            color:$textColor;
+            float:left;
+            width:100%;
+            @extend .font-Lt;
+            white-space:normal;
+            padding-left:0;
+          }
+      }//end .dropdown-menu
+
+      &.open{
+        .dropdown-menu{
+          height: auto;
+          padding:ms(-2);
+        }
+      }//end .open
+
+    }//end dropdown
+}//end .m-facultySpotlight__facList
+
+
+
+
+
+
+/*ELEMENT QUERIES ////////////////////////////////////
+/////////////////////////////////////////////////////*/
+$test:off;  //Enable or disable testing
+$eqColor: $black;
+$eqColor_x-small: set-alpha($SecLightGold, 0.3);
+$eqColor_small:set-alpha($SecMiddleBlue, 0.3);
+$eqColor_medium:set-alpha($SecOrange, 0.3);
+$eqColor_large:set-alpha($SecLightGreen, 0.3);
+$eqColor_x-large:set-alpha($SecBrown, 0.3);
+
+
+
+
+.m-facultySpotlight{
+ @if $test=='on'{
+  background:$eqColor;
+  &:before{
+    font-size:ms(-2);
+    margin-top:ms(-2)*(-1);
+    float:left;
+    color:$eqColor;
+  }
+ }//test settings
+
+  &[data-eq-state="x-small"]{
+    @if $test=='on'{$eqColor: $eqColor_x-small; background: $eqColor; &:before{content:"x-small"; color:darken($eqColor,40);}}
+    
+    .m-facultySpotlight_card__copy p{      
+        @include adjust-font-size-to($font-size-small-2);
+     }//end .m-facultySpotlight_card__copy
+     .m-facultySpotlight_card__cta a{
+       width:100%;
+       &.btn--more{margin-bottom: ms(-5);}
+     }
+     .m-facultySpotlight__facList{
+       .dropdown-toggle{
+         @include adjust-font-size-to($font-size-small-2);
+         @extend .font-Bd;
+         &:after{ height:ms(0); width:ms(0);}//end after
+       }//end dropdown-toggle
+     }//end m-facultySpotlight__facList
+  }//end x-small
+
+
+
+
+  &[data-eq-state="small"]{
+    @if $test=='on'{$eqColor: $eqColor_small; background: $eqColor; &:before{content:"small"; color:darken($eqColor,40);}}
+     .m-facultySpotlight_card__copy p{      
+        @include adjust-font-size-to($font-size-med);
+     }//end .m-facultySpotlight_card__copy
+    .m-facultySpotlight_card__cta a{
+       width:100%;
+       &.btn--more{margin-bottom: ms(-5);}
+     }
+     .m-facultySpotlight__facList{
+       .dropdown-toggle{
+         @include adjust-font-size-to($font-size-small-2);
+         @extend .font-Bd;
+         &:after{ height:ms(0); width:ms(0);}//end after 
+       }//end dropdown-toggle
+     }//end m-facultySpotlight__facList
+  }//end small
+
+
+
+
+  &[data-eq-state="medium"]{
+    @if $test=='on'{$eqColor: $eqColor_medium; background: $eqColor; &:before{content:"medium"; color:darken($eqColor,40);}}
+    
+    .m-facultySpotlight_card__copy p{      
+      @include adjust-font-size-to($font-size-med-2);
+      @extend .font-Lt;
+      line-height: ms(2);
+    }//end .m-facultySpotlight_card__copy
+   
+    
+  }//end medium
+
+
+
+
+  &[data-eq-state="large"]{
+    @if $test=='on'{$eqColor: $eqColor_large; background: $eqColor; &:before{content:"large"; color: darken($eqColor,40);}}
+    
+    .m-facultySpotlight_card__copy p{      
+      @include adjust-font-size-to($font-size-large);
+      @extend .font-Lt;
+    }//end .m-facultySpotlight_card__copy
+   
+    
+  }//end large
+
+
+
+
+  &[data-eq-state="x-large"]{
+    @if $test=='on'{$eqColor: $eqColor_x-large; background: $eqColor; &:before{content:"x-large"; color:darken($eqColor,40);}}
+
+   .m-facultySpotlight_card__copy p{      
+      @include adjust-font-size-to($font-size-large-2);
+      @extend .font-Lt;
+    }//end .m-facultySpotlight_card__copy
+    
+  }//end x-large
+}
+
+
+
+}//end mixin
+

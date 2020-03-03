@@ -1,0 +1,9 @@
+@mixin b-storyInfo($bgColor: $primary,
+        $textColor: $white,
+        $accentColor: $primary,
+        $linkColor: $white){
+
+  .b-storyInfo{ }//end b-storyInfo
+  .b-storyInfo__header{ }//end b-storyInfo__header
+  .b-storyInfo__body{ }//end b-storyInfo__body
+}@include b-storyInfo();

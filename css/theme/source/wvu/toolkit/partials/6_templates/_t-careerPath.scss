@@ -1,0 +1,55 @@
+/*****************************************
+Original t-careerPath structure
+.t-careerPath{}//end t-careerPath
+.t-careerPath__intro{}//end t-careerPath__intro
+.t-careerPath__minors{}//end t-careerPath__minors
+.t-careerPath__content{}//end t-careerPath__content
+.t-careerPath__ctaTile{}//end t-careerPath__ctaTile
+.t-careerPath__sidebar{}//end t-careerPath__sidebar
+*/
+
+body.template-career-path, .t-career-path, .t-career-path--MDS{
+  #core{
+    .t-careerPath__intro, .t-careerPath__steps, .t-careerPath__studyPlan{ width:100%; float:left;}//end t-careerPath__intro
+    .t-careerPath__minors{ width:100%; float:left;}//end t-careerPath__minors
+    .t-careerPath__content{ width:100%; float:left;}//end t-careerPath__content
+    .t-careerPath__ctaTile{ width:100%; float:left;}//end t-careerPath__ctaTile
+    .t-careerPath__sidebar{ width:100%; float:left;}//end t-careerPath__sidebar  
+       
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){ 
+       @include grid-mobile1;
+       .main{@include grid-span(4,1); clear:both;}
+       .sidebar-l{@include grid-span(4,1); clear:both;}
+       .sidebar{@include grid-span(4,1); }
+     }
+     @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+       @include grid-mobile2;
+       .main{@include grid-span(6,1); clear:both;
+         padding-bottom: ms(2);
+    	 border-bottom: 1px solid $lbg--shadow;
+    	 box-shadow: 0 1px 0 0 $lbg--light;
+         margin-bottom: ms(2);
+       }//end main
+      .sidebar-l{@include grid-span(3,1); clear:right;}
+      .sidebar{@include grid-span(3,4); }
+    }
+    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+      @include grid-tablet;
+      .main{@include grid-span(5,1); }
+      .sidebar-l{@include grid-span(3,6);}
+      .sidebar{@include grid-span(3,6);  clear:right;}
+    }
+    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+      @include grid-desktop1;
+      .main{@include grid-span(6,4); }
+      .sidebar-l{@include grid-span(3,1);}
+      .sidebar{@include grid-span(3,10); }
+    }
+    @include breakpoint($bp-desktop2-1){
+      @include grid-desktop2;
+      .main{@include grid-span(10,4); }
+      .sidebar-l{@include grid-span(3,1);}
+      .sidebar{@include grid-span(3,14); }
+    }
+  }//end #core
+}//end template-career-path, t-careerPath

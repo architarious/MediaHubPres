@@ -1,0 +1,192 @@
+@mixin s-collegeNews(
+    $bgColor: $lbg,
+    $titleColor: $primary,
+    $titleColor2: $primary,
+    $linkColor: $tertiary,
+    $accentColor: $quadrary,
+    $accentColor2: $primary,
+    $shadow: $lbg--shadow,
+    $light: $lbg--light
+){
+
+$hoverColor: lighten($linkColor, 10);
+$activeColor: darken($linkColor, 10);
+
+.s-collegeNews{
+    width:100%; float:left;
+    @include rhythm(0, $ms-2, 0, 0, $font-size-med);
+    background: $bgColor url(../images/noise.png) repeat;
+    //box-shadow: inset 0 ms(-3) ms(-2) ms(-5)*(-1) darken($shadow,7);
+}//end .s-collegeNews
+
+.s-collegeNews__opener{
+  width:100%; float:left;
+}//end .s-collegeNews__opener
+.s-collegeNews_opener__title{
+  @extend .font-BlkCn;
+  border-bottom:0;
+  //@include adjust-font-size-to($font-size-xxlarge-2);
+  @include rhythm(0, $ms-2, $ms-0, 0, $font-size-xxlarge-2);
+  color:$titleColor2;
+  text-align:center;
+  text-transform:uppercase;
+
+  @include adjust-font-size-to($font-size-xlarge); line-height: $lh-wvu-headline; 
+  @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-xlarge-2); line-height: $lh-wvu-headline;  }
+  @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-xxlarge); line-height: $lh-wvu-headline;   }
+  @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-xxlarge-2); line-height: $lh-wvu-headline;   }
+}//end .s-collegeNews_opener_title
+.s-collegeNews_opener__kicker{
+  @extend .font-Lt;
+  padding:0;
+  margin-top: 0;
+  //@include rhythm(0, $ms-2, $ms-0, 0, $font-size-med);
+ 
+  color:$titleColor;
+  text-align:center;
+  width:100%;
+  @include adjust-font-size-to($font-size-large);
+  @include breakpoint($bp-mobile2-1){ @include adjust-font-size-to($font-size-large);  }
+  @include breakpoint($bp-tablet-1){ @include adjust-font-size-to($font-size-large);  }
+  @include breakpoint($bp-desktop1-3){ @include adjust-font-size-to($font-size-large-2); }
+  @include breakpoint($bp-desktop2-4){ @include adjust-font-size-to($font-size-large-2);  }
+}//end .s-collegeNews_opener_kicker
+
+.s-collegeNews__spotlights{
+  width:100%; float:left;
+  .s-spotlights{
+    @include s-spotlights($titleColor, $titleColor, $bgColor, $linkColor, $shadow, $light);
+    box-shadow:none;
+    background:none;
+  }//end s-spotlights
+}//end s-collegeNews__spotlights
+
+
+.s-collegeNews__news{
+  $bgColor: shade($bgColor, 2);
+  $shadow: shade($shadow, 2);
+  $light: shade($light, 2);
+  width:100%; float:left;
+
+  background:$bgColor url(../images/noise.png) repeat; 
+  border-top: $shadow 1px solid;
+	box-shadow: inset 1px 0px 0px 0px $light;
+  @include rhythm(0, $ms-0, $ms-0, 0, $font-size-med);
+  @include m-cta--news($bgColor, $titleColor, $titleColor, $linkColor, $accentColor, $accentColor2, $shadow, $light);
+  .m-cta--news{    
+
+     .b-cta__events{
+         .title .title__link{
+             margin-top:0 !important;
+             color:$linkColor; 
+             background-color:$bgColor;
+             text-shadow: $light 0 -1px 0;
+             &:hover, &:focus{
+                 background-color:$light;
+                 color:$linkColor;
+             }
+             &:active, &:visited{
+                 background-color: shade($bgColor, 5);
+                 color:$titleColor;
+             }
+         }//end title_link
+        
+     }//end b-cta__events
+
+    //begin mobile styling
+    @include breakpoint($bp-mobile1-1 $bp-mobile2-1+1rem){
+      @include grid-mobile1;
+      .m-facultySpotlight{@include grid-span(4,1); clear:both;
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-med);
+         font-family: $Roman; font-weight: 400;
+         &:after{ height:ms(1); width:ms(1);}
+        } 
+      }//end m-facultySpotlight
+      .b-cta__events{@include grid-span(4,1); clear:both;}
+      .m-newsFeed{@include grid-span(4,1); }
+      
+    }
+
+    @include breakpoint(($bp-mobile2-1+1rem) $bp-tablet-1){
+      @include grid-mobile2;
+      .m-facultySpotlight{@include grid-span(3,1);
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-med);
+         font-family: $Roman; font-weight: 400;
+         &:after{ height:ms(1); width:ms(1);}
+        } 
+      }//end m-facultySpotlight
+      .b-cta__events{@include grid-span(3,4);}
+      .m-newsFeed{@include grid-span(6,1); clear:both; }
+    }//end $bp-mobile-2
+
+    @include breakpoint($bp-tablet-1 $bp-desktop1-1){
+      @include grid-tablet;           
+      .m-newsFeed{ @include grid-span(4,1);}
+      .b-cta__events{ 
+        @include grid-span(2,7);
+        .b-cta_events__calLink{          
+         @include adjust-font-size-to($font-size-small-2);
+         font-family: $Bd; font-weight: 500;
+         &:after{line-height:1.25rem;}
+        }//end calLink 
+      }//end b-cta__events      
+      .m-facultySpotlight{ 
+        @include grid-span(2,5);
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-small-2);
+         font-family: $Bd; font-weight: 500;
+        } 
+      }//end m-facultySpotlight
+      //background: set-alpha(red, 0.6);
+    }//end $bp-tablet
+
+    @include breakpoint($bp-desktop1-1 $bp-desktop2-1){
+      @include grid-desktop1;
+      .m-newsFeed{ @include grid-span(6,1);}      
+      .b-cta__events{@include grid-span(3,10);}
+      .m-facultySpotlight{ 
+        @include grid-span(3,7);
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-med);
+         font-family: $Roman; font-weight: 400;
+         &:after{ height:ms(1); width:ms(1);}
+        } 
+      }//end m-facultySpotlight
+      //background: set-alpha(green, 0.6);
+    }//end $bp-desktop-1
+
+    @include breakpoint($bp-desktop2-1 $bp-desktop2-6){
+      @include grid-desktop2;    
+      
+      .m-newsFeed{@include grid-span(8,1);}
+      .b-cta__events{@include grid-span(4,13);}      
+      .m-facultySpotlight{
+        @include grid-span(4,9);
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-med);
+         font: $Roman 400; font-weight: 400;
+         &:after{ height:ms(1); width:ms(1);}
+        } 
+      }//end m-facultySpotlight
+      }//end $bp-desktop-2
+
+    @include breakpoint($bp-desktop2-6){
+      @include grid-desktop1;
+      .m-newsFeed{@include grid-span(4,1);}
+      .b-cta__events{ @include grid-span(4,9);}      
+      .m-facultySpotlight{ 
+        @include grid-span(4,5);
+        &[data-eq-state="small"] .m-facultySpotlight__facList .dropdown-toggle{
+         @include adjust-font-size-to($font-size-med);
+         font: $Roman 400; font-weight: 400;
+         &:after{ height:ms(1); width:ms(1);}
+        } 
+      }//end m-facultySpotlight
+      }//end $bp-desktop-2     
+  }//end .m-cta mobile styling
+}//end s-collegeNews__news
+
+}//end mixin
+@include s-collegeNews();

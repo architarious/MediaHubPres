@@ -1,0 +1,23 @@
+@mixin thumbnail(
+    $height: 100px,
+    $width: 100px ){
+
+  .thumbnail{
+    position: relative;
+    width: $width;
+    height: $height;
+    overflow: hidden; 
+
+    img{
+        position: absolute;
+        min-width: 100%;
+        max-width: 1000000%;
+        min-height: 100%;
+        left: 50%;
+        top: 50%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);}
+  }//end .thumbnail
+
+}@include thumbnail(); 
