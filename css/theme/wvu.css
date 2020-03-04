@@ -509,7 +509,15 @@ html {
   width: 100%;
   height: 50vh;
   overflow-y: scroll; }
+  .reveal .imgWrapper p {
+    margin: 0; }
   .reveal .imgWrapper img {
     width: 100%;
     height: auto;
     max-height: 1000000000000000px; }
+
+.reveal .results p {
+  margin-bottom: 0; }
+
+.reveal .results img {
+  margin-top: 0.25em; }
